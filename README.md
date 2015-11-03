@@ -18,6 +18,7 @@ This reference is available as a [single page](singlepage.md) or [split into mul
 
  * [Introduction into Azure Resource Manager and it's architecture](ARM/Introduction.md)
  * [Security and authentication](ARM/Security.md)
+ * [References and resources](ARM/references.md)
 
 ## SDK and toolkits
  * [Java SDK](ARM/Java-sdk.md)
