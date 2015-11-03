@@ -49,6 +49,7 @@ This reference is available as a [single page](singlepage.md) or [split into mul
  * [VM Extensions](Marketplace/VM-extensions.md)
  * [Developer services](Marketplace/Developer-services.md)
  * [Data services](Marketplace/Data-services.md)
+ * [VM Depot - community managed reposity of Linux/FreeBSD images](Marketplace/VM-depot.md)
 
 ### * [Best practices](Tips-and-tricks/Best-practices.md)
 ### * [References and resources](Resources/Resources.md)
