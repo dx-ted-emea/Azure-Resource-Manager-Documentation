@@ -12,7 +12,7 @@ IaaS components deployed using ARM cannot be mixed with components created using
 Components deployed using the ASM (old) APIs, will be presented in the Azure preview portal 
 https://portal.azure.com under the "classic" label:
 ```
-
+![alt tag](/images/classic_arm_portal.png)
 
 The adoption of ARM for IaaS moves the solution to IaaS v2 and introduces capabilities such as:
 * Rich template based deployment including dependencies between objects in the template which are expressed in the template
