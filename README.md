@@ -35,6 +35,7 @@ This reference is available as a [single page](singlepage.md) or [split into mul
  * [Command Line interface](DevOps/CLI.md)
  * [Powershell](DevOps/Powershell.md)
  * [Visual Studio](DevOps/Visual-studio.md)
+ * [Preview Portal](DevOps/Portal.md)
 
 ## Design and implement with the Azure Resource Manager – a real use case overview 
   * [Scenario 1](Use-cases/Scenario-1.md)
