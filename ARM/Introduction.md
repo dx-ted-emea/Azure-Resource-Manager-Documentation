@@ -8,6 +8,13 @@ ARM present a different approach for deploying resources - instead of creating a
 
 A resource group is a logical container that holds related resources for an application, which can consist of multiple virtual machines, NICs, IP addresses, load balancers, subnets, and Network Security Groups. For example, you can manage all of the resources of the application as a single management unit. You can create, update, and delete all of them together.
 
+The adoption of ARM for IaaS introduces capabilities such as:
+* Rich template based deployment including dependencies between objects in the template which are expressed in the template
+* Simplification of deployment
+* Role-based Access Control (RBAC)
+* Tagging of resources for identification of resources and visibility during billing
+* Parallel deployment of VMs
+
 > **Note that Classic mode is obsolete and going to be supported for legacy purposes only in the future.**
 
 > **IaaS components deployed using ARM cannot be mixed with components created using the Classic APIs. This means that for  example, virtual machines deployed with the classic deployment model cannot be included in a virtual network deployed with  Resource Manager.**
@@ -16,12 +23,6 @@ A resource group is a logical container that holds related resources for an appl
 
 ![alt tag](/ARM/images/classic_arm_portal.png)
 
-The adoption of ARM for IaaS moves the solution to IaaS v2 and introduces capabilities such as:
-* Rich template based deployment including dependencies between objects in the template which are expressed in the template
-* Simplification of deployment
-* Role-based Access Control (RBAC)
-* Tagging of resources for identification of resources and visibility during billing
-* Parallel deployment of VMs
 
 ### Resource Manager Concepts
 #### Resource Group
