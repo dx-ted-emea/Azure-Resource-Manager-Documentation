@@ -39,10 +39,16 @@ Resource providers are services that provide resources for your application. Usi
 ARM itself is a coordination layer across a set of underlying resource providers, and each resource provider defines the structure of the JSON that goes into the template document. A Network Interface is a resource exposed by Microsoft.Network Provider, same for all other resources. Each is exposed in a set of APIs. 
 
 ### Architecture
+In the classic ASM model, virtual machines exist within a cloud service. Virtual machines are automatically provided with a network interface card (NIC) and an IP address assigned by Azure. Additionally, the cloud service contains an external load balancer instance, a public IP address, and default endpoints to allow remote desktop and remote PowerShell traffic for Windows-based virtual machines and Secure Shell (SSH) traffic for Linux-based virtual machines.
+
+This is a diagram of a typical ASM deployment:
+![alt tag](/ARM/images/asm_arch.png)
+
+ARM model removes the use of the Cloud Service (PaaS still uses Cloud Services). Each resouce need to be created seperatly, using the appropriate resource provider.
 
 
 
-
+### References and Resources
 https://azure.microsoft.com/en-us/documentation/articles/resource-group-overview/
 https://azure.microsoft.com/en-us/documentation/articles/resource-manager-supported-services/
 https://azure.microsoft.com/en-us/documentation/articles/resource-manager-deployment-model/
