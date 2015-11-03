@@ -26,10 +26,10 @@ The adoption of ARM for IaaS introduces capabilities such as:
 
 ### Resource Manager Concepts
 #### Resource Group
-A resource group is a container that holds related resources for an application. The resource group could include all of the resources for an application, or only those resources that are logically grouped together. You can decide how you want to allocate resources to resource groups based on what makes the most sense for your organization.
+A resource group is a container that holds related resources for an application. The resource group can include all of the resources for an application, or only those resources that are logically grouped together. You can decide how you want to allocate resources to resource groups based on what makes the most sense for your organization.
 
 #### Template deployment
-With Resource Manager, you can create a simple template (in JSON format) that defines deployment and configuration of your application. This template is known as a Resource Manager template and provides a declarative way to define deployment. By using a template, you can repeatedly deploy your application throughout the app lifecycle and have confidence your resources are deployed in a consistent state.
+With Resource Manager, you can create a template (in JSON format) that defines deployment and configuration of your application. This template is known as a Resource Manager template and provides a declarative way to define deployment. By using a template, you can repeatedly deploy your application throughout the app lifecycle and have confidence your resources are deployed in a consistent state.
 
 #### Tags
 Resource Manager provides a tagging feature that enables you to categorize resources according to your requirements for managing or billing. You might want to use tags when you have a complex collection of resource groups and resources, and need to visualize those assets in the way that makes the most sense to you. For example, you could tag resources that serve a similar role in your organization or belong to the same department.
@@ -44,10 +44,10 @@ ARM itself is a coordination layer across a set of underlying resource providers
 ### Architecture
 In the classic ASM model, virtual machines exist within a cloud service. Virtual machines are automatically provided with a network interface card (NIC) and an IP address assigned by Azure. Additionally, the cloud service contains an external load balancer instance, a public IP address, and default endpoints to allow remote desktop and remote PowerShell traffic for Windows-based virtual machines and Secure Shell (SSH) traffic for Linux-based virtual machines.
 
-This is a diagram of a typical ASM deployment:
+Typical ASM deployment:
 ![alt tag](/ARM/images/asm_arch.png)
 
-ARM model removes the use of the Cloud Service (PaaS still uses Cloud Services). All VMs live within a Resource Group, which can also contain other types of resource such as storage. 
+ARM model removes the use of the Cloud Service (PaaS still uses Cloud Services). All VMs live within a Resource Group, which can also contain other types of resources such as storage. 
 All the componants - Storage Account, Network compontants, Load Balancer etc. need to be created seperatly, using the appropriate resource provider.
 
 There are relationships between the resources within the resource providers:
