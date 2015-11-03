@@ -1,12 +1,12 @@
 #Azure Resource Manager  
 
- * [Introduction into Azure Resource Manager and it's architecture](ARM/Introduction.md)
- * [ARM Benefits](ARM/Benefits.md)
- * [Security and authentication](ARM/Security.md)
- * [References and resources](ARM/references.md)
+ * [Introduction into Azure Resource Manager and it's architecture](Introduction.md)
+ * [ARM Benefits](Benefits.md)
+ * [Security and authentication](Security.md)
+ * [References and resources](references.md)
 
 ## SDK and toolkits
- * [Java SDK](ARM/Java-sdk.md)
- * [.NET SDK](ARM/Net-sdk.md)
- * [Python SDK](ARM/Python-sdk.md)
- * [REST API Reference and deep dive](ARM/Rest-api.md)
+ * [Java SDK](Java-sdk.md)
+ * [.NET SDK](Net-sdk.md)
+ * [Python SDK](Python-sdk.md)
+ * [REST API Reference and deep dive](Rest-api.md)
