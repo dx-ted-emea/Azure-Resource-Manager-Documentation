@@ -42,6 +42,8 @@ This reference is available as a [single page](singlepage.md) or [split into mul
 # Marketplace
 
  * [Introduction](Marketplace/Introduction.md)
+ * [Seller dashboard](Marketplace/Seller-dashboard.md)
+ * [Publish dashboard](Marketplace/Publish-dashboard.md)
  * [Single VM](Marketplace/Single-vm.md)
  * [Multi VM](Marketplace/Multi-vm.md)
  * [VM Extensions](Marketplace/VM-extensions.md)
