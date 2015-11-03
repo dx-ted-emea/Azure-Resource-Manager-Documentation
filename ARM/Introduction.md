@@ -34,6 +34,10 @@ Resource Manager provides a tagging feature that enables you to categorize resou
 #### Access control
 Resource Manager enables you to control who has access to specific actions for your organization. It natively integrates OAuth and Role-Based Access Control (RBAC) into the management platform and applies that access control to all services in your resource group. You can add users to pre-defined platform and resource-specific roles and apply those roles to a subscription, resource group or resource to limit access. For example, you can take advantage of the pre-defined role called SQL DB Contributor that permits users to manage databases, but not database servers or security policies. You add users in your organization that need this type of access to the SQL DB Contributor role and apply the role to the subscription, resource group or resource.
 
+#### Resource Providers
+Resource providers are services that provide resources for your application. Using the resource provider APIs, you can manage, create, delete and update ARM resources.
+ARM itself is a coordination layer across a set of underlying resource providers, and each resource provider defines the structure of the JSON that goes into the template document.
+
 ### Architecture
 
 
