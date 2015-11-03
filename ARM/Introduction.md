@@ -69,10 +69,10 @@ All of these resources of this application are managed through the single resour
 
 ### References and Resources
 
-https://azure.microsoft.com/en-us/documentation/articles/resource-group-overview/
-https://azure.microsoft.com/en-us/documentation/articles/resource-manager-supported-services/
-https://azure.microsoft.com/en-us/documentation/articles/resource-manager-deployment-model/
-https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-azure-resource-manager-architecture/
-https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-azurerm-versus-azuresm/
-http://windowsitpro.com/azure/what-are-key-differences-iaas-v2-enabled-through-azure-resource-manager
+* https://azure.microsoft.com/en-us/documentation/articles/resource-group-overview/
+* https://azure.microsoft.com/en-us/documentation/articles/resource-manager-supported-services/
+* https://azure.microsoft.com/en-us/documentation/articles/resource-manager-deployment-model/
+* https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-azure-resource-manager-architecture/
+* https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-azurerm-versus-azuresm/
+* http://windowsitpro.com/azure/what-are-key-differences-iaas-v2-enabled-through-azure-resource-manager
 
