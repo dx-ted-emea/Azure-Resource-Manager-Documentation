@@ -6,6 +6,8 @@ In April 2015, Microsoft announced the public preview for template-based deploym
 
 ARM present a different approach for deploying resources - instead of creating and managing individual resources, you are able to manage entire topologies of resources together as logical units, by constructing JSON template to deploy and manage all these resources.
 
+A resource group is a logical container that holds related resources for an application, which can consist of multiple virtual machines, NICs, IP addresses, load balancers, subnets, and Network Security Groups. For example, you can manage all of the resources of the application as a single management unit. You can create, update, and delete all of them together.
+
 > **Note that Classic mode is obsolete and going to be supported for legacy purposes only in the future.**
 
 > **IaaS components deployed using ARM cannot be mixed with components created using the Classic APIs. This means that for  example, virtual machines deployed with the classic deployment model cannot be included in a virtual network deployed with  Resource Manager.**
@@ -44,11 +46,28 @@ In the classic ASM model, virtual machines exist within a cloud service. Virtual
 This is a diagram of a typical ASM deployment:
 ![alt tag](/ARM/images/asm_arch.png)
 
-ARM model removes the use of the Cloud Service (PaaS still uses Cloud Services). Each resouce need to be created seperatly, using the appropriate resource provider.
+ARM model removes the use of the Cloud Service (PaaS still uses Cloud Services). All VMs live within a Resource Group, which can also contain other types of resource such as storage. 
+All the componants - Storage Account, Network compontants, Load Balancer etc. need to be created seperatly, using the appropriate resource provider.
 
+There are relationships between the resources within the resource providers:
+* A virtual machine depends on a specific storage account to store its disks in blob storage.
+* A virtual machine references a specific NIC defined in the NRP (required) and an availability set (optional).
+* A NIC references the virtual machine's assigned IP address (required), the subnet of the virtual network for the virtual machine (required), and to a Network Security Group (optional).
+* A subnet within a virtual network references a Network Security Group (optional).
+* A load balancer instance references the backend pool of IP addresses that include the NIC of a virtual machine (optional) and references a load balancer public or private IP address (optional).
 
+When executing a template, Resource Manager ensures that the resources for a configuration are created in the correct order to preserve the dependencies and references. For example, Resource Manager will not create the NIC for a virtual machine until it has created the virtual network with a subnet and an IP address.
+
+Example ARM application deployed in a single resource group:
+![alt tag](/ARM/images/arm_arch.png)
+
+All of these resources of this application are managed through the single resource group that contains them:
+* Two virtual machines that use the same storage account, are in the same availability set, and on the same subnet of a virtual network.
+* A single NIC and VM IP address for each virtual machine.
+* An external load balancer that distributes Internet traffic to the NICs of the two virtual machines.
 
 ### References and Resources
+
 https://azure.microsoft.com/en-us/documentation/articles/resource-group-overview/
 https://azure.microsoft.com/en-us/documentation/articles/resource-manager-supported-services/
 https://azure.microsoft.com/en-us/documentation/articles/resource-manager-deployment-model/
