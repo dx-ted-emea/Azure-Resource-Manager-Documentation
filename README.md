@@ -2,9 +2,7 @@
 
 Azure Resource Manager documentation by TED EMEA team
 
-Main goal of that documentation is to provide full and consistent information about using Azure Resource Manager from beginning level and up to
-
-deep dive into many specifiec areas. This documentation is not replacement of existing MSDN or Azure.com articles, but contains all required information
+Main goal of that documentation is to provide full and consistent information about using Azure Resource Manager from beginning level and up to deep dive into many specifiec areas. This documentation is not replacement of existing MSDN or Azure.com articles, but contains all required information
 
 about that topic - all in one place, for each part of document there's a list of references where you may source information.
 
@@ -15,15 +13,6 @@ This reference is available as a [single page](singlepage.md) or [split into mul
 ---
 
 ##Contents
-
-# Marketplace
-
- * [Introduction](Marketplace/Introduction.md)
- * [Single VM](Marketplace/Single-vm.md)
- * [Multi VM](Marketplace/Multi-vm.md)
- * [VM Extensions](Marketplace/VM-extensions.md)
- * [Developer services](Marketplace/Developer-services.md)
- * [Data services](Marketplace/Data-services.md)
 
 #Azure Resource Manager  
 
@@ -46,9 +35,18 @@ This reference is available as a [single page](singlepage.md) or [split into mul
  * [Powershell](DevOps/Powershell.md)
  * [Visual Studio](DevOps/Visual-studio.md)
 
-## Design and implement with the Azure Resource Manager – a real use case overview 
+## Design and implement with the Azure Resource Manager â€“ a real use case overview 
   * [Scenario 1](Use-cases/Scenario-1.md)
   * [Scenario 2](Use-cases/Scenario-2.md)
+
+# Marketplace
+
+ * [Introduction](Marketplace/Introduction.md)
+ * [Single VM](Marketplace/Single-vm.md)
+ * [Multi VM](Marketplace/Multi-vm.md)
+ * [VM Extensions](Marketplace/VM-extensions.md)
+ * [Developer services](Marketplace/Developer-services.md)
+ * [Data services](Marketplace/Data-services.md)
 
 ### * [Best practices](Tips-and-tricks/Best-practices.md)
 ### * [References and resources](Resources/Resources.md)
