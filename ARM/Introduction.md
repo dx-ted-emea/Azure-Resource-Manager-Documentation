@@ -36,7 +36,7 @@ Resource Manager enables you to control who has access to specific actions for y
 
 #### Resource Providers
 Resource providers are services that provide resources for your application. Using the resource provider APIs, you can manage, create, delete and update ARM resources.
-ARM itself is a coordination layer across a set of underlying resource providers, and each resource provider defines the structure of the JSON that goes into the template document.
+ARM itself is a coordination layer across a set of underlying resource providers, and each resource provider defines the structure of the JSON that goes into the template document. A Network Interface is a resource exposed by Microsoft.Network Provider, same for all other resources. Each is exposed in a set of APIs. 
 
 ### Architecture
 
@@ -48,4 +48,5 @@ https://azure.microsoft.com/en-us/documentation/articles/resource-manager-suppor
 https://azure.microsoft.com/en-us/documentation/articles/resource-manager-deployment-model/
 https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-azure-resource-manager-architecture/
 https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-azurerm-versus-azuresm/
+http://windowsitpro.com/azure/what-are-key-differences-iaas-v2-enabled-through-azure-resource-manager
 
