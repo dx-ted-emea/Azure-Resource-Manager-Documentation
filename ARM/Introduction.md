@@ -6,12 +6,13 @@ In April 2015, Microsoft announced the public preview for template-based deploym
 
 ARM present a different approach for deploying resources - instead of creating and managing individual resources, you are able to manage entire topologies of resources together as logical units, by constructing JSON template to deploy and manage all these resources.
 
-```
-Note that Classic mode is obsolete and going to be supported for legacy purposes only in the future.
-IaaS components deployed using ARM cannot be mixed with components created using the Classic APIs.  
-Components deployed using the Classic APIs, will be presented in the Azure preview portal 
-https://portal.azure.com under the "classic" label:
-```
+> **Note that Classic mode is obsolete and going to be supported for legacy purposes only in the future.**
+> **IaaS components deployed using ARM cannot be mixed with components created using the Classic APIs.**
+
+> **This means that for  example, virtual machines deployed with the classic deployment model cannot be included in a virtual network deployed with  Resource Manager.**
+
+> **Components deployed using the Classic APIs, will be presented in the Azure preview portal https://portal.azure.com under the "classic" label:**
+
 ![alt tag](/ARM/images/classic_arm_portal.png)
 
 The adoption of ARM for IaaS moves the solution to IaaS v2 and introduces capabilities such as:
@@ -34,7 +35,6 @@ Resource Manager provides a tagging feature that enables you to categorize resou
 #### Access control
 Resource Manager enables you to control who has access to specific actions for your organization. It natively integrates OAuth and Role-Based Access Control (RBAC) into the management platform and applies that access control to all services in your resource group. You can add users to pre-defined platform and resource-specific roles and apply those roles to a subscription, resource group or resource to limit access. For example, you can take advantage of the pre-defined role called SQL DB Contributor that permits users to manage databases, but not database servers or security policies. You add users in your organization that need this type of access to the SQL DB Contributor role and apply the role to the subscription, resource group or resource.
 
-### Supported Services and Regions
 ### Architecture
 
 
