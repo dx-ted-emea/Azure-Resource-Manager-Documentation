@@ -1,7 +1,7 @@
 ## Introduction to Azure Resource Manager
 
 ### Overview
-In April 2015, Microsoft announced the public preview for template-based deployments of Azure resouces using the Azure Resource Manager. With this release, building, deploying and managing large-scale complex applications was transformed into simple actions.
+In April 2015, Microsoft announced the public preview for template-based deployments of Azure resources using the Azure Resource Manager. With this release, building, deploying and managing large-scale complex applications was transformed into simple actions.
 **Azure Resource Manager**, a.k.a. **ARM**, also referred to as **V2**, is a set of JSON-based APIs used to manage Azure resources (virtual machines, networks, storage etc.) This is an evolution from the previous approach, Azure Service Management (a.k.a ASM), also known as CLASSIC.
 
 ARM present a different approach for deploying resources - instead of creating and managing individual resources, you are able to manage entire topologies of resources together as logical units, by constructing JSON template to deploy and manage all these resources.
@@ -35,7 +35,7 @@ Resource Manager provides a tagging feature that enables you to categorize resou
 Resource Manager enables you to control who has access to specific actions for your organization. It natively integrates OAuth and Role-Based Access Control (RBAC) into the management platform and applies that access control to all services in your resource group. You can add users to pre-defined platform and resource-specific roles and apply those roles to a subscription, resource group or resource to limit access. For example, you can take advantage of the pre-defined role called SQL DB Contributor that permits users to manage databases, but not database servers or security policies. You add users in your organization that need this type of access to the SQL DB Contributor role and apply the role to the subscription, resource group or resource.
 
 ### Supported Services and Regions
-### Archetecture
+### Architecture
 
 
 
