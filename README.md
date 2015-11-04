@@ -42,7 +42,7 @@ This reference is available as a [single page](singlepage.md) or [split into mul
   * [Scenario 1](Use-cases/Scenario-1.md)
   * [Scenario 2](Use-cases/Scenario-2.md)
 
-## Migration 
+## Classic to ARM Migration 
 https://github.com/fullscale180/asm2arm
 
 https://azure.microsoft.com/en-us/documentation/articles/virtual-networks-arm-asm-s2s/
