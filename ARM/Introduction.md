@@ -2,7 +2,7 @@
 
 ### Overview
 In April 2015, Microsoft announced the public preview for template-based deployments of Azure resources using the Azure Resource Manager. With this release, building, deploying and managing large-scale complex applications was transformed into simple actions.
-**Azure Resource Manager**, a.k.a. **ARM**, also referred to as **V2**, is a set of JSON-based APIs used to manage Azure resources (virtual machines, networks, storage etc.) This is an evolution from the previous approach, Azure Service Management (a.k.a ASM), also known as CLASSIC.
+**Azure Resource Manager**, a.k.a. **ARM**, also referred to as **IaaS V2**, is a set of JSON-based APIs used to manage Azure resources (virtual machines, networks, storage etc.) This is an evolution from the previous approach, Azure Service Management (a.k.a ASM), also known as CLASSIC.
 
 ARM present a different approach for deploying resources - instead of creating and managing individual resources, you are able to manage entire topologies of resources together as logical units, by constructing JSON template to deploy and manage all these resources.
 
