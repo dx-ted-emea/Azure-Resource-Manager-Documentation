@@ -47,7 +47,7 @@ In the classic ASM model, virtual machines exist within a cloud service. Virtual
 Typical ASM deployment:
 ![alt tag](/ARM/images/asm_arch.png)
 
-ARM model removes the use of the Cloud Service (PaaS still uses Cloud Services). All VMs live within a Resource Group, which can also contain other types of resources such as storage. 
+The Resource Manager model removes the use of the Cloud Service (PaaS still uses Cloud Services). All VMs live within a Resource Group, which can also contain other types of resources such as storage. 
 All the componants - Storage Account, Network compontants, Load Balancer etc. need to be created seperatly, using the appropriate resource provider.
 
 There are relationships between the resources within the resource providers:
