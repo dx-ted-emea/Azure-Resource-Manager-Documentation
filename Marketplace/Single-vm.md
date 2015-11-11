@@ -38,6 +38,7 @@ Wiki also have *another font* which may be usefull too.
 
 Example of some command line code 
 
+
     sudo apt-get install apache2
 
 Example of some json code
