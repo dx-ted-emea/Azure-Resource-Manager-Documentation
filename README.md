@@ -2,9 +2,7 @@
 
 Azure Resource Manager documentation by TED EMEA team
 
-Main goal of that documentation is to provide full and consistent information about using Azure Resource Manager from beginning level and up to deep dive into many specifiec areas. This documentation is not replacement of existing MSDN or Azure.com articles, but contains all required information
-
-about that topic - all in one place, for each part of document there's a list of references where you may source information.
+Main goal of that documentation is to provide full and consistent information about using Azure Resource Manager from beginning level and up to deep dive into many specifiec areas. This documentation is not replacement of existing MSDN or Azure.com articles, but contains all required information about that topic - all in one place, for each part of document there's a list of references where you may source information.
 
 We tried to make this document easy to read and simple to use - so hope you will find that doc usefull.
 
