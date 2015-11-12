@@ -22,10 +22,11 @@ This reference is available as a [single page](singlepage.md) or [split into mul
  * [References and resources](ARM/references.md)
 
 ## SDK and toolkits
- * [Java SDK](ARM/Java-sdk.md)
- * [.NET SDK](ARM/Net-sdk.md)
- * [Python SDK](ARM/Python-sdk.md)
- * [REST API Reference and deep dive](ARM/Rest-api.md)
+ * [Introduction](ARM/SDKs/Introduction.md)
+ * [Java SDK](ARM/SDKs/Java-sdk.md)
+ * [.NET SDK](ARM/SDKs/Net-sdk.md)
+ * [Python SDK](ARM/SDKs/Python-sdk.md)
+ * [REST API Reference and deep dive](ARM/SDKs/Rest-api.md)
 
 ## Azure Resource Manager Templates
  * [Introduction and basic concepts of templates](Templates/Introduction.md)
