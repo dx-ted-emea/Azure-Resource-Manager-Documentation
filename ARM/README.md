@@ -6,7 +6,8 @@
  * [References and resources](references.md)
 
 ## SDK and toolkits
- * [Java SDK](Java-sdk.md)
- * [.NET SDK](Net-sdk.md)
- * [Python SDK](Python-sdk.md)
- * [REST API Reference and deep dive](Rest-api.md)
+ * [Introduction](SDKs/introduction.md)
+ * [Java SDK](SDKs/Java-sdk.md)
+ * [.NET SDK](SDKs/Net-sdk.md)
+ * [Python SDK](SDKs/Python-sdk.md)
+ * [REST API Reference and deep dive](SDKs/Rest-api.md)
