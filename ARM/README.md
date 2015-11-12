@@ -6,7 +6,7 @@
  * [References and resources](references.md)
 
 ## SDK and toolkits
- * [Introduction](SDKs/introduction.md)
+ * [Introduction](SDKs/Introduction.md)
  * [Java SDK](SDKs/Java-sdk.md)
  * [.NET SDK](SDKs/Net-sdk.md)
  * [Python SDK](SDKs/Python-sdk.md)
