@@ -22,7 +22,7 @@ This reference is available as a [single page](singlepage.md) or [split into mul
  * [References and resources](ARM/references.md)
 
 ## SDK and toolkits
- * [Introduction](ARM/SDKs/Introduction.md)
+ * [Introduction](ARM/SDKs/README.md)
  * [Java SDK](ARM/SDKs/Java-sdk.md)
  * [.NET SDK](ARM/SDKs/Net-sdk.md)
  * [Python SDK](ARM/SDKs/Python-sdk.md)
