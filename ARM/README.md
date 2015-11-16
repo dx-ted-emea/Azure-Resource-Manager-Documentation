@@ -1,6 +1,6 @@
 #Azure Resource Manager  
 
- * [Introduction into Azure Resource Manager and it's architecture](Introduction.md)
+ * [Azure Resource Manager ann Architecture](Introduction.md)
  * [ARM Benefits](Benefits.md)
  * [Security and authentication](Security.md)
  * [References and resources](references.md)
