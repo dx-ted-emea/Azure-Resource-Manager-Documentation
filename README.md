@@ -32,7 +32,7 @@ This reference is available as a [single page](singlepage.md) or [split into mul
  * [Introduction and basic concepts of templates](Templates/Introduction.md)
  * [Authoring a template](Templates/Authoring.md)
 
-## DevOps with Azure Resource Manager
+## [DevOps with Azure Resource Manager](DevOps/README.md)
 
  * [Command Line interface](DevOps/CLI.md)
  * [Powershell](DevOps/Powershell.md)
