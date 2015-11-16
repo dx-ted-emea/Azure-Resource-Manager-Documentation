@@ -36,11 +36,11 @@ cd ./azure-sdk-for-java/
 
 ## Helper Classes
 The SDK includes helper classes for several of the main packages. The helper classes are implemeted in the *auzre-mgmt-utility* package:
-* AuthHelper
-* ComputeHelper
-* NetworkHelper
-* ResourceHelper
-* StorageHelper
+* AuthHelper - authentication helper class
+* ComputeHelper - compute helper class
+* NetworkHelper - network helper class
+* ResourceHelper - resource groups helper class
+* StorageHelper - storage helper class
  
 **Maven dependency information**
 ```
@@ -57,7 +57,15 @@ After creating the service principal, you should have:
 
 1. Client id (GUID)
 2. Client secret (string)
-3. Tenant id (GUID) or domain name (string).
+3. Tenant id (GUID) or domain name (string)
 
-## "Hello World" Sample 
+Example usage can be found in the SQK sample [ServicePrincipalExample](https://github.com/Azure/azure-sdk-for-java/blob/master/azure-mgmt-samples/src/main/java/com/microsoft/azure/samples/authentication/ServicePrincipalExample.java) class. 
+You can also use the [AuthHelpe](https://github.com/Azure/azure-sdk-for-java/blob/master/resource-management/azure-mgmt-utility/src/main/java/com/microsoft/azure/utility/AuthHelper.java) class:
+```
+
+```
+
+## Create a Virtual Machine 
+
+## Deploy a template
 
