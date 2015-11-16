@@ -14,7 +14,7 @@ This reference is available as a [single page](singlepage.md) or [split into mul
 
 ##Contents
 
-#Azure Resource Manager  
+# [Azure Resource Manager](ARM/README.md)  
 
  * [Introduction into Azure Resource Manager and it's architecture](ARM/Introduction.md)
  * [ARM Benefits](ARM/Benefits.md)
