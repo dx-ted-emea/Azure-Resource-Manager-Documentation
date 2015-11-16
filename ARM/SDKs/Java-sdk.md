@@ -1,27 +1,39 @@
-## ARM JAVA SDK
+# Azure Resource Manager Java SDK
 
-*draft*
+## Overview 
+The Azure Resource Manager SDK is hosted in github [Azure Java SDK repostiory](https://github.com/azure/azure-sdk-for-java). The current SDK version is 0.8.0. Note that at the time of writing this the SDK is in **preview**. 
 
-Azure Marketplace is great place to publish your apps 
-Here's example of web link [Azure web site](http://azure.microsoft.com//) and the [Azure stuff on github](http://azure.github.io/).
-Wiki also have *another font* which may be usefull too.
+The following packages are available:
+* Compute Management: (azure-mgmt-compute)
+* DNS Management: (azure-mgmt-dns)
+* Network Management: (azure-mgmt-network)
+* Resource Management: (azure-mgmt-resources)
+* SQL Management: (azure-mgmt-sql)
+* Storage Management: (azure-mgmt-storage)
+* Traffic Manager Management: (azure-mgmt-traffic-manager)
+* Utilities and Helpers: (azure-mgmt-utility)
+* WebSites / WebApps Management: (azure-mgmt-websites)
 
+Follow the [Azure SDK for Java Features Wiki page](https://github.com/Azure/azure-sdk-for-java/wiki/Azure-SDK-for-Java-Features) for an up-to-date list.
 
-Example of some command line code 
+## Prerequisites
+1. Java v1.6+
+2. [maven](https://maven.apache.org/) If you would like to develop on the SDK
 
-    sudo apt-get install apache2
+## How to get the SDK
+[Maven](https://maven.apache.org/) distributed jars are the recommended way of getting started with the Azure Java SDK. You can add these dependencies to many of the Java dependency managment tools (Maven, Gradle, Ivy...) and ensure that your project will contain all the Azure dependencies. 
+Follow this [link](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.microsoft.azure%22) for a listing of the libraries available in maven.
 
-Example of some json code
-```json
-{ "some": "json" }
+Alternativly, you grab the sdk directly from source using git. To get the source code of the SDK via git:
+
 ```
+git clone https://github.com/Azure/azure-sdk-for-java.git
+cd ./azure-sdk-for-java/
+```
+ 
+## Authentication Sample 
 
+## "Hello World" Sample 
 
-# Overview 
-
-# Authentication Sample 
-
-# "Hello World" Sample 
-
-# Going deep and references
+## Going deep and references
   
