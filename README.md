@@ -46,6 +46,8 @@ This reference is available as a [single page](singlepage.md) or [split into mul
 ## Classic to ARM Migration 
 [Overview](ARM/classic2ARM_Migration.md)
 
+## [Best practices](Tips-and-tricks/Best-practices.md)
+
 # Marketplace
 
  * [Introduction](Marketplace/Introduction.md)
@@ -59,12 +61,7 @@ This reference is available as a [single page](singlepage.md) or [split into mul
  * [Certification tools](Marketplace/Azure-certification-tool.md)
  * [VM Depot - community managed reposity of Linux/FreeBSD images](Marketplace/VM-depot.md)
 
-### * [Best practices](Tips-and-tricks/Best-practices.md)
-### * [References and resources](Resources/Resources.md)
-
-
-
-## Acknowledgements and contributors
+# Acknowledgements and contributors
 
 Feel free to join us on working on this project. Please refer to [GitWiki Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) in case
 if you're not so familiar witk gitwiki markdown ( it's very powerfull, but easy to read in raw code ).
