@@ -5,8 +5,7 @@
  * [Security and authentication](Security.md)
  * [References and resources](references.md)
 
-## SDK and toolkits
- * [Introduction](SDKs/Introduction.md)
+## [SDK and toolkits](SDKs/README.md)
  * [Java SDK](SDKs/Java-sdk.md)
  * [.NET SDK](SDKs/Net-sdk.md)
  * [Python SDK](SDKs/Python-sdk.md)
