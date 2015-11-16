@@ -44,7 +44,7 @@ This reference is available as a [single page](singlepage.md) or [split into mul
   * [Scenario 2](Use-cases/Scenario-2.md)
 
 ## Classic to ARM Migration 
-[Overview](ARM/clasic2ARM_Migration.md)
+[Overview](ARM/classic2ARM_Migration.md)
 
 # Marketplace
 
