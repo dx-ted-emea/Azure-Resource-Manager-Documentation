@@ -1,6 +1,6 @@
 #Azure Resource Manager  
 
- * [Azure Resource Manager ann Architecture](Introduction.md)
+ * [Azure Resource Manager and Architecture](Introduction.md)
  * [ARM Benefits](Benefits.md)
  * [Security and authentication](Security.md)
  * [References and resources](references.md)
