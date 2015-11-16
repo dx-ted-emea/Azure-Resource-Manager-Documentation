@@ -1,8 +1,8 @@
 # Azure Resource Manager SDKs Introduction
 
- * [Java SDK](SDKs/Java-sdk.md)
- * [.NET SDK](SDKs/Net-sdk.md)
- * [Python SDK](SDKs/Python-sdk.md)
+ * [Java SDK](Java-sdk.md)
+ * [.NET SDK](Net-sdk.md)
+ * [Python SDK](Python-sdk.md)
  * [REST API Reference and deep dive](SDKs/Rest-api.md)
 
 ##Resources and Reference
