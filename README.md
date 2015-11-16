@@ -21,7 +21,7 @@ This reference is available as a [single page](singlepage.md) or [split into mul
  * [Security and authentication](ARM/Security.md)
  * [References and resources](ARM/references.md)
 
-## [SDK and toolkits](SDKs/README.md)
+## [SDK and toolkits](ARM/SDKs/README.md)
  * [Java SDK](ARM/SDKs/Java-sdk.md)
  * [.NET SDK](ARM/SDKs/Net-sdk.md)
  * [Python SDK](ARM/SDKs/Python-sdk.md)
