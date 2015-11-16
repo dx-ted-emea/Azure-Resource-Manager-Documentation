@@ -16,24 +16,48 @@ The following packages are available:
 
 Follow the [Azure SDK for Java Features Wiki page](https://github.com/Azure/azure-sdk-for-java/wiki/Azure-SDK-for-Java-Features) for an up-to-date list.
 
+The SDK contains a samples package with a collection of getting started samples: azure-mgmt-samples
+
 ## Prerequisites
 1. Java v1.6+
 2. [maven](https://maven.apache.org/) If you would like to develop on the SDK
 
 ## How to get the SDK
-[Maven](https://maven.apache.org/) distributed jars are the recommended way of getting started with the Azure Java SDK. You can add these dependencies to many of the Java dependency managment tools (Maven, Gradle, Ivy...) and ensure that your project will contain all the Azure dependencies. 
+[Maven](https://maven.apache.org/) distributed jars are the recommended way of getting started with the Azure Java SDK. You can add these dependencies to many of the Java dependency managment tools (Maven, Gradle, Ivy...).
 Follow this [link](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.microsoft.azure%22) for a listing of the libraries available in maven.
 
 Alternativly, you grab the sdk directly from source using git. To get the source code of the SDK via git:
-
 ```
 git clone https://github.com/Azure/azure-sdk-for-java.git
 cd ./azure-sdk-for-java/
 ```
+
+> The samples in this overview will use Maven as the source for the SDK packages.
+
+## Helper Classes
+The SDK includes helper classes for several of the main packages. The helper classes are implemeted in the *auzre-mgmt-utility* package:
+* AuthHelper
+* ComputeHelper
+* NetworkHelper
+* ResourceHelper
+* StorageHelper
  
-## Authentication Sample 
+**Maven dependency information**
+```
+<dependency>
+    <groupId>com.microsoft.azure</groupId>
+    <artifactId>azure-mgmt-utility</artifactId>
+    <version>0.8.0</version>
+</dependency>
+```
+
+## Authentication
+Authentication against the Azure Resource Manager is achieved using a Service Principal. A complete walkthrough can be found in the [ARM Security and Authentication](ARM/Security.md) section in this repository. 
+After creating the service principal, you should have:
+
+1. Client id (GUID)
+2. Client secret (string)
+3. Tenant id (GUID) or domain name (string).
 
 ## "Hello World" Sample 
 
-## Going deep and references
-  
