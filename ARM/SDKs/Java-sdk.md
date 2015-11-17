@@ -39,7 +39,7 @@ The SDK includes helper classes for several of the main packages. The helper cla
 * AuthHelper - authentication helper class
 * ComputeHelper - compute helper class
 * NetworkHelper - network helper class
-* ResourceHelper - resource groups helper class
+* ResourceHelper - deployments helper class
 * StorageHelper - storage helper class
  
 **Maven dependency information**
@@ -78,7 +78,7 @@ public static Configuration createConfiguration() throws Exception {
 ```
 
 ## Create a Virtual Machine 
-The utility package includes a helper class [ComputeHelper](https://github.com/Azure/azure-sdk-for-java/blob/master/resource-management/azure-mgmt-utility/src/main/java/com/microsoft/azure/utility/ComputeHelper.java) to create a virtual machine. A few samples for working with virtual machines can be found in the samples packge azure-mgmt-samples. 
+The utility package includes a helper class [ComputeHelper](https://github.com/Azure/azure-sdk-for-java/blob/master/resource-management/azure-mgmt-utility/src/main/java/com/microsoft/azure/utility/ComputeHelper.java) to create a virtual machine. A few samples for working with virtual machines can be found in the azure-mgmt-samples package under [compute](https://github.com/Azure/azure-sdk-for-java/tree/master/azure-mgmt-samples/src/main/java/com/microsoft/azure/samples/compute).
 
 The follwing is a simple flow for creating a virtual machine. In this example, the helper class will create the sotrage and the netwrok as part of creating the VM:
 ```
@@ -110,5 +110,25 @@ public static void main(String[] args) throws Exception {
         }
 }
 ```
-## Deploy a template
 
+## Deploy a template
+The [ResouceHelper](https://github.com/Azure/azure-sdk-for-java/blob/master/resource-management/azure-mgmt-utility/src/main/java/com/microsoft/azure/utility/ResourceHelper.java) class was created to ease the process of deploying an ARM template with the Java SDK. 
+```
+// create a new resource group
+ResourceManagementClient resourceManagementClient = createResourceManagementClient();
+ResourceContext resourceContext = new ResourceContext(
+        resourceGroupLocation, resourceGroupName,
+        System.getenv(ManagementConfiguration.SUBSCRIPTION_ID), false);
+ComputeHelper.createOrUpdateResourceGroup(resourceManagementClient, resourceContext);
+
+// create the template deployment
+DeploymentExtended deployment = ResourceHelper.createTemplateDeploymentFromURI(
+        resourceManagementClient,
+        resourceGroupName,
+        DeploymentMode.Incremental,
+        deploymentName,
+        TEMPLATE_URI,
+        "1.0.0.0",
+        parameters);
+```
+More samples can be found in the samples packages under [templatedeployments](https://github.com/Azure/azure-sdk-for-java/tree/master/azure-mgmt-samples/src/main/java/com/microsoft/azure/samples/templatedeployments).
