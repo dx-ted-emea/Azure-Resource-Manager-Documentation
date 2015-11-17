@@ -1,4 +1,4 @@
-# Introduction to Azure Resource Manager templates
+# Azure Resource Manager Templates
 
 ## Overview 
 
