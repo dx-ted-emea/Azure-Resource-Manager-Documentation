@@ -132,3 +132,7 @@ DeploymentExtended deployment = ResourceHelper.createTemplateDeploymentFromURI(
         parameters);
 ```
 More samples can be found in the samples packages under [templatedeployments](https://github.com/Azure/azure-sdk-for-java/tree/master/azure-mgmt-samples/src/main/java/com/microsoft/azure/samples/templatedeployments).
+
+## Further Reading and Help
+Azure SDK for Java documentation: [Java docs](http://azure.github.io/azure-sdk-for-java/)
+If you encounter any bugs with the SDK please file an issue via [Issues](https://github.com/Azure/azure-sdk-for-java/issues) or checkout [StackOverflow for Azure Java SDK](http://stackoverflow.com/questions/tagged/azure-java-sdk).
