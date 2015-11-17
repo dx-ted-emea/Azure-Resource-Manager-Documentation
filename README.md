@@ -28,8 +28,8 @@ This reference is available as a [single page](singlepage.md) or [split into mul
  * [REST API Reference and deep dive](ARM/SDKs/Rest-api.md)
 
 ## Azure Resource Manager Templates
- * [Introduction and basic concepts of templates](Templates/Introduction.md)
- * [Authoring a template](Templates/Authoring.md)
+ * [Introduction and basic concepts of templates](ARM/Templates/Introduction.md)
+ * [Authoring a template](ARM/Templates/Authoring.md)
 
 ## [DevOps with Azure Resource Manager](DevOps/README.md)
 
