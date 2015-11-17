@@ -60,12 +60,55 @@ After creating the service principal, you should have:
 3. Tenant id (GUID) or domain name (string)
 
 Example usage can be found in the SQK sample [ServicePrincipalExample](https://github.com/Azure/azure-sdk-for-java/blob/master/azure-mgmt-samples/src/main/java/com/microsoft/azure/samples/authentication/ServicePrincipalExample.java) class. 
-You can also use the [AuthHelpe](https://github.com/Azure/azure-sdk-for-java/blob/master/resource-management/azure-mgmt-utility/src/main/java/com/microsoft/azure/utility/AuthHelper.java) class:
+You can also use the [AuthHelper](https://github.com/Azure/azure-sdk-for-java/blob/master/resource-management/azure-mgmt-utility/src/main/java/com/microsoft/azure/utility/AuthHelper.java) class:
 ```
+public static Configuration createConfiguration() throws Exception {
+        String baseUri = System.getenv("arm.url");
 
+        return ManagementConfiguration.configure(
+                null,
+                baseUri != null ? new URI(baseUri) : null,
+                System.getenv(ManagementConfiguration.SUBSCRIPTION_ID),
+                AuthHelper.getAccessTokenFromServicePrincipalCredentials(
+                        System.getenv(ManagementConfiguration.URI), System.getenv("arm.aad.url"),
+                        System.getenv("arm.tenant"), System.getenv("arm.clientid"),
+                        System.getenv("arm.clientkey"))
+                        .getAccessToken());
+}
 ```
 
 ## Create a Virtual Machine 
+The utility package includes a helper class [ComputeHelper](https://github.com/Azure/azure-sdk-for-java/blob/master/resource-management/azure-mgmt-utility/src/main/java/com/microsoft/azure/utility/ComputeHelper.java) to create a virtual machine. A few samples for working with virtual machines can be found in the samples packge azure-mgmt-samples. 
 
+The follwing is a simple flow for creating a virtual machine. In this example, the helper class will create the sotrage and the netwrok as part of creating the VM:
+```
+public static void main(String[] args) throws Exception {
+        Configuration config = createConfiguration();
+        ResourceManagementClient resourceManagementClient = ResourceManagementService.create(config);
+        StorageManagementClient storageManagementClient = StorageManagementService.create(config);
+        ComputeManagementClient computeManagementClient = ComputeManagementService.create(config);
+        NetworkResourceProviderClient networkResourceProviderClient = NetworkResourceProviderService.create(config);
+
+        String resourceGroupName = "javasampleresourcegroup";
+        String region = "EastAsia";
+
+        ResourceContext context = new ResourceContext(
+                region, resourceGroupName, System.getenv(ManagementConfiguration.SUBSCRIPTION_ID), false);
+
+        System.out.println("Start create vm...");
+
+        try {
+            VirtualMachine vm = ComputeHelper.createVM(
+                    resourceManagementClient, computeManagementClient, networkResourceProviderClient, 
+                    storageManagementClient,
+                    context, vnName, vmAdminUser, vmAdminPassword)
+              .getVirtualMachine();
+
+            System.out.println(vm.getName() + " is created");
+        } catch (Exception ex) {
+            System.out.println(ex.toString());
+        }
+}
+```
 ## Deploy a template
 
