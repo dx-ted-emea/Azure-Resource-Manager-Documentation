@@ -1,27 +1,8 @@
-## ARM REST API 
+# ARM REST API 
 
-*draft*
+## Introduction
 
-Azure Marketplace is great place to publish your apps 
-Here's example of web link [Azure web site](http://azure.microsoft.com//) and the [Azure stuff on github](http://azure.github.io/).
-Wiki also have *another font* which may be usefull too.
+Behind every call to Azure Resource Manager, behind every deployed template, behind every configured storage account there is one or several calls to the Azure Resource Manager’s RESTful API. This section is devoted to give you an understanding how you can call those APIs from within your applications. We’re not going through every API calls available, but rather going through how you can connect to the APIs and how results are received. Once you understand how that works you can easily read the [Azure Resource Manager REST API Reference](https://msdn.microsoft.com/en-us/library/azure/dn790568.aspx) to find out exactly how all other APIs, not documented here, work.
 
+## Authentication
 
-Example of some command line code 
-
-    sudo apt-get install apache2
-
-Example of some json code
-```json
-{ "some": "json" }
-```
-
-
-# Overview 
-
-# Authentication Sample 
-
-# "Hello World" Sample 
-
-# Going deep and references
- 
