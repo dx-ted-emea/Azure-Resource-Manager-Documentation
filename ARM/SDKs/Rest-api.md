@@ -72,6 +72,73 @@ By now, everything should be registered in Azure AD you you to start authenticat
 
 ## Calling ARM REST API
 
+### Generic
+
+#### Autentication
+
+As we previously assumed, this documentation will show you how to authenticate using the above created Service Principal. Remember, this is only one way to authenticate your application or you as an end user, but full documentation on how to authenticate against Azure AD is out of scope for this documentation.
+
+Autentication against Azure AD is done by calling out to Azure AD, located at login.microsoftonline.com. In order to authenticate you need to have the following information:
+
+* Azure AD Tenant ID (the name of that Azure AD you are using to login, often the same as your company but not necessary)
+* Application ID (created above)
+* Password (that you selected while creating the Azure AD Application)
+
+In the below HTTP request make sure to replace "Azure AD Tenant ID", "Application ID" and "Password" with the correct values.
+
+Request:
+
+```HTTP
+POST /<Azure AD Tenant ID>.onmicrosoft.com/oauth2/token?api-version=1.0 HTTP/1.1 HTTP/1.1
+Host: login.microsoftonline.com
+Cache-Control: no-cache
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=client_credentials&resource=https%3A%2F%2Fmanagement.core.windows.net%2F&client_id=<Application ID>&client_secret=<Password>
+```
+
+Response:
+```JSON
+{
+  "token_type": "Bearer",
+  "expires_in": "3600",
+  "expires_on": "1448199959",
+  "not_before": "1448196059",
+  "resource": "https://management.core.windows.net/",
+  "access_token": "eyJ0eXAiOiJKV1QiLCJhb...86U3JI_0InPUk_lZqWvKiEWsayA"
+}
+```
+(The access_token in the above response have been shortened to increase readability)
+
+The response contains an Access Token, information on how long that token is valid and for what resource you can use that token. You should implement some kind of caching mechanism to re-use the token for the duration of it's lifetime in order to increase performance while calling the ARM APIs.
+
+The access token will be provided for all request to the ARM API as a header named "Authorization" with the value "Bearer YOUR_ACCESS_TOKEN". Notice the space between "Bearer" and your Access Token.
+
+#### Calling ARM APIs
+
+All [Azure Resource Manager REST APIs are documentet here](https://msdn.microsoft.com/en-us/library/azure/dn790568.aspx). Use that to figure out how each API work and what parameters you need to provide. In this documentation will not go through all of those, but rather focus on a few of them in order to show "how calling" different APIs work.
+
+### Bash (Mac/OSX)
+
+For this tutorial we'll be using the terminal windows in Mac OSX also called Bash.
+
+#### Prerequisites
+
+During this tutorial we'll use the command line tool "[./jq](https://stedolan.github.io/jq/)" that will help us parse the resulting JSON-documents. This tool is not needed in order to call the ARM REST API, but it helps a lot to visualize and parse the results.
+
+You can install "jq" easily using "[brew](http://brew.sh/)" from the termial
+
+```console
+brew install jq
+```
+
+#### Autentication
+
+Since the ARM API is RESTful we can easily call it using the command line tool "curl" and in order to call any other API we first need to authenticate agains Azure AD using the Service Principal we previously created. As a result of that authentication we will get a token that we then can use while calling the other ARM APIs. 
+
+### PowerShell (Windows)
+
+### PostMan (Chrome App)
 
 ### Authenticating
 
