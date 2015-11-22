@@ -86,7 +86,7 @@ Autentication against Azure AD is done by calling out to Azure AD, located at lo
 
 In the below HTTP request make sure to replace "Azure AD Tenant ID", "Application ID" and "Password" with the correct values.
 
-Request:
+The following generic HTTP Request:
 
 ```HTTP
 POST /<Azure AD Tenant ID>.onmicrosoft.com/oauth2/token?api-version=1.0 HTTP/1.1 HTTP/1.1
@@ -97,7 +97,7 @@ Content-Type: application/x-www-form-urlencoded
 grant_type=client_credentials&resource=https%3A%2F%2Fmanagement.core.windows.net%2F&client_id=<Application ID>&client_secret=<Password>
 ```
 
-Response:
+... will (if authentication succeeds) result in a similar response to this:
 ```JSON
 {
   "token_type": "Bearer",
@@ -110,14 +110,94 @@ Response:
 ```
 (The access_token in the above response have been shortened to increase readability)
 
-The response contains an Access Token, information on how long that token is valid and for what resource you can use that token. You should implement some kind of caching mechanism to re-use the token for the duration of it's lifetime in order to increase performance while calling the ARM APIs.
+The response contains an Access Token, information about how long that token is valid and inforamtion about what resource you can use that token for.
 
-The access token will be provided for all request to the ARM API as a header named "Authorization" with the value "Bearer YOUR_ACCESS_TOKEN". Notice the space between "Bearer" and your Access Token.
+#### Caching your access token
+
+As you can see from the above HTTP Result, the token is valid for a specific period of time during which you should cach and re-use that same tooken. Even if it would be possible to authenticate against Azure AD for each API call, such a filosofi would be highly inefficient.
 
 #### Calling ARM APIs
 
-All [Azure Resource Manager REST APIs are documentet here](https://msdn.microsoft.com/en-us/library/azure/dn790568.aspx). Use that to figure out how each API work and what parameters you need to provide. In this documentation will not go through all of those, but rather focus on a few of them in order to show "how calling" different APIs work.
+[Azure Resource Manager REST APIs are documentet here](https://msdn.microsoft.com/en-us/library/azure/dn790568.aspx) and it's out of scoop for this tutorial to document the usage of each and every. This documentation will only use a few APIs to explain the basic usage of the APIs and after that we refer you to the official documentation.
 
+The access token you recieved in the previous HTTP call mustbe passed in for all request to the ARM API as a header named "Authorization" with the value "Bearer YOUR_ACCESS_TOKEN". Notice the space between "Bearer" and your Access Token.
+
+##### List all subscriptions
+
+One of the most simple operations you can do is to list the available subscriptions that you can access. In the below request you can see how the Access Token is passed in as a header.
+
+(Replace YOUR_ACCESS_TOKEN with your actual Access Token.)
+```HTTP
+GET /subscriptions?api-version=2015-01-01 HTTP/1.1
+Host: management.azure.com
+Authorization: Bearer YOUR_ACCESS_TOKEN
+Content-Type: application/json
+```
+
+... and as a result, you'll get a list of subscriptions that this Service Principal is allowed to access
+
+(Subscription IDs below have been shortened for readability)
+```JSON
+{
+  "value": [
+    {
+      "id": "/subscriptions/3a8555...555995",
+      "subscriptionId": "3a8555...555995",
+      "displayName": "Azure Subscription",
+      "state": "Enabled",
+      "subscriptionPolicies": {
+        "locationPlacementId": "Internal_2014-09-01",
+        "quotaId": "Internal_2014-09-01"
+      }
+    }
+  ]
+}
+```
+
+##### List all resource groups in a specific subscription
+
+All resources available with the ARM APIs are nested inside a Resource Group. We are going to query ARM for existing Resource Groups in our subscription using the below HTTP GET Request. Notice how the Subscription ID is passed in as part of the URL this time.
+
+(Replace YOUR_ACCESS_TOKEN and SUBSCRIPTION_ID with your actual Access Token.)
+```HTTP
+GET /subscriptions/SUBSCRIPTION_ID/resourcegroups?api-version=2015-01-01 HTTP/1.1
+Host: management.azure.com
+Authorization: Bearer YOUR_ACCESS_TOKEN
+Content-Type: application/json
+```
+
+The response you'll get will depend weather you have any resource groups defined and if so, how many.
+
+(Subscription IDs below have been shortened for readability)
+```JSON
+{
+    "value": [
+        {
+            "id": "/subscriptions/3a8555...555995/resourceGroups/myfirstresourcegroup",
+            "name": "myfirstresourcegroup",
+            "location": "eastus",
+            "properties": {
+                "provisioningState": "Succeeded"
+            }
+        },
+        {
+            "id": "/subscriptions/3a8555...555995/resourceGroups/mysecondresourcegroup",
+            "name": "mysecondresourcegroup",
+            "location": "northeurope",
+            "tags": {
+                "tagname1": "My first tag"
+            },
+            "properties": {
+                "provisioningState": "Succeeded"
+            }
+        }
+    ]
+}
+
+##### Create a resource group
+
+
+```
 ### Bash (Mac/OSX)
 
 For this tutorial we'll be using the terminal windows in Mac OSX also called Bash.
@@ -136,6 +216,27 @@ brew install jq
 
 Since the ARM API is RESTful we can easily call it using the command line tool "curl" and in order to call any other API we first need to authenticate agains Azure AD using the Service Principal we previously created. As a result of that authentication we will get a token that we then can use while calling the other ARM APIs. 
 
+Try authenticating using the below command
+
+```console
+curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'grant_type=client_credentials&resource=https://management.core.windows.net&client_id=<Application ID>&client_secret=<Password>' https://login.microsoftonline.com/<Tenant ID>.onmicrosoft.com/oauth2/token?api-version=1.0 | jq '.'
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  1376  100  1232  100   144   2652    310 --:--:-- --:--:-- --:--:--  2649
+{
+  "token_type": "Bearer",
+  "expires_in": "3599",
+  "expires_on": "1448217170",
+  "not_before": "1448213270",
+  "resource": "https://management.core.windows.net",
+  "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSU...uYmyZOWNluFbYayEyX6T5RN4RA"
+}
+```
+
+```console
+TOKEN="$(curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'grant_type=client_credentials&resource=https://management.core.windows.net&client_id=2d68c708-bfb6-47e8-b9be-29e90e2d34c3&client_secret=P@ssw0rd' https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token?api-version=1.0 | jq '.access_token')"
+```
 ### PowerShell (Windows)
 
 ### PostMan (Chrome App)
