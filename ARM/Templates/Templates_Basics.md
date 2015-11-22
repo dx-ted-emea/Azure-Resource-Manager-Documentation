@@ -180,6 +180,7 @@ This is an optional section, were you can specify the values to be returned from
 }
 ```
 |ELEMENT NAME	|REQUIRED	|DESCRIPTION|
+|--------------|-----------|-----------|
 |outputName	|Yes	|Name of the output value. Must be a valid JavaScript identifier|
 |type	|Yes	|Type of the output value. Output values support the same types as template input parameters|
 |value	|Yes	|Template language expression which will be evaluated and returned as output value|
