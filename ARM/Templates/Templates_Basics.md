@@ -136,13 +136,140 @@ Follwing is an example of a variable constructed from two parameters, one that i
 }
 ```
 ### Resources
+This section defines the resouces to create or update in the deployment. Each resource is defined seperatly. If there are dependencies between resources, they must be described in the resource definision. For example, is a Virtual Machine depends on a Storage Account, this will be defined in the Virtual Machine resource decleration. Azure Resource Manager analyzes dependencies to ensure resources are created in the correct order, and there is no meaning to the order in which the resources are defined in the template. 
 
+```
+"resources": [
+   {
+     "apiVersion": "<api-version-of-resource>",
+     "type": "<resource-provider-namespace/resource-type-name>",
+     "name": "<name-of-the-resource>",
+     "location": "<location-of-resource>",
+     "tags": "<name-value-pairs-for-resource-tagging>",
+     "comments": "<your-reference-notes>",
+     "dependsOn": [
+       "<array-of-related-resource-names>"
+     ],
+     "properties": "<settings-for-the-resource>",
+     "resources": [
+       "<array-of-dependent-resources>"
+     ]
+   }
+]
+```
+|ELEMENT NAME	|REQUIRED	|DESCRIPTION    |
+|--------------|-----------|---------------|
+|apiVersion	|Yes	|Version of the API that supports the resource|
+|type	|Yes	|Type of the resource. This value is a combination of the namespace of the resource provider and the resource type that the resource provider supports|
+|name	|Yes	|Name of the resource. The name must follow URI component restrictions defined in RFC3986|
+|location	|No	|Supported geo-locations of the provided resource|
+|tags	|No	|Tags that are associated with the resource|
+|comments	|No	|Your notes for documenting the resources in your template|
+|dependsOn	|No	|Resources that the resource being defined depends on. The dependencies between resources are evaluated and resources are deployed in their dependent order. When resources are not dependent on each other, they are attempted to be deployed in parallel. The value can be a comma separated list of a resource names or resource unique identifiers|
+|properties	|No	|Resource specific configuration settings|
+|resources	|No	|Child resources that depend on the resource being defined|
 
 ### Output
+This is an optional section, were you can specify the values to be returned from the deployment.
+```
+"outputs": {
+   "<outputName>" : {
+     "type" : "<type-of-output-value>",
+     "value": "<output-value-expression>",
+   }
+}
+```
+|ELEMENT NAME	|REQUIRED	|DESCRIPTION|
+|--------------|-----------|-----------|
+|outputName	|Yes	|Name of the output value. Must be a valid JavaScript identifier|
+|type	|Yes	|Type of the output value. Output values support the same types as template input parameters|
+|value	|Yes	|Template language expression which will be evaluated and returned as output value|
 
-## Expressions and functions
-## Dependencies
-## Linked Templates
+## Complete Template
+The following template deploys a web app and provisions it with code from a .zip file:
+```
+{
+   "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+   "contentVersion": "1.0.0.0",
+   "parameters": {
+     "siteName": {
+       "type": "string"
+     },
+     "hostingPlanName": {
+       "type": "string"
+     },
+     "hostingPlanSku": {
+       "type": "string",
+       "allowedValues": [
+         "Free",
+         "Shared",
+         "Basic",
+         "Standard",
+         "Premium"
+       ],
+       "defaultValue": "Free"
+     }
+   },
+   "resources": [
+     {
+       "apiVersion": "2014-06-01",
+       "type": "Microsoft.Web/serverfarms",
+       "name": "[parameters('hostingPlanName')]",
+       "location": "[resourceGroup().location]",
+       "properties": {
+         "name": "[parameters('hostingPlanName')]",
+         "sku": "[parameters('hostingPlanSku')]",
+         "workerSize": "0",
+         "numberOfWorkers": 1
+       }
+     },
+     {
+       "apiVersion": "2014-06-01",
+       "type": "Microsoft.Web/sites",
+       "name": "[parameters('siteName')]",
+       "location": "[resourceGroup().location]",
+       "tags": {
+         "environment": "test",
+         "team": "ARM"
+       },
+       "dependsOn": [
+         "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
+       ],
+       "properties": {
+         "name": "[parameters('siteName')]",
+         "serverFarm": "[parameters('hostingPlanName')]"
+       },
+       "resources": [
+         {
+           "apiVersion": "2014-06-01",
+           "type": "Extensions",
+           "name": "MSDeploy",
+           "dependsOn": [
+             "[resourceId('Microsoft.Web/sites', parameters('siteName'))]"
+           ],
+           "properties": {
+             "packageUri": "https://auxmktplceprod.blob.core.windows.net/packages/StarterSite-modified.zip",
+             "dbType": "None",
+             "connectionString": "",
+             "setParameters": {
+               "Application Path": "[parameters('siteName')]"
+             }
+           }
+         }
+       ]
+     }
+   ],
+   "outputs": {
+     "siteUri": {
+       "type": "string",
+       "value": "[concat('http://',reference(resourceId('Microsoft.Web/sites', parameters('siteName'))).hostNames[0])]"
+     }
+   }
+}
+```
+## Azure Resource Manager QuickStart Templates
+The quickstart template gallery repository contains various templates, in all sorts of complexity levels you can use as-is for your deployments, or edit and extend to suit you individual needs.
+[QuickStart Templates](https://github.com/Azure/azure-quickstart-templates)
 
 ## Resources and References
 

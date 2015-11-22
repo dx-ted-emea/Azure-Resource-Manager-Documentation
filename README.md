@@ -29,7 +29,7 @@ This reference is available as a [single page](singlepage.md) or [split into mul
 
 ## Azure Resource Manager Templates
  * [Templates Basic Concepts](ARM/Templates/Templates_Basics.md)
- * [Authoring a template](ARM/Templates/Authoring.md)
+ * [Templates Advanced Authoring](ARM/Templates/Tempalte_Advanced_Authoring.md)
 
 ## [DevOps with Azure Resource Manager](DevOps/README.md)
 

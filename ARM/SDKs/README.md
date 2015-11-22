@@ -9,7 +9,7 @@ The code in each of these SDKs is generated from [Azure RESTful API specificatio
  * [Java SDK](Java-sdk.md)
  * [.NET SDK](Net-sdk.md)
  * [Python SDK](Python-sdk.md)
- * [REST API Reference and deep dive](SDKs/Rest-api.md)
+ * [REST API Reference and deep dive](Rest-api.md)
 
 ## Resources and References
 https://azure.microsoft.com/en-us/blog/azure-resource-manager-preview-sdks/
