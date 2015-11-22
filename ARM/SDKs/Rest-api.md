@@ -158,7 +158,7 @@ Content-Type: application/json
 
 All resources available with the ARM APIs are nested inside a Resource Group. We are going to query ARM for existing Resource Groups in our subscription using the below HTTP GET Request. Notice how the Subscription ID is passed in as part of the URL this time.
 
-(Replace YOUR_ACCESS_TOKEN and SUBSCRIPTION_ID with your actual Access Token.)
+(Replace YOUR_ACCESS_TOKEN and SUBSCRIPTION_ID with your actual Access Token and Subscription ID.)
 ```HTTP
 GET /subscriptions/SUBSCRIPTION_ID/resourcegroups?api-version=2015-01-01 HTTP/1.1
 Host: management.azure.com
@@ -193,11 +193,92 @@ The response you'll get will depend weather you have any resource groups defined
         }
     ]
 }
+```
 
 ##### Create a resource group
 
+So far we've only been querying the ARM APIs for information, it's time we create some resources instead and let's start by the most simple of them all, a resource group. The following HTTP request creates a new Resource Group in a region/location of your choice and adds one or more tags to it (the sample below actually only adds one tag).
 
+(Replace YOUR_ACCESS_TOKEN, SUBSCRIPTION_ID, RESOURCE_GROUP_NAME with your actual Access Token, Subscription ID and name of the Resource Group you want to create.)
+```HTTP
+PUT /subscriptions/SUBSCRIPTION_ID/resourcegroups/RESOURCE_GROUP_NAME?api-version=2015-01-01 HTTP/1.1
+Host: management.azure.com
+Authorization: Bearer YOUR_ACCESS_TOKEN
+Content-Type: application/json
+
+{
+  "location": "northeurope",
+  "tags": {
+    "tagname1": "test-tag"
+  }
+}
 ```
+
+If successful, you'll get a similar response to this
+
+```JSON
+{
+  "id": "/subscriptions/3a8555...555995/resourceGroups/RESOURCE_GROUP_NAME",
+  "name": "RESOURCE_GROUP_NAME",
+  "location": "northeurope",
+  "tags": {
+    "tagname1": "test-tag"
+  },
+  "properties": {
+    "provisioningState": "Succeeded"
+  }
+}
+```
+
+You've successfully created a Resource Group in Azure. Congratulations!
+
+##### Deploy resources to a Resource Group using an ARM Template
+
+With ARM, you can deploy your resources using ARM Templates. An ARM Template defines several resources and their dependencies. For this section we will just assume you are familiar with ARM Templates and we will just show you how to make the API call to start deployment of one. A detailed [documentation of ARM Templates can be found here](https://github.com/dx-ted-emea/ARM-Documentation/tree/master/ARM/Templates).
+
+Deployment of an ARM template doesn't differ much to how you call other APIs. One important aspect is that deployment of a Template can take quite a long time, depending on what's inside of the template, and the API call will just return and it's up to you as developer to query for status of the deployment in order to find out when the deployent is done.
+
+For this example, we'll use a publicly exposed ARM Template available on [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-linux-vm). The template we are going to use will deploy a Linux VM to the West US region. Even though this template will have the template available in a public repository like GitHub, you can also select to pass the full template as part of the request. Note that we provide parameter values as part of the request that will be used inside the used template.
+
+(Replace SUBSCRIPTION_ID, RESOURCE_GROUP_NAME, DEPLOYMENT_NAME, YOUR_ACCESS_TOKEN, GLOBALY_UNIQUE_STORAGE_ACCOUNT_NAME, ADMIN_USER_NAME,ADMIN_PASSWORD and DNS_NAME_FOR_PUBLIC_IP to values appropriate for your request)
+
+```HTTP
+PUT /subscriptions/SUBSCRIPTION_ID/resourcegroups/RESOURCE_GROUP_NAME/providers/microsoft.resources/deployments/DEPLOYMENT_NAME?api-version=2015-01-01 HTTP/1.1
+Host: management.azure.com
+Authorization: Bearer YOUR_ACCESS_TOKEN
+Content-Type: application/json
+
+{
+  "properties": {
+    "templateLink": {
+      "uri": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-linux-vm/azuredeploy.json",
+      "contentVersion": "1.0.0.0",
+    },
+    "mode": "Incremental",
+    "parameters": {
+        "newStorageAccountName": {
+          "value": "GLOBALY_UNIQUE_STORAGE_ACCOUNT_NAME"
+        },
+        "adminUsername": {
+          "value": "ADMIN_USER_NAME"
+        },
+        "adminPassword": {
+          "value": "ADMIN_PASSWORD"
+        },
+        "dnsNameForPublicIP": {
+          "value": "DNS_NAME_FOR_PUBLIC_IP"
+        },
+        "ubuntuOSVersion": {
+          "value": "15.04"
+        }
+    }
+  }
+}
+```
+
+The quite long JSON response for this request have been omitted in order to improve readability of this documentation. The response will contain information about the templated deployment that you just created.
+
+
 ### Bash (Mac/OSX)
 
 For this tutorial we'll be using the terminal windows in Mac OSX also called Bash.
