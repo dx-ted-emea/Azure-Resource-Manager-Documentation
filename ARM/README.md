@@ -13,5 +13,5 @@
   
 ## Azure Resource Manager Templates
  * [Templates Basic Concepts](Templates/Templates_Basics.md)
- * [Authoring a template](Templates/Authoring.md)
+ * [Templates Advanced Authoring](Templates/Tempalte_Advanced_Authoring.md)
  * Extensions
