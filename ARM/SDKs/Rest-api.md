@@ -72,4 +72,11 @@ By now, everything should be registered in Azure AD you you to start authenticat
 
 ## Calling your first ARM REST API
 
+
+
+```powershell
+Invoke-RestMethod -Uri https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token?api-version=1.0 -Method Post
+ -Body @{"grant_type" = "client_credentials"; "resource" = "https://management.core.windows.net/"; "client_id" = "<application id>"; "client_secret" = "<password you selected for authentication>" }
+```
+
 ... to be provided ...
