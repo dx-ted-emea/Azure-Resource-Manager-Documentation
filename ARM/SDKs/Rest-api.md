@@ -70,13 +70,24 @@ azure role assignment create --objectId <object id> --roleName Owner
 
 By now, everything should be registered in Azure AD you you to start authenticating and calling ARM APIs.
 
-## Calling your first ARM REST API
+## Calling ARM REST API
 
 
+### Authenticating
+
+Bash
+
+```console
+curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d "grant_type=client_credentials&resource=https://management.core.windows.net&client_id=<application id>&client_secret=<password you selected for authentication>" https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token?api-version=1.0
+```
+
+PowerShell
 
 ```powershell
 Invoke-RestMethod -Uri https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token?api-version=1.0 -Method Post
  -Body @{"grant_type" = "client_credentials"; "resource" = "https://management.core.windows.net/"; "client_id" = "<application id>"; "client_secret" = "<password you selected for authentication>" }
 ```
+
+
 
 ... to be provided ...
