@@ -56,9 +56,12 @@ Example of some json code
 
 # Tip & Tricks 
 
+* We highly recommend use basic images from Azure portal - this helps you not to struggle at least with OS/kernel level issues.
+* Test VM before publishing in marketplace in different sizes of VM - minimally you need to test it on A0 (which is smallest configuration at that day), A12 and on some D/DS,G/GS-series.
+
 # Resources and References 
 
-## Azure certificatino
+### Azure certification
 [Microsoft Azure Certified](https://azure.microsoft.com/en-us/marketplace/partner-program/)
 
 ## Linux 
