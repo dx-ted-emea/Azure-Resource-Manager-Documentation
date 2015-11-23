@@ -62,7 +62,10 @@ Example of some json code
 
 # Resources and References 
 
-### Azure certification
+### Marketplace and Azure certification
+
+[Microsoft Azure Marketplace Publication Guidelines](aka.ms/am-guideline)
+
 [Microsoft Azure Certified](https://azure.microsoft.com/en-us/marketplace/partner-program/)
 
 ### Linux 
