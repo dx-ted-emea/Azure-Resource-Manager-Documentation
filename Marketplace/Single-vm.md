@@ -57,3 +57,16 @@ Example of some json code
 # Tip & Tricks 
 
 # Resources and References 
+
+## Azure certificatino
+[Microsoft Azure Certified](https://azure.microsoft.com/en-us/marketplace/partner-program/)
+
+## Linux 
+[Windows Azure Linux Agent User Guide](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-agent-user-guide/)
+[Windows Azure Linux Agent distribution sources](https://github.com/Azure/WALinuxAgent)
+[Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-create-upload-vhd/)
+[Linux on Azure-Endorsed Distributions](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-endorsed-distributions/)
+
+## Tools
+
+[Microsoft Azure Storage Explorer](http://storageexplorer.com/)
