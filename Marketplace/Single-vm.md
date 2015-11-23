@@ -54,6 +54,7 @@ Example of some json code
 
 # On-Boarding Process 
 
+
 # Tip & Tricks 
 
 * We highly recommend use basic images from Azure portal - this helps you not to struggle at least with OS/kernel level issues.
@@ -64,12 +65,16 @@ Example of some json code
 ### Azure certification
 [Microsoft Azure Certified](https://azure.microsoft.com/en-us/marketplace/partner-program/)
 
-## Linux 
+### Linux 
 [Windows Azure Linux Agent User Guide](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-agent-user-guide/)
+
 [Windows Azure Linux Agent distribution sources](https://github.com/Azure/WALinuxAgent)
+
 [Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-create-upload-vhd/)
+
 [Linux on Azure-Endorsed Distributions](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-endorsed-distributions/)
 
-## Tools
+### Tools
 
 [Microsoft Azure Storage Explorer](http://storageexplorer.com/)
+
