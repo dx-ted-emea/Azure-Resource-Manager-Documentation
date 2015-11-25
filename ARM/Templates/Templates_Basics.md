@@ -265,10 +265,6 @@ The following template deploys a web app and provisions it with code from a .zip
    }
 }
 ```
-## Azure Resource Manager QuickStart Templates
-The quickstart template gallery repository contains various templates, in all sorts of complexity levels you can use as-is for your deployments, or edit and extend to suit you individual needs.
-[QuickStart Templates](https://github.com/Azure/azure-quickstart-templates)
-
 ## Resources and References
 
 https://azure.microsoft.com/en-us/documentation/articles/resource-group-authoring-templates/
