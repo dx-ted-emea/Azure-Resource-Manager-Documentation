@@ -62,4 +62,4 @@ This reference is available as a [single page](singlepage.md) or [split into mul
 # Acknowledgements and contributors
 
 Feel free to join us on working on this project. Please refer to [GitWiki Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) in case
-if you're not so familiar witk gitwiki markdown ( it's very powerfull, but easy to read in raw code ).
+if you're not so familiar witk gitwiki markdown ( it's very powerful, but easy to read in raw code ).
