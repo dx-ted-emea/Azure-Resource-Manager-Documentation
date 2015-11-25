@@ -29,6 +29,8 @@ This reference is available as a [single page](singlepage.md) or [split into mul
 #### [Azure Resource Manager Templates](ARM/Templates/README.md)
  * [Templates Basic Concepts](ARM/Templates/Templates_Basics.md)
  * [Templates Advanced Authoring](ARM/Templates/Tempalte_Advanced_Authoring.md)
+ * [Create Your First Template](ARM/Templates/My_First_Template.md)
+ * [Deploy a Template](ARM/Templates/Template_Deploy.md)
 
 #### [DevOps with Azure Resource Manager](DevOps/README.md)
 
