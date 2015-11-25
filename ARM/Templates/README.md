@@ -7,6 +7,7 @@ Azure Resource Manager performs an update instead of creating a new asset. Azure
 
 * [Templates Basic Concepts](Templates_Basics.md)
 * [Templates Advanced Authoring](Tempalte_Advanced_Authoring.md)
+* [Create Your First Template](My_First_Template.md)
  
 ## Azure Resource Manager QuickStart Templates
 The quickstart template gallery repository contains various templates, in all sorts of complexity levels you can use as-is for your deployments, or edit and extend to suit you individual needs.
