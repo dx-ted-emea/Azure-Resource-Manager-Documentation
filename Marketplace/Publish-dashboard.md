@@ -2,8 +2,9 @@
 
 *draft*
 
-This page covers the steps required for the Azure Marketplace Publisher Dashboard. The publisher dashboard manages the offers for [virtual machines (single VM)](Single-vm.md), [solution templates (sometimes called multi-VM)](Multi-vm.md), [developer services](Developers-services.md), and [data services](Data-services.md). An offer in the publisher dashboard includes the following:
+This page covers the steps required for the Azure Marketplace Publisher Dashboard. The publisher dashboard manages the offers for [virtual machines (single VM)](Single-vm.md), [solution templates (multi-VM)](Multi-vm.md), [developer services](Developers-services.md), and [data services](Data-services.md). An offer in the publisher dashboard includes the following:
 
+- publishers information
 - description of your software
 - support information
 - marketplace categories
@@ -11,30 +12,25 @@ This page covers the steps required for the Azure Marketplace Publisher Dashboar
 - sell-to countries
 - samples images 
 
-For information on the development of the different services please visit the page for that service.
+This page does not cover the development required to set up or build any software system. For information on the development of the different services please visit the page for that service.
 
 ### Pre-Requisites
 
-If you plan on charging for your offers in the Azure Marketplace ensure you have filled in the [Seller Dashboard](Seller-Dashboard.md). 
-Offers with no seller charge or a Bring Your Own Licence model do not require seller registration. 
+For offers that will include a charge for software above the billed Azure infrastructure cost ensure the [Seller Dashboard](Seller-Dashboard.md) steps have been followed. Offers with no seller charge or a Bring Your Own Licence model do not require seller registration. 
 
 ## Registration
 
-Visit https://publish.windowsazure.com/ with your favourite browser. You will be redirected to a default [Microsoft Account](http://windows.microsoft.com/en-GB/windows-live/sign-in-what-is-microsoft-account) sign in page.
+Visit https://publish.windowsazure.com/ with a browser. The URL will redirecte to a default [Microsoft Account](http://windows.microsoft.com/en-GB/windows-live/sign-in-what-is-microsoft-account) sign in page.
 
 ![Microsoft Account Default Sign-in Page](images/standard-sign-in-page.png)
 
-If you have a seller account as mentioned above login to the publishing portal with the same account used to register for the seller dashboard.
+If a seller account has been configured as mentioned above use this account to login to the publishing portal.
 
-If you do not have a seller account as you do not plan to charge for your offers via the marketplace sign in with a [Microsoft Account](http://windows.microsoft.com/en-GB/windows-live/sign-in-what-is-microsoft-account).
+In the instance that no seller account is being used as there are no plans to charge for an offer via the marketplace sign in with a [Microsoft Account](http://windows.microsoft.com/en-GB/windows-live/sign-in-what-is-microsoft-account).
 
-On your first sign in to the publishing portal you will be shown the Microsoft Azure Publishing Agreement. Please read this and confirm you agree with the terms outlined.
+On the first sign in to the publishing portal the Microsoft Azure Publishing Agreement needs to be read and agreed to.
 
-After agreeing you will be brought to the homepage of the publisher portal.
-
-![Azure Marketplace Publisher Portal Homepage](images/azure-publisher-portal-homepage.png)
-
-# Marketplace Options
+# Marketplace Publisher Types
 
 There are four options available:
 
@@ -49,10 +45,35 @@ There are four options available:
     - A complete system deployment, including Virtual Machines, networking, databases, public IP addresses and configuration to ensure components can connect with each other. 
     - *Note (Nov 2015)*: Currently requires approval to publish.
 
+
+![Azure Marketplace Publisher Portal Homepage](images/azure-publisher-portal-homepage.png)
+
+The steps for each of these options are similar in the publisher portal. 
+
 ## Developer Service
+
+Select 'developer services' from the sidebar or list of options on the page. Enter a title for the service and press 'Enter'. This title will be the title shown on the marketplace for your offer, it can be changed later (*Offer* -> *Marketing* -> *Languages* -> *Details* -> *Title*). An overview of how each field is displayed in the marketplace for an offer is [below](#offer-layout).
+
+![Azure Marketplace Publisher Portal Developer Services Title](images/azure-publisher-portal-dev-service-title.png)
+
+Once a service is created the portal will provide an overview of every step of the process.
+
+![Azure Marketplace Publisher Portal Developer Services Overview](images/azure-publisher-portal-dev-service-overview.png)
+
 
 ## Virtual Machine
 
+
 ## Data Service
 
+
 ## Solution Template
+
+
+# Publishers Information
+
+Publisher Name space
+
+## <a name="offer-layout"></a>Layout of a Published Marketplace Offer
+
+What entries make up the URL?
