@@ -26,7 +26,7 @@ This reference is available as a [single page](singlepage.md) or [split into mul
  * [Python SDK](ARM/SDKs/Python-sdk.md)
  * [REST API Reference and deep dive](ARM/SDKs/Rest-api.md)
 
-#### [Azure Resource Manager Templates](Templates/README.md)
+#### [Azure Resource Manager Templates](ARM/Templates/README.md)
  * [Templates Basic Concepts](ARM/Templates/Templates_Basics.md)
  * [Templates Advanced Authoring](ARM/Templates/Tempalte_Advanced_Authoring.md)
 
