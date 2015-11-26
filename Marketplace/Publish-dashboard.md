@@ -50,9 +50,67 @@ There are four options available:
 
 The steps for each of these options are similar in the publisher portal. 
 
+## Virtual Machine
+
+Select 'virtual machines' from the sidebar. Enter a title for the Virtual Machine Marketplace Offer and press 'Enter'. This title will be the title shown on the marketplace for your offer, it can be changed later (*Offer* -> *Marketing* -> *Languages* -> *Details* -> *Title*). An overview of how each field is displayed in the marketplace for an offer is [below](#offer-layout).
+
+![Azure Marketplace Virtual Machine Overview](images/azure-publisher-portal-virtual-machine-overview.png)
+
+**Step 1** is to apply to be a Azure Certified for your publisher account. Follow the link, http://azure.com/certified, and the directions on the page to contact Microsoft and be verified.
+
+**Step 2** register the company on the [seller dashboard](Seller-dashboard.md). The third sub-step is to fill in company information that will appear on all the marketplace offers created in this account. This step is also explained below in the [publishers](publishers) section.
+
+**Step 3** is to define the SKU for the offer. An offer can have multiple SKUs, each with their own Virtual Machine image and pricing configurations.
+
+### SKU
+
+Create a SKU new SKU selecting 'SKU' in the sub-menu for the Virtual Machine offer. Select to 'ADD A SKU' and enter a title for the SKU. If the SKU will not carry a charge on top of the Azure Infrastructure charge select the checkbox 'Billing and licensing is done externally from Azure'
+
+![Azure Marketplace Virtual Machine Offer SKU Title](images/azure-publisher-portal-virtual-machine-sku.png)
+
+Once the SKU is the option to hide the SKU is shown, for a Virtual Machine offer ensure the 'No' option is selected.
+
+![Azure Marketplace Publisher Portal Hide Virtual Machine ](images/azure-publisher-portal-solution-template-option.png)
+
+### VM Images
+
+Follow the instructions to [build a VM](Single-vm.md). Once a VM is built and self-certified, click on 'VM Images' in the sidebar under the Virtual Machine offer. For each SKU select the Operating System Family (i.e. Windows or Linux). Enter the name of the Operating System, e.g. 'Ubuntu 14.04 LTS'.
+
+#### Recommended VM Sizes
+
+End users will be shown the recommended VM sizes first in the marketplace listing when selecting the offer. If the offer functions best with a certain number of cores, RAM, or premium storage, consider this when selecting the options here. 
+
+#### Open Ports
+
+This section specifies the public and private port mappings as well as the protocol for your VM. 
+
+By default a VM has the following ports opened:
+
+- Windows: 3389 -> 3389 : TCP
+- Windows: 5986 -> 5986 : TCP
+- Linux: 22 -> 22 : TCP
+
+These mappings can be overridden. 
+
+#### Virtual Machine Images
+
+Each update of a VM requires an increment to the version number. The version starts at 1.0.0 by default. A SKU is expected to only receive minor patch updates, i.e. 1.0.0 -> 1.0.1. If a major update is being released a new SKU is the recommended practice.
+
+The SAS URI that has been generated as part of the [single VM](Single-vm.md) steps for the OS Disk should be entered into the field for the OS VHD URL. Additional data disks as needed should also have their SAS URIs added.
+
+The self-certification test results explained in the [single VM](Single-vm.md) steps should also be uploaded here by selecting the 'Upload Test Results' button. 
+
+Once each of these steps are complete select 'Request Certification'. This will inform the Azure Marketplace team that the SKU and VM are ready to be certified for the Azure Marketplace. 
+
+![Azure Publisher Portal Virtual Machine Image SKU](images/azure-publisher-portal-virtual-machine-image-sku.png)
+
+## Solution Template
+
+Select 'solution templates' from the sidebar. Enter a title for the Solution Template and press 'Enter'. This title will be the title shown on the marketplace for your offer, it can be changed later (*Offer* -> *Marketing* -> *Languages* -> *Details* -> *Title*). An overview of how each field is displayed in the marketplace for an offer is [below](#offer-layout).
+
 ## Developer Service
 
-Select 'developer services' from the sidebar or list of options on the page. Enter a title for the service and press 'Enter'. This title will be the title shown on the marketplace for your offer, it can be changed later (*Offer* -> *Marketing* -> *Languages* -> *Details* -> *Title*). An overview of how each field is displayed in the marketplace for an offer is [below](#offer-layout).
+Select 'developer services' from the sidebar. Enter a title for the service and press 'Enter'. This title will be the title shown on the marketplace for your offer, it can be changed later (*Offer* -> *Marketing* -> *Languages* -> *Details* -> *Title*). An overview of how each field is displayed in the marketplace for an offer is [below](#offer-layout).
 
 ![Azure Marketplace Publisher Portal Developer Services Title](images/azure-publisher-portal-dev-service-title.png)
 
@@ -60,20 +118,23 @@ Once a service is created the portal will provide an overview of every step of t
 
 ![Azure Marketplace Publisher Portal Developer Services Overview](images/azure-publisher-portal-dev-service-overview.png)
 
+**Step 1** is to apply to be a Azure Certified for your publisher account. Follow the link, http://azure.com/certified, and the directions on the page to contact Microsoft and be verified.
 
-## Virtual Machine
+**Step 2** register the company on the [seller dashboard](Seller-dashboard.md). The third sub-step is to fill in company information that will appear on all the marketplace offers created in this account. This step is also explained below in the [publishers](publishers) section.
 
+**Step 3** 
 
 ## Data Service
 
 
-## Solution Template
-
-
-# Publishers Information
+# <a name="publishers"></a>Publishers
 
 Publisher Name space
 
 ## <a name="offer-layout"></a>Layout of a Published Marketplace Offer
 
 What entries make up the URL?
+
+# Promotions
+
+What is a promotion? How do you set one up?
