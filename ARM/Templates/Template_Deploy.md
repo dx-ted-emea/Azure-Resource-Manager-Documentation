@@ -52,8 +52,11 @@ Deploying using a parameters file:
  ```
 ## Azure Portal
 The Azure Portal allows you to deploy your own templates in a UI exepriance. 
+
 1. In the azure Portal, go to the marketplace blade, and search for "Template Deployment":
 ![alt tag](images/template_deployment_portal1.png)
+2. Paste/write you template in the "Edit Template" section, update the parameters and deploy:
+![alt tag](images/template_deployment_portal2.png)
 ## Resorces and References
 https://azure.microsoft.com/en-us/documentation/articles/resource-group-template-deploy/
 https://azure.microsoft.com/en-us/blog/azps-1-0-pre/
