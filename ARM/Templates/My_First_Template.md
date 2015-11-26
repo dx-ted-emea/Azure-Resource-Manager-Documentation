@@ -7,7 +7,7 @@ Lets look at a very simple architecture:
 
 ![alt tag](../images/arm_arch.png)
 
-The full template can be found in this directory - [sample_arc_template.json](sample_arc_template.json)
+The full template can be found in this directory - [sample_arc_template.json](json/sample_arc_template.json)
 
 ## Virtual Network with one Subnet
 ```
