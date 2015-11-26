@@ -11,7 +11,9 @@
  * [Python SDK](SDKs/Python-sdk.md)
  * [REST API Reference and deep dive](SDKs/Rest-api.md)
   
-## Azure Resource Manager Templates
+## [Azure Resource Manager Templates](Templates/README.md)
  * [Templates Basic Concepts](Templates/Templates_Basics.md)
  * [Templates Advanced Authoring](Templates/Tempalte_Advanced_Authoring.md)
+ * [Create Your First Template](Templates/My_First_Template.md)
+ * [Deploy a Template](Templates/Template_Deploy.md)
  * Extensions

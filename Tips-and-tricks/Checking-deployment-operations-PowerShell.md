@@ -3,6 +3,8 @@ When deploying ARM templates it is often useful to be able to see the status of 
 If a deployment has failed then drilling into the operations to find the one(s) that failed helps diagnose the issue.
 As templates get larger it helps to understand the progress through the deployment, and can also be useful to check the order that things are occurring.
 
+This section shows how to get set up with PowerShell to make it really easy to see the results for the last deployment to a resource group.
+
 To help get started, grab [AzureHelpers.ps1](/Tips-and-tricks/scripts/AzureHelpers.ps1) and save it to disk. 
 From a PowerShell prompt (in the directory you save AzureHelpers.ps1 to), dot source the script to include the functions within it in your PowerShell session:
 

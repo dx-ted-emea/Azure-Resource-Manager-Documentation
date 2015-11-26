@@ -41,10 +41,6 @@ The full list of functions, visit [Template Functions](https://azure.microsoft.c
 ## Dependencies
 ## Linked Templates
 
-
-
-## Line-by-line:  
-
 ## Resources and References
 https://azure.microsoft.com/en-us/documentation/articles/resource-group-template-functions/#resourceid
 https://azure.microsoft.com/en-us/documentation/articles/resource-group-linked-templates/
