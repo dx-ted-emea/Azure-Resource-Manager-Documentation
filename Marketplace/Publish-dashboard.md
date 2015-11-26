@@ -20,7 +20,7 @@ For offers that will include a charge for software above the billed Azure infras
 
 ## Registration
 
-Visit https://publish.windowsazure.com/ with a browser. The URL will redirecte to a default [Microsoft Account](http://windows.microsoft.com/en-GB/windows-live/sign-in-what-is-microsoft-account) sign in page.
+Visit https://publish.windowsazure.com/ with a browser. The URL will redirected to a default [Microsoft Account](http://windows.microsoft.com/en-GB/windows-live/sign-in-what-is-microsoft-account) sign in page.
 
 ![Microsoft Account Default Sign-in Page](images/standard-sign-in-page.png)
 
