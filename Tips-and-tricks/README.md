@@ -5,7 +5,7 @@
 ## Checking the status of deployment operations
 Scripts to help
 * [PowerShell](Checking-deployment-operations-PowerShell.md)
-* [CLI] TODO - write this up
+* [CLI](Checking-deployment-operations-cli.md)
 
 ## Debugging MSDeploy with Azure Web Apps 
 
