@@ -16,12 +16,32 @@ When you use the MSDeploy site extension to deploy web app content from an ARM t
 
 To find out what the underlying error was, you need to use the site's [Kudu Console](https://github.com/projectkudu/kudu/wiki/Kudu-console).
 
-** TODO - Opening Kudu - portal
-** TODO - Opening Kudu - scm url
+## Open the Kudu Console
+To open the Kudu Console, you can go to `{yoursite}.scm.azurewebsites.net`, and log in with your credentials for the Azure Portal.
 
-** TODO - Opening Kudu - navigating to the MSDeploy folder (D:\home\LogFiles\SiteExtensions\MSDeploy), open appManagerLog.xml
+Or if you prefer, you can access this from the portal (http://portal.azure.com). Navigate to the Web App that you deployed, and click on Tools at the top of the blade
 
-** TODO - include sample log file
+![Tools](images/msdeploy-01-tools.png)
+
+In the Tools blade that opens, scroll down to the Develop section and click Kudu
+
+![Kudu](images/msdeploy-02-kudu-menu.png)
+
+## Navigate to the MSDeploy logs
+
+In the Kudu console, open the Debug console
+
+![Debug Console](images/msdeploy-03-kudu-home.png)
+
+From there, either click on the hyperlinks to navigate to the D:\home\LogFiles\SiteExtensions\MSDeploy directory or type `cd D:\home\LogFiles\SiteExtensions\MSDeploy`
+
+![MSDeploy directory](images/msdeploy-04-kudu-ps1.png)
+
+In the MSDeploy directory there will be two log files: appManagerLog.xml and appManagerStatus.xml. The appManagerLog.xml is the file that contains the details, so either click on Download button next to it to save it to your computer or simply click the Edit button to view the log in the browser. 
+
+![MSDeploy logs](images/msdeploy-05-kudu-ps2.png)
+
+An example log file is shown below. In this case, the package Uri was invalid.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
