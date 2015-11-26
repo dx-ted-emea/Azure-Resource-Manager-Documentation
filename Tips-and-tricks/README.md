@@ -8,5 +8,6 @@ Scripts to help check on the status of deployments and find errors:
 * [CLI](Checking-deployment-operations-cli.md)
 
 ## Debugging MSDeploy with Azure Web Apps 
+* [Debugging MSDeploy errors with Azure Web Apps](Debugging-msdeploy-with-azure-web-apps.md)
 
-TODO
+
