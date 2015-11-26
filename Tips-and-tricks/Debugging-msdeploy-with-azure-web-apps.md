@@ -1,4 +1,4 @@
-# Debugging MSDeploy errors with Azure Web Aps
+# Debugging MSDeploy errors with Azure Web Apps
 When you use the MSDeploy site extension to deploy web app content from an ARM template, the errors you get back are generally pretty vague. ** TODO - Add link to scenario when written up **
 
 ```json
