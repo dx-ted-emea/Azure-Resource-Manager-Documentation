@@ -183,88 +183,186 @@ This is an optional section, were you can specify the values to be returned from
 |type	|Yes	|Type of the output value. Output values support the same types as template input parameters|
 |value	|Yes	|Template language expression which will be evaluated and returned as output value|
 
-## Complete Template
-The following template deploys a web app and provisions it with code from a .zip file:
+## Template Sample - simple compute deployment
+The following temmplate creates a virtual network with 2 subnets, a network interface storage account and a Windows virtual machine:
 ```
 {
-   "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-   "contentVersion": "1.0.0.0",
-   "parameters": {
-     "siteName": {
-       "type": "string"
-     },
-     "hostingPlanName": {
-       "type": "string"
-     },
-     "hostingPlanSku": {
-       "type": "string",
-       "allowedValues": [
-         "Free",
-         "Shared",
-         "Basic",
-         "Standard",
-         "Premium"
-       ],
-       "defaultValue": "Free"
-     }
-   },
-   "resources": [
-     {
-       "apiVersion": "2014-06-01",
-       "type": "Microsoft.Web/serverfarms",
-       "name": "[parameters('hostingPlanName')]",
-       "location": "[resourceGroup().location]",
-       "properties": {
-         "name": "[parameters('hostingPlanName')]",
-         "sku": "[parameters('hostingPlanSku')]",
-         "workerSize": "0",
-         "numberOfWorkers": 1
-       }
-     },
-     {
-       "apiVersion": "2014-06-01",
-       "type": "Microsoft.Web/sites",
-       "name": "[parameters('siteName')]",
-       "location": "[resourceGroup().location]",
-       "tags": {
-         "environment": "test",
-         "team": "ARM"
-       },
-       "dependsOn": [
-         "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
-       ],
-       "properties": {
-         "name": "[parameters('siteName')]",
-         "serverFarm": "[parameters('hostingPlanName')]"
-       },
-       "resources": [
-         {
-           "apiVersion": "2014-06-01",
-           "type": "Extensions",
-           "name": "MSDeploy",
-           "dependsOn": [
-             "[resourceId('Microsoft.Web/sites', parameters('siteName'))]"
-           ],
-           "properties": {
-             "packageUri": "https://auxmktplceprod.blob.core.windows.net/packages/StarterSite-modified.zip",
-             "dbType": "None",
-             "connectionString": "",
-             "setParameters": {
-               "Application Path": "[parameters('siteName')]"
-             }
-           }
-         }
-       ]
-     }
-   ],
-   "outputs": {
-     "siteUri": {
-       "type": "string",
-       "value": "[concat('http://',reference(resourceId('Microsoft.Web/sites', parameters('siteName'))).hostNames[0])]"
-     }
-   }
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storageAccountNameName": {
+      "type": "string"
+    },
+    "storageAccountNameType": {
+      "type": "string",
+      "defaultValue": "Standard_LRS",
+      "allowedValues": [
+        "Standard_LRS",
+        "Standard_ZRS",
+        "Standard_GRS",
+        "Standard_RAGRS",
+        "Premium_LRS"
+      ]
+    },
+    "vmNameAdminPassword": {
+      "type": "securestring"
+    },
+    "vmNameAdminUserName": {
+      "type": "string",
+      "minLength": 1
+    },
+    "vmNameName": {
+      "type": "string",
+      "minLength": 1
+    },
+    "vmNameWindowsOSVersion": {
+      "type": "string",
+      "defaultValue": "2012-R2-Datacenter",
+      "allowedValues": [
+        "2008-R2-SP1",
+        "2012-Datacenter",
+        "2012-R2-Datacenter",
+        "Windows-Server-Technical-Preview"
+      ]
+    }
+  },
+    "variables": {        
+        "virtualNetworkNamePrefix": "10.0.0.0/16",
+        "virtualNetworkNameSubnet1Name": "Subnet-1",
+        "virtualNetworkNameSubnet1Prefix": "10.0.0.0/24",
+        "virtualNetworkNameSubnet2Name": "Subnet-2",
+        "virtualNetworkNameSubnet2Prefix": "10.0.1.0/24",
+        "vmNameImagePublisher": "MicrosoftWindowsServer",
+        "vmNameImageOffer": "WindowsServer",
+        "vmNameOSDiskName": "vmNameOSDisk",
+        "vmNameVmSize": "Standard_D1",
+        "vmNameVnetID": "[resourceId('Microsoft.Network/virtualNetworks', 'virtualNetworkName')]",
+        "vmNameSubnetRef": "[concat(variables('vmNameVnetID'), '/subnets/', variables('virtualNetworkNameSubnet1Name'))]",
+        "vmNameStorageAccountContainerName": "vhds",
+        "vmNameNicName": "[concat(parameters('vmNameName'), 'NetworkInterface')]"
+    },
+    "resources": [
+        {
+            "name": "[parameters('storageAccountNameName')]",
+            "type": "Microsoft.Storage/storageAccounts",
+            "location": "[resourceGroup().location]",
+            "apiVersion": "2015-05-01-preview",
+            "dependsOn": [ ],
+            "tags": {
+                "displayName": "storageAccountName"
+            },
+            "properties": {
+                "accountType": "[parameters('storageAccountNameType')]"
+            }
+        },
+        {
+            "name": "virtualNetworkName",
+            "type": "Microsoft.Network/virtualNetworks",
+            "location": "[resourceGroup().location]",
+            "apiVersion": "2015-05-01-preview",
+            "dependsOn": [ ],
+            "tags": {
+                "displayName": "virtualNetworkName"
+            },
+            "properties": {
+                "addressSpace": {
+                    "addressPrefixes": [
+                        "[variables('virtualNetworkNamePrefix')]"
+                    ]
+                },
+                "subnets": [
+                    {
+                        "name": "[variables('virtualNetworkNameSubnet1Name')]",
+                        "properties": {
+                            "addressPrefix": "[variables('virtualNetworkNameSubnet1Prefix')]"
+                        }
+                    },
+                    {
+                        "name": "[variables('virtualNetworkNameSubnet2Name')]",
+                        "properties": {
+                            "addressPrefix": "[variables('virtualNetworkNameSubnet2Prefix')]"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "[variables('vmNameNicName')]",
+            "type": "Microsoft.Network/networkInterfaces",
+            "location": "[resourceGroup().location]",
+            "apiVersion": "2015-05-01-preview",
+            "dependsOn": [
+                "[concat('Microsoft.Network/virtualNetworks/', 'virtualNetworkName')]"
+            ],
+            "tags": {
+                "displayName": "vmNameNic"
+            },
+            "properties": {
+                "ipConfigurations": [
+                    {
+                        "name": "ipconfig1",
+                        "properties": {
+                            "privateIPAllocationMethod": "Dynamic",
+                            "subnet": {
+                                "id": "[variables('vmNameSubnetRef')]"
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "[parameters('vmNameName')]",
+            "type": "Microsoft.Compute/virtualMachines",
+            "location": "[resourceGroup().location]",
+            "apiVersion": "2015-05-01-preview",
+            "dependsOn": [
+                "[concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountNameName'))]",
+                "[concat('Microsoft.Network/networkInterfaces/', variables('vmNameNicName'))]"
+            ],
+            "tags": {
+                "displayName": "vmName"
+            },
+            "properties": {
+                "hardwareProfile": {
+                    "vmSize": "[variables('vmNameVmSize')]"
+                },
+                "osProfile": {
+                    "computerName": "[parameters('vmNameName')]",
+                    "adminUsername": "[parameters('vmNameAdminUsername')]",
+                    "adminPassword": "[parameters('vmNameAdminPassword')]"
+                },
+                "storageProfile": {
+                    "imageReference": {
+                        "publisher": "[variables('vmNameImagePublisher')]",
+                        "offer": "[variables('vmNameImageOffer')]",
+                        "sku": "[parameters('vmNameWindowsOSVersion')]",
+                        "version": "latest"
+                    },
+                    "osDisk": {
+                        "name": "vmNameOSDisk",
+                        "vhd": {
+                            "uri": "[concat('http://', parameters('storageAccountNameName'), '.blob.core.windows.net/', variables('vmNameStorageAccountContainerName'), '/', variables('vmNameOSDiskName'), '.vhd')]"
+                        },
+                        "caching": "ReadWrite",
+                        "createOption": "FromImage"
+                    }
+                },
+                "networkProfile": {
+                    "networkInterfaces": [
+                        {
+                            "id": "[resourceId('Microsoft.Network/networkInterfaces', variables('vmNameNicName'))]"
+                        }
+                    ]
+                }
+            }
+        }
+    ],
+    "outputs": {
+    }
 }
 ```
+
 ## Resources and References
 
 https://azure.microsoft.com/en-us/documentation/articles/resource-group-authoring-templates/
