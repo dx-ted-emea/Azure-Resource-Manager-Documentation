@@ -184,7 +184,7 @@ This is an optional section, were you can specify the values to be returned from
 |value	|Yes	|Template language expression which will be evaluated and returned as output value|
 
 ## Template Sample - simple compute deployment
-The following template creates a virtual network with 2 subnets, a network interface, storage account and a Windows virtual machine. The json file can be found in this directoy [simple-win-vm-sample.json](simple-win-vm-sample.json)
+The following template creates a virtual network with 2 subnets, a network interface, storage account and a Windows virtual machine. The json file can be found in this directoy [simple-win-vm-sample.json](json/simple-win-vm-sample.json)
 ```
 {
   "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
