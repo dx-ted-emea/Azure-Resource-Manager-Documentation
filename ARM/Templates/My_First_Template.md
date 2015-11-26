@@ -71,6 +71,7 @@ The full template can be found in this directory - [sample_arc_template.json](sa
   }
 ```
 ## 2 Public IPs for the VMs
+Use the **copyindex()** fucntion that loops over the value of **numberOfIntances** variables to create 2 public ips.
 ```
  {
       "apiVersion": "2015-05-01-preview",
