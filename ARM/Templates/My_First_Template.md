@@ -89,7 +89,7 @@ The full template can be found in this directory - [sample_arc_template.json](sa
       }
   }
 ```
-## Load Balancer
+## Load Balancer with load balancing rule
 ```
 {
       "apiVersion": "2015-05-01-preview",
