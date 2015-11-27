@@ -13,7 +13,7 @@
   
 ## [Azure Resource Manager Templates](Templates/README.md)
  * [Templates Basic Concepts](Templates/Templates_Basics.md)
- * [Templates Advanced Authoring](Templates/Tempalte_Advanced_Authoring.md)
+ * [Templates Advanced Authoring](Templates/Template_Advanced_Authoring.md)
  * [Create Your First Template](Templates/My_First_Template.md)
  * [Deploy a Template](Templates/Template_Deploy.md)
  * Extensions
