@@ -167,6 +167,37 @@ This section defines the resouces to create or update in the deployment. Each re
 |properties	|No	|Resource specific configuration settings|
 |resources	|No	|Child resources that depend on the resource being defined|
 
+For a full list of the resource providers namespaces, you can call a powershell command:
+```
+Get-AzureRmResourceProvider -ListAvailable
+```
+To get resource type names, locations and supported versions for a specific resource:
+```
+(Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute).ResourceTypes
+```
+Here is the output for the **Compute** provider:
+```
+ResourceTypeName                                          Locations                                    ApiVersions                     
+----------------                                          ---------                                    -----------                     
+availabilitySets                                          {East US, East US 2, West US, Central US...} {2015-06-15, 2015-05-01-preview}
+virtualMachines                                           {East US, East US 2, West US, Central US...} {2015-06-15, 2015-05-01-preview}
+virtualMachines/extensions                                {East US, East US 2, West US, Central US...} {2015-06-15, 2015-05-01-preview}
+virtualMachines/diagnosticSettings                        {East US, East US 2, West US, Central US...} {2014-04-01}                    
+virtualMachines/metricDefinitions                         {East US, East US 2, West US, Central US...} {2014-04-01}                    
+virtualMachineScaleSets                                   {East US, East US 2, West US, Central US...} {2015-06-15, 2015-05-01-preview}
+virtualMachineScaleSets/extensions                        {East US, East US 2, West US, Central US...} {2015-06-15, 2015-05-01-preview}
+virtualMachineScaleSets/virtualMachines                   {East US, East US 2, West US, Central US...} {2015-06-15, 2015-05-01-preview}
+virtualMachineScaleSets/networkInterfaces                 {East US, East US 2, West US, Central US...} {2015-06-15, 2015-05-01-preview}
+virtualMachineScaleSets/virtualMachines/networkInterfaces {East US, East US 2, West US, Central US...} {2015-06-15, 2015-05-01-preview}
+locations                                                 {}                                           {2015-06-15, 2015-05-01-preview}
+locations/operations                                      {East US, East US 2, West US, Central US...} {2015-06-15, 2015-05-01-preview}
+locations/vmSizes                                         {East US, East US 2, West US, Central US...} {2015-06-15, 2015-05-01-preview}
+locations/usages                                          {East US, East US 2, West US, Central US...} {2015-06-15, 2015-05-01-preview}
+locations/publishers                                      {East US, East US 2, West US, Central US...} {2015-06-15, 2015-05-01-preview}
+operations                                                {East US, East US 2, West US, Central US...} {2015-06-15, 2015-05-01-preview}
+```
+If you want to create a virtual machine, the value of **type** will be a combination of the compute namespace Microsoft.Compute and the resource type name virtualMachines: Microsoft.Compute/virtualMachines.
+
 ### Output
 This is an optional section, were you can specify the values to be returned from the deployment.
 ```
