@@ -1,7 +1,7 @@
 # Azure Resource Manager Java SDK
 
 ## Overview 
-The Azure Resource Manager SDK is hosted in github [Azure Java SDK repostiory](https://github.com/azure/azure-sdk-for-java). The current SDK version is 0.8.0. Note that at the time of writing this the SDK is in **preview**. 
+The Azure Resource Manager SDK is hosted in github [Azure Java SDK repostiory](https://github.com/azure/azure-sdk-for-java). Note that at the time of writing this the SDK is in **preview**. 
 
 The following packages are available:
 * Compute Management: (azure-mgmt-compute)
@@ -50,6 +50,7 @@ The SDK includes helper classes for several of the main packages. The helper cla
     <version>0.8.0</version>
 </dependency>
 ```
+This will use the 0.8.0 version of the utility package. Find all the packages in the [maven public repository](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.microsoft.azure%22)
 
 ## Authentication
 Authentication against the Azure Resource Manager is achieved using a Service Principal. A complete walkthrough can be found in the [ARM Security and Authentication](ARM/Security.md) section in this repository. 
@@ -59,8 +60,11 @@ After creating the service principal, you should have:
 2. Client secret (string)
 3. Tenant id (GUID) or domain name (string)
 
-Example usage can be found in the SQK sample [ServicePrincipalExample](https://github.com/Azure/azure-sdk-for-java/blob/master/azure-mgmt-samples/src/main/java/com/microsoft/azure/samples/authentication/ServicePrincipalExample.java) class. 
-You can also use the [AuthHelper](https://github.com/Azure/azure-sdk-for-java/blob/master/resource-management/azure-mgmt-utility/src/main/java/com/microsoft/azure/utility/AuthHelper.java) class:
+Once you have this values, you can obtain an Active Directory Access Token. This token is valid for one hour, and can be refreshed to last 14 days. Read more about AD toekn lifetime [here](http://www.cloudidentity.com/blog/2015/03/20/azure-ad-token-lifetime/).
+
+The Java SDK include a helper class [AuthHelper](https://github.com/Azure/azure-sdk-for-java/blob/master/resource-management/azure-mgmt-utility/src/main/java/com/microsoft/azure/utility/AuthHelper.java) that creates the access token, once provided with the client id, secret and tanant id.
+
+Example usage  [ServicePrincipalExample](https://github.com/Azure/azure-sdk-for-java/blob/master/azure-mgmt-samples/src/main/java/com/microsoft/azure/samples/authentication/ServicePrincipalExample.java): 
 ```
 public static Configuration createConfiguration() throws Exception {
         String baseUri = System.getenv("arm.url");
@@ -136,3 +140,6 @@ More samples can be found in the samples packages under [templatedeployments](ht
 ## Further Reading and Help
 Azure SDK for Java documentation: [Java docs](http://azure.github.io/azure-sdk-for-java/)
 If you encounter any bugs with the SDK please file an issue via [Issues](https://github.com/Azure/azure-sdk-for-java/issues) or checkout [StackOverflow for Azure Java SDK](http://stackoverflow.com/questions/tagged/azure-java-sdk).
+
+## Resource and References
+http://www.cloudidentity.com/blog/2015/03/20/azure-ad-token-lifetime/
