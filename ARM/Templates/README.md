@@ -6,7 +6,7 @@ You can also use the template for updates to the infrastructure; If the template
 Azure Resource Manager performs an update instead of creating a new asset. Azure Resource Manager updates the existing asset to the same state as it would be as new.
 
 * [Templates Basic Concepts](Templates_Basics.md)
-* [Templates Advanced Authoring](Tempalte_Advanced_Authoring.md)
+* [Templates Advanced Authoring](Template_Advanced_Authoring.md)
 * [Create Your First Template](My_First_Template.md)
 * [Deploy a Template](Template_Deploy.md)
  
