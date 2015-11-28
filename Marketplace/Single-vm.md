@@ -38,21 +38,77 @@ If you took waagent from source make these steps to install waagent :
 * copy 'waagent' file to /usr/sbin 
 * chmod 755 /usr/sbin/waagent; /usr/sbin/waagent install
 * wagent config is placed here: /etc/waagent.conf
-* Don't forget about (waagent manual)[https://github.com/Azure/WALinuxAgent/blob/2.0/README]
+* Don't forget about [waagent manual](https://github.com/Azure/WALinuxAgent/blob/2.0/README)
 
 Another libraries which you should take care about are :
-* Linux Integration Services (LIS) driver should be installed, current version is v4 : (Linux Integration Services Version 4.0 for Hyper-V)[https://www.microsoft.com/en-us/download/details.aspx?id=46842]
+* Linux Integration Services (LIS) driver should be installed, current version is v4 : [Linux Integration Services Version 4.0 for Hyper-V](https://www.microsoft.com/en-us/download/details.aspx?id=46842)
 * Python 2.6+  and pyasn1 ( Abstract Syntax Notation v1) package
 * OpenSLL v1.0+
 * Magical Kernel Patch for Azure I/O - usually included in latests distros from this list [Linux on Azure-Endorsed Distributions](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-endorsed-distributions/), take care about non-listed kernels.
 
 
+### Kernel configuration and Logical Volume Manager (LVM) 
+
+* OS has to be placed on single root partition
+*  SWAP space (if it needed ) can be created on the local resource disk with the Linux Agent by enable swap in  /etc/waagent.conf. It will automatically use the resource disk (which comes with every VM) to create the swap. There's no need to create a disk for it. It's highly recommended to put SWAP space onto temp drive because of performance reasons : more details see [Cool things with Linux in Azure](http://bokov.net/weblog/azure/configure-linux-in-azure).
+* Serial console output must be always enabled even if you not allow any SSH to your VM ( and our support may provide you output from serial console )
+*  Add good enough timeout for mounting cloud based storage device
+*  Add this to kernel boot line “console=ttyS0 earlyprintk=ttyS0 rootdelay=300”
+
+Do not :
+* Do not use LVM Logical Volume Manager
+* Do not use swap on OS or data disk
 
 
-### Kernel and Logical Volume Manager (LVM) 
 ### Network and SSH daemon
+We recommend enable SSH for the end user, add keep live into sshd_config by ClientAliveInterval settings - acceptable range of ClientAliveInterval is 30 to 235, recommended 180. Networking configuration should use ifcfg-eth0 file and manage it  via the ifup/ifdown. Also please make sure that network device is brought up on boot and uses DHCP
+Do not:
+* Do not install Network Manager package - it conflicts with waagent.
+* No custom network configuration and resolv.conf file ( please “rm /etc/resolv.conf” ).
+* Do not configure IPv6 – it’s not supported yet.
+
 ### Security tips 
+Do classics : 
+* install all security patches for your distribution ( sudo apt-get update;sudo apt-get upgrade) / follow distribution security guidelines / clean up bash history
+P* lease take care about root - the image should not contain a root password  (!!!!!!) – delete it and check /etc/shadow and /etc/passwd.
+* Add firewall i.e. include iptables, but do not enable any rules – default expectation from customer is that they may easily enable it right after VM is started.
+Do not:
+* Store your Azure account credentials on VM image (!!!!!)
+* Do not create default accounts, which remain the same, across provisioning instances
+
+
 ### Generalize image
+
+OS VHD must be deprovisioned: “waagent deprovision”. This command does:
+*Removes the nameserver configuration in /etc/resolv.conf
+*Removes cached DHCP client leases
+*Resets host name to localhost.localdomain
+We recommend setting /etc/waagent.conf to ensure the following actions are also completed:
+*Remove all SSH host keys:    Provisioning.RegenerateSshHostKeyPair='y'
+*Remore root password from /etc/shadow : Provisioning.DeleteRootPassword='y‘
+
+#### Example of /etc/waagent.conf 
+```
+# Azure Linux Agent Configuration   
+Role.StateConsumer=None 
+Role.ConfigurationConsumer=None 
+Role.TopologyConsumer=None
+Provisioning.Enabled=y
+Provisioning.DeleteRootPassword=n
+Provisioning.RegenerateSshHostKeyPair=y
+Provisioning.SshHostKeyPairType=rsa
+Provisioning.onitorHostName=y
+ResourceDisk.Format=y
+ResourceDisk.Filesystem=ext4
+ResourceDisk.MountPoint=/mnt/resource 
+ResourceDisk.EnableSwap=n 
+ResourceDisk.SwapSizeMB=0
+LBProbeResponder=y
+Logs.Verbose=n
+OS.RootDeviceScsiTimeout=300
+OS.OpensslPath=None
+```
+
 
 
 
