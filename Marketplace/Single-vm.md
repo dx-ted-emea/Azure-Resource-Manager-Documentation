@@ -23,7 +23,32 @@ It's recommened to create VM image for marketplace based on already published ba
 Before going deep in that area I would like to note that if you're creating images based on images from portal you can skip first steps and go directly to p.5 [Security tips]
 
 ### VHD requirements
-### Azure Linux agent ( waagent )  and required libs/packages 
+
+Main requirements regarding VHD are quite simple:
+   *  The Linux OS VHD in your VM Image should be created as a 30GB — 50GB fixed format VHD. 
+   *  It cannot be less than 30GB. If the physical size is less than VHD size, the VHD should be sparse. 
+   *  Linux VHDs larger than 50GB will be considered on a case by case basis. If you treat this as required please take a look onto [Mutli VM templates](Mutil-vm.md) - make be they will be better option for you.
+
+Good reference regarding that topic is [Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-create-upload-vhd)
+
+### Azure Linux agent ( waagent ) and required libs/packages 
+
+The Azure Linux agent (waagent) provides key functions for deploying Linux IaaS deployment in Azure, such as image provisioning and networking capabilities. You get this agent from repos RPM/Deb packages  [Linux on Azure-Endorsed Distributions](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-endorsed-distributions/) or from (github.com/Azure/WALinuxAgent)[https://github.com/Azure/WALinuxAgent]. 
+If you took waagent from source make these steps to install waagent :
+* copy 'waagent' file to /usr/sbin 
+* chmod 755 /usr/sbin/waagent; /usr/sbin/waagent install
+* wagent config is placed here: /etc/waagent.conf
+* Don't forget about (waagent manual)[https://github.com/Azure/WALinuxAgent/blob/2.0/README]
+
+Another libraries which you should take care about are :
+* Linux Integration Services (LIS) driver should be installed, current version is v4 : (Linux Integration Services Version 4.0 for Hyper-V)[https://www.microsoft.com/en-us/download/details.aspx?id=46842]
+* Python 2.6+  and pyasn1 ( Abstract Syntax Notation v1) package
+* OpenSLL v1.0+
+* Magical Kernel Patch for Azure I/O - usually included in latests distros from this list [Linux on Azure-Endorsed Distributions](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-endorsed-distributions/), take care about non-listed kernels.
+
+
+
+
 ### Kernel and Logical Volume Manager (LVM) 
 ### Network and SSH daemon
 ### Security tips 
