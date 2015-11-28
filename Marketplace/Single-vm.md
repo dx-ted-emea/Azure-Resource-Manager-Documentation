@@ -141,7 +141,7 @@ For those who not yet familiar with Azure portal here's place where RDP connecti
 !(/images/rdp-connect-button-azure-portal.png)
 
 In case if your PC under domain don't forget to add '/' in the beginning, unless you will try to connect with your domain credentials ( and in most cases you'll fail, unless you not specially configure your AD for that purpose :-))
-!(/images/rdp-cred-hint.png)
+![RDP credentials hint for domain users](/images/rdp-cred-hint.png)
 
 
 
