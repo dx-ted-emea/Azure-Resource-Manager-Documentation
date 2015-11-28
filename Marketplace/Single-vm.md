@@ -262,7 +262,18 @@ _todo_ : command_line_reference
 
 After testing is done and you ready to publish your offer you need to let us to know where your VHD is - marketplace team will took this images and process it through publication process. Note: you need to share your _generalized_ VHD. In publisher portal interface there's a field where you need to put a link on your VHD :
 
-![VM image link](/Marketplace/imagesazure-publisher-portal-vm-image-link.png)
+![VM image link](/Marketplace/images/azure-publisher-portal-vm-image-link.png)
+
+Thing is what by default you VHD images inside your storage accounts are not accessible outside of your subscription, so to give access to that particular VHD to us you need to change default settings and make this VHD read-only for others. Recommened way for that is to generate temporary read-only credentials - Shared Access Signatures Uniform Resource Identifier  ( SAS URI - actually it looks like URL with params ) which will have some restrictions in time ( we recommend set up that period to minimum 7 business days ) and use this credentials in that dialog in publisher portal.
+The SAS URI created should adhere to the following requirements :
+* When generating SAS URIs for your VHDs, List and Read-Only permissions are sufficient. Do not provide Write or Delete access.
+* The duration for access should be a minimum of 7 business days from when the SAS URI is created.
+* To avoid immediate errors due to clock skews, specify a time 15 minutes before the current time.
+
+Simplest way to do that is to use open sourced (AzureStorageExplorer tool)[http://AzureStorageExplorer.codeplex.com].
+
+
+
 
 
 
