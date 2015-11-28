@@ -126,7 +126,7 @@ Best thing to begi is create a VM from one of the following images, located at t
 * SQL Server 2008 R2 SP2 Enterprise/Standard/Web
 These links can also be found in the Publishing Portal under the SKU page.
 Main idea for this requirement is to use well-patched and updated Windows Server kernel, currently this requirement means thatt you may use  Windows Server Images published after September 8, 2014 :
-!(/images/azure-publisher-portal.png)
+!(/Marketplace/images/azure-publisher-portal.png)
 
 #### Create Windows Server VM image
 
@@ -138,10 +138,37 @@ Hints:
 #### Customize your Windows Server VM using RDP
 
 For those who not yet familiar with Azure portal here's place where RDP connection can be initiated - just click on that button
-!(/images/rdp-connect-button-azure-portal.png)
+!(/Marketplace/images/rdp-connect-button-azure-portal.png)
 
 In case if your PC under domain don't forget to add '/' in the beginning, unless you will try to connect with your domain credentials ( and in most cases you'll fail, unless you not specially configure your AD for that purpose :-))
 ![RDP credentials hint for domain users](/Marketplace/images/rdp-cred-hint.png)
+
+If you by some reason would like to use command line you can that for opening RDP as well: 
+You can use powershell to access your VM (we expect that you already have RDP file in c:\tools )
+```
+Get-AzureAccount
+Get-AzureVM
+Get-AzureRemoteDesktopFile -ServiceName "abokov-ws2012DC" -Name "abokov-ws2012DC" -LocalPath "C:\tools\abokov-ws2012DC.rdp"
+```
+
+#### Configure Windows Server VM
+
+*The Windows OS VHD in your VM Image should be created as a 128 GB fixed format VHD. If the physical size is less than 128GB, the VHD should be sparse. Base images of recommended Windows Server are already meet this, just don’t charge defaults.
+*Install patches, especially critical and security
+* *important* No configuration should rely on drives other than C:\ or D:\, since these are the only two drives that are always guaranteed to exist. C:\ is the OS disk and D:\ is the temporary local disk.
+* Please don’t keep your Azure credentials inside images
+
+#### Generalize Windows Server VM
+
+Windows images should be sysprep’ed  - run command line ( not PowerShell! ), change directory to “c:\windows\system32\sysprep”
+ “sysprep.exe /generalize /oobe /shutdown”
+Remote Desktop Connection will be closed immediately
+Wait for generalize and shutdown…
+
+!(/Marketplace/images/sysprep-windows-server-vm-azure.png)
+
+
+
 
 
 
