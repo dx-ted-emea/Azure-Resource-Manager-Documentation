@@ -5,6 +5,11 @@ This document dedicated to single virtual machine apps in Marketplace
 
 Publishing single VM image is one of the easiest ways to publish your application in Azure Marketplace and this can be recommened as a first step for using Azure Marketplace for software vendors. 
 
+[Common requirements]
+[Practical recommendations]
+[Linux VM]
+[Windows Server VM]
+
 ## Common requirements
 
 * Your VM image (aka SKU) should works on all existing ( and future) VM sizes – from A0 ( one shared CPU core, 0.75 GB RAM) up to G5 (32 CPU cores, 448 GB RAM ).
@@ -12,7 +17,7 @@ Publishing single VM image is one of the easiest ways to publish your applicatio
 * When deciding on the disk size, please keep in mind that end users cannot resize VHDs within an image.
 * Data disks can be empty or contain data
 
-## Practical recommendation
+## Practical recommendations
 
 It's recommened to create VM image for marketplace based on already published basic images from portal - it will simplify process a lot and seriously eliminate risks of any kernel components level issues. Using images from portal gallery ( basic OS images ) makes you sure that this image already have all kernel level components are properly installed and configured and what you need is just add your application layer components into that image. From practical side it means that you run VM in Azure portal based on OS which you would like to use, install your application, configure it, test, etc and do everything in Azure cloud - this is workflow makes everything much easier from practical point of view and help you to prevent struggle with very hard-to-find issues during production. Only in very few cases in might sense to create VM image based on-premise HyperV environment and in this case you have to be very carefull about configuration/versioning kernel level components/OS version and also in that case please be ready to spend some time on debugging your image in Azure cloud, digging deep into OS logs and other kernel level tasks.
 
@@ -50,7 +55,7 @@ Another libraries which you should take care about are :
 ### Kernel configuration and Logical Volume Manager (LVM) 
 
 * OS has to be placed on single root partition
-*  SWAP space (if it needed ) can be created on the local resource disk with the Linux Agent by enable swap in  /etc/waagent.conf. It will automatically use the resource disk (which comes with every VM) to create the swap. There's no need to create a disk for it. It's highly recommended to put SWAP space onto temp drive because of performance reasons : more details see [Cool things with Linux in Azure](http://bokov.net/weblog/azure/configure-linux-in-azure).
+*  SWAP space (if it needed ) can be created on the local resource disk with the Linux Agent by enable swap in  /etc/waagent.conf. It will automatically use the resource disk (which comes with every VM) to create the swap. There's no need to create a disk for it. It's highly recommended to put SWAP space onto temp drive because of performance reasons : more details see [Linux in Azure](http://bokov.net/weblog/azure/configure-linux-in-azure).
 * Serial console output must be always enabled even if you not allow any SSH to your VM ( and our support may provide you output from serial console )
 *  Add good enough timeout for mounting cloud based storage device
 *  Add this to kernel boot line “console=ttyS0 earlyprintk=ttyS0 rootdelay=300”
@@ -108,6 +113,69 @@ Logs.Verbose=n
 OS.RootDeviceScsiTimeout=300
 OS.OpensslPath=None
 ```
+
+## Windows Server VM
+
+### Base image for virtual machine
+
+The OS VHD for your VM Image must be based on a Microsoft Azure-approved base image, containing Windows Server or SQL Server.
+Best thing to begi is create a VM from one of the following images, located at the Microsoft Azure Portal (portal.azure.com), currently basic images are ( you always can see updates list in Azure portal - or just use default Windows Server image ):
+* Windows Server 2012 R2 Datacenter, 2012 Datacenter, 2008 R2 SP1
+* SQL Server 2014 Enterprise/Standard/Web
+* SQL Server 2012 SP2 Enterprise/Standard/Web
+* SQL Server 2008 R2 SP2 Enterprise/Standard/Web
+These links can also be found in the Publishing Portal under the SKU page.
+Main idea for this requirement is to use well-patched and updated Windows Server kernel, currently this requirement means thatt you may use  Windows Server Images published after September 8, 2014 :
+!(/Marketplace/images/azure-publisher-portal.png)
+
+#### Create Windows Server VM image
+
+Actually what you do is create VM under Azure portal, that’s all.
+Hints:
+* Choose US-* region for deployment, it would helps during certification process because when you will submit your image for certification team
+* We highly recommend to do all thing in cloud, create/customize/configure VM on-premise under Hyper-V technically correct and will work if you follow documentation, but we don’t recommend it in most cases. Reality is that using on-premise for this purpose makes whole process much longer and brings very hard-to-find issues when VM is finally goes to cloud.
+
+#### Customize your Windows Server VM using RDP
+
+For those who not yet familiar with Azure portal here's place where RDP connection can be initiated - just click on that button
+!(/Marketplace/images/rdp-connect-button-azure-portal.png)
+
+In case if your PC under domain don't forget to add '/' in the beginning, unless you will try to connect with your domain credentials ( and in most cases you'll fail, unless you not specially configure your AD for that purpose :-))
+![RDP credentials hint for domain users](/Marketplace/images/rdp-cred-hint.png)
+
+If you by some reason would like to use command line you can that for opening RDP as well: 
+You can use powershell to access your VM (we expect that you already have RDP file in c:\tools )
+```
+Get-AzureAccount
+Get-AzureVM
+Get-AzureRemoteDesktopFile -ServiceName "abokov-ws2012DC" -Name "abokov-ws2012DC" -LocalPath "C:\tools\abokov-ws2012DC.rdp"
+```
+
+#### Configure Windows Server VM
+
+*The Windows OS VHD in your VM Image should be created as a 128 GB fixed format VHD. If the physical size is less than 128GB, the VHD should be sparse. Base images of recommended Windows Server are already meet this, just don’t charge defaults.
+*Install patches, especially critical and security
+* *important* No configuration should rely on drives other than C:\ or D:\, since these are the only two drives that are always guaranteed to exist. C:\ is the OS disk and D:\ is the temporary local disk.
+* Please don’t keep your Azure credentials inside images
+
+#### Generalize Windows Server VM
+
+Windows images should be sysprep’ed  - run command line ( not PowerShell! ), change directory to “c:\windows\system32\sysprep”
+* “sysprep.eex /generalize /oobe /shutdown”
+* Please be aware Remote Desktop Connection will be closed immediately
+*  Wait for generalize and shutdown…
+!(/Marketplace/images/sysprep-windows-server-vm-azure.png)
+
+After this process will be finished your generalized images will be in your VM VHD. For example in current portal you may find that link to VHD  here :
+!(/Marketplace/images/azure-portal-link-to-vhd.png)
+
+
+
+
+
+
+
+
 
 
 
