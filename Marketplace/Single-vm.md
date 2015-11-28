@@ -9,6 +9,7 @@ Publishing single VM image is one of the easiest ways to publish your applicatio
 [Practical recommendations]
 [Linux VM]
 [Windows Server VM]
+[Test your image]
 
 ## Common requirements
 
@@ -114,6 +115,9 @@ OS.RootDeviceScsiTimeout=300
 OS.OpensslPath=None
 ```
 
+After you made all changes and already have generalized VHD ( please see ) - you may go to [Test your image] section.
+
+
 ## Windows Server VM
 
 ### Base image for virtual machine
@@ -126,7 +130,7 @@ Best thing to begi is create a VM from one of the following images, located at t
 * SQL Server 2008 R2 SP2 Enterprise/Standard/Web
 These links can also be found in the Publishing Portal under the SKU page.
 Main idea for this requirement is to use well-patched and updated Windows Server kernel, currently this requirement means thatt you may use  Windows Server Images published after September 8, 2014 :
-!(/Marketplace/images/azure-publisher-portal.png)
+![Azure publisher portal](/Marketplace/images/azure-publisher-portal.png)
 
 #### Create Windows Server VM image
 
@@ -138,7 +142,7 @@ Hints:
 #### Customize your Windows Server VM using RDP
 
 For those who not yet familiar with Azure portal here's place where RDP connection can be initiated - just click on that button
-!(/Marketplace/images/rdp-connect-button-azure-portal.png)
+![RDP connect](/Marketplace/images/rdp-connect-button-azure-portal.png)
 
 In case if your PC under domain don't forget to add '/' in the beginning, unless you will try to connect with your domain credentials ( and in most cases you'll fail, unless you not specially configure your AD for that purpose :-))
 ![RDP credentials hint for domain users](/Marketplace/images/rdp-cred-hint.png)
@@ -164,10 +168,95 @@ Windows images should be sysprep’ed  - run command line ( not PowerShell! ), c
 * “sysprep.eex /generalize /oobe /shutdown”
 * Please be aware Remote Desktop Connection will be closed immediately
 *  Wait for generalize and shutdown…
-!(/Marketplace/images/sysprep-windows-server-vm-azure.png)
+![Sysprep dialog](/Marketplace/images/sysprep-windows-server-vm-azure.png)
+
+
+# Test your image
+
+#### Link to generalized VHD
 
 After this process will be finished your generalized images will be in your VM VHD. For example in current portal you may find that link to VHD  here :
-!(/Marketplace/images/azure-portal-link-to-vhd.png)
+![Your VM VHD link](/Marketplace/images/azure-portal-link-to-vhd.png)
+
+
+#### How to deploy VM from generalized VHD
+
+After your VHD is generalized is ready to be published in Marketplaced, but it really makes sense to do tests before this images goes to other user - so somehow you need to run VM on your just prepated VHD images and check how it works in different scenarios and this related to both Windows Server-based and Linux-based VHDs.
+Ok, so generalized OS VHD from Azure storage account can be registered as a user VM Image which you might test, but thing is that you cannot directly deploy the VM just by providing generalized VHD URL. You need to use the Create VM Image Rest API to register VHDs as a VM Image to run it. There’s two options for that: [Invoke-WebRequest] ( direct calls to REST API ) or [Save-AzureVMIMage] ( very convenient powershell cmdlet - recommended for most of users ).
+
+#### Save-AzureVMImage
+
+This cmdlet allow you easily create VM image based on generalized VHD - for more information you migh refer to [VM Image](https://azure.microsoft.com/en-us/blog/vm-image-blog-post/)
+
+```
+Save-AzureVMImage –ServiceName “myServiceName” –Name “myVMtoCapture” –OSState “Generalized” –ImageName “myAwesomeVMImage” –ImageLabel “This is my Virtual Machine Image” -Verbose
+```
+Next section is about how to do almost the same things by direct REST API calls, if you good with Save-AzureVMImage (as 99.95% of users :-)) feel free to skip that part and go to [Where's my image]
+
+#### Invoke-WebRequest
+
+
+You can use the Invoke-WebRequest cmdlet to create a VM image from command line and example below is about how to create a VM image with an OS and one data disk, this example is taken from that [Guide to create a virtual machine image for the Azure Marketplace](https://azure.microsoft.com/sv-se/documentation/articles/marketplace-publishing-vm-image-creation/) - you might also need to take a look on that post in case if you need additional changes. 
+
+```
+# Image Parameters to Specify
+            $ImageName='myVMImage'
+            $Label='IMAGE_LABEL'
+            $Description='My VM Image to Test'
+            $osCaching='ReadWrite'
+            $os = 'Windows'
+            $state = 'Generalized'
+            $osMediaLink = 'http://mystorageaccount.blob.core.windows.net/vhds/myOSvhd.vhd'
+            $dataCaching='None'
+            $lun='1'
+            $dataMediaLink='http://mystorageaccount.blob.core.windows.net/vhds/mydatavhd.vhd'
+            # Subscription Related Properties
+            $SrvMngtEndPoint='https://management.core.windows.net'
+            $subscription = Get-AzureSubscription -Current -ExtendedDetails
+            $certificate = $subscription.Certificate
+            $SubId = $subscription.SubscriptionId
+            $body =
+            "" +
+                "" + $ImageName + "" +
+                "" + $Label + "" +
+                "" + $Description + "" +
+                "" +
+                    "" + $osCaching + "" +
+                    "" + $state + "" +
+                    "" + $os + "" +
+                    "" + $osMediaLink + "" +
+                "" +
+                "" +
+                        "" +
+                        "" + $dataCaching + "" +
+                        "" + $lun + "" +
+                        "" + $dataMediaLink + "" +
+                        "" +
+                "" +
+            ""
+            $uri = $SrvMngtEndPoint + "/" + $SubId + "/" + "services/vmimages"
+            $headers = @{"x-ms-version" = "2014-06-01"}
+            $response = Invoke-WebRequest -Uri $uri -ContentType "application/xml" -Body $body -Certificate $certificate -Headers $headers -Method POST
+            if ($response.StatusCode -ge 200 -and $response.StatusCode -lt 300)
+            {
+                echo "Accepted"
+            }
+            else
+            {
+                echo "Not Accepted"
+            }
+
+```
+
+
+#### Where's my image
+
+After you create your VM image based on generalized image you may run it from portal or from command line. In Azure portal you may find you image here :
+![VM image](/Marketplace/images/azure-portal-vm-image.png)
+
+_todo_ : command_line_reference
+
+
 
 
 
@@ -197,7 +286,7 @@ Example of some json code
 
 # Overview 
 
-# Building the Offering 
+v# Building the Offering 
 
 # Examples 
 
@@ -213,9 +302,15 @@ Example of some json code
 
 ### Marketplace and Azure certification
 
-[Microsoft Azure Marketplace Publication Guidelines](aka.ms/am-guideline)
+[Microsoft Azure Marketplace Publication Guidelines](aka.ms/am-guideline/)
 
 [Microsoft Azure Certified](https://azure.microsoft.com/en-us/marketplace/partner-program/)
+
+[Guide to create a virtual machine image for the Azure Marketplace](https://azure.microsoft.com/sv-se/documentation/articles/marketplace-publishing-vm-image-creation/)
+
+### Virtual Machines 
+
+[VM Image](https://azure.microsoft.com/en-us/blog/vm-image-blog-post/) - great post about how to create/use/save/etc virtual machine images.
 
 ### Linux 
 [Windows Azure Linux Agent User Guide](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-agent-user-guide/)
