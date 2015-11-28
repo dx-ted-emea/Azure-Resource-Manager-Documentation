@@ -126,7 +126,7 @@ Best thing to begi is create a VM from one of the following images, located at t
 * SQL Server 2008 R2 SP2 Enterprise/Standard/Web
 These links can also be found in the Publishing Portal under the SKU page.
 Main idea for this requirement is to use well-patched and updated Windows Server kernel, currently this requirement means thatt you may use  Windows Server Images published after September 8, 2014 :
-!(images/azure-publisher-portal.png)
+!(/images/azure-publisher-portal.png)
 
 #### Create Windows Server VM image
 
@@ -138,10 +138,10 @@ Hints:
 #### Customize your Windows Server VM using RDP
 
 For those who not yet familiar with Azure portal here's place where RDP connection can be initiated - just click on that button
-!(images/rdp-connect-button-azure-portal.png)
+!(/images/rdp-connect-button-azure-portal.png)
 
 In case if your PC under domain don't forget to add '/' in the beginning, unless you will try to connect with your domain credentials ( and in most cases you'll fail, unless you not specially configure your AD for that purpose :-))
-!(images/rdp-cred-hint.png)
+!(/images/rdp-cred-hint.png)
 
 
 
