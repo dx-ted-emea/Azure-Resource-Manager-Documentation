@@ -55,7 +55,7 @@ Another libraries which you should take care about are :
 ### Kernel configuration and Logical Volume Manager (LVM) 
 
 * OS has to be placed on single root partition
-*  SWAP space (if it needed ) can be created on the local resource disk with the Linux Agent by enable swap in  /etc/waagent.conf. It will automatically use the resource disk (which comes with every VM) to create the swap. There's no need to create a disk for it. It's highly recommended to put SWAP space onto temp drive because of performance reasons : more details see [Cool things with Linux in Azure](http://bokov.net/weblog/azure/configure-linux-in-azure).
+*  SWAP space (if it needed ) can be created on the local resource disk with the Linux Agent by enable swap in  /etc/waagent.conf. It will automatically use the resource disk (which comes with every VM) to create the swap. There's no need to create a disk for it. It's highly recommended to put SWAP space onto temp drive because of performance reasons : more details see [Linux in Azure](http://bokov.net/weblog/azure/configure-linux-in-azure).
 * Serial console output must be always enabled even if you not allow any SSH to your VM ( and our support may provide you output from serial console )
 *  Add good enough timeout for mounting cloud based storage device
 *  Add this to kernel boot line “console=ttyS0 earlyprintk=ttyS0 rootdelay=300”
@@ -161,12 +161,13 @@ Get-AzureRemoteDesktopFile -ServiceName "abokov-ws2012DC" -Name "abokov-ws2012DC
 #### Generalize Windows Server VM
 
 Windows images should be sysprep’ed  - run command line ( not PowerShell! ), change directory to “c:\windows\system32\sysprep”
- “sysprep.exe /generalize /oobe /shutdown”
-Remote Desktop Connection will be closed immediately
-Wait for generalize and shutdown…
-
+* “sysprep.eex /generalize /oobe /shutdown”
+* Please be aware Remote Desktop Connection will be closed immediately
+*  Wait for generalize and shutdown…
 !(/Marketplace/images/sysprep-windows-server-vm-azure.png)
 
+After this process will be finished your generalized images will be in your VM VHD. For example in current portal you may find that link to VHD  here :
+!(/Marketplace/images/azure-portal-link-to-vhd.png)
 
 
 
