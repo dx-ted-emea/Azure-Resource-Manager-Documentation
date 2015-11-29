@@ -21,12 +21,7 @@ Example of some json code
 # Access Control 
 
 Azure Resource Manager enables you to control who has access to specific actions on your resources. It natively integrates OAuth and Role-Based Access Control (RBAC) into the management platform and applies that access control to all services in your resource group. 
-You can add users to pre-defined platform and resource-specific roles and apply those roles to a subscription, resource group or resource to limit access. For example, you can take advantage of the pre-defined role called SQL DB Contributor that permits users to manage databases, but not database servers or security policies. You add users in your organization that need this type of access to the SQL DB Contributor role and apply the role to the subscription, resource group or resource.
-
-In the preview portal, you can define access control by clicking on the access button.
-
-Azure Resource Manager automatically logs user actions for auditing.
-
+You can add users to pre-defined platform and resource-specific roles and apply those roles to a subscription, resource group or resource to limit access. For example, you can grant a user access to a specific virtual machine in a subscription, or give a user the ability to manage all websites in a subscription but no other resources.
 
 
 ## Azure Active Directory Role-based Access Control
@@ -35,6 +30,8 @@ https://azure.microsoft.com/en-us/documentation/articles/role-based-access-contr
 
 
 ## Managing access to resources
+
+Granting a user with specific permissions can be done through the preview portal or through command tools like Azure PowerShell, CLI or REST API.
 
 https://azure.microsoft.com/en-us/documentation/articles/resource-group-rbac/
 
