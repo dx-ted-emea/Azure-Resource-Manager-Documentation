@@ -92,7 +92,137 @@ In this example a parameter of type array is set and used to for names for a web
   } 
 ]
 ```
-## Dependencies
+## Dependencies 
+A Resource Manager resource can have dependencies on other resources - a virtual machine must have a storage account available before its provisioned, a network interface needs a virtual network to be defined first etc.
+
+```
+"resources": [
+   {
+    "name": "<name-of-the-resource>",
+    "type": "<resource-provider-namespace/resource-type-name>",
+    "apiVersion": "<supported-api-version-of-resource>",
+    "location": "<location-of-resource>",
+    "tags": { <name-value-pairs-for-resource-tagging> },
+    "dependsOn": [ <array-of-related-resource-names> ],
+    "properties": { <settings-for-the-resource> },
+    "resources": { <dependent-resources> }
+   }
+]
+```
+**dependson Property**
+
+The dependsOn property on a resource provides the ability to define this dependency for a resource. It's value can be a comma separated list of resource names. The dependencies between resources are evaluated and resources are deployed in their dependent order. When resources are not dependent on each other, they are attempted to be deployed in parallel. The lifecycle of dependsOn is just for deployment and is not available post-deployment.
+Note that using the dependson property may have implications on the deployment performance.
+
+In this example, a nic has an explicit dependency on a vnet and public ip - it will not be provioned until those resources are created:
+```
+{
+      "apiVersion": "2015-05-01-preview",
+      "type": "Microsoft.Network/networkInterfaces",
+      "name": "[variables('nicName')]",
+      "location": "[variables('location')]",
+      "dependsOn": [
+        "[concat('Microsoft.Network/publicIPAddresses/', variables('publicIPAddressName'))]",
+        "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]"
+      ],
+      "properties": {
+        "ipConfigurations": [
+          {
+            "name": "ipconfig1",
+            "properties": {
+              "privateIPAllocationMethod": "Dynamic",
+              "publicIPAddress": {
+                "id": "[resourceId('Microsoft.Network/publicIPAddresses',variables('publicIPAddressName'))]"
+              },
+              "subnet": {
+                "id": "[variables('subnetRef')]"
+              }
+            }
+          }
+        ]
+      }
+    },
+```
+**resources Property**
+
+The resources property of the resource object allows defining child resources of the main resource:
+* Child resources can only be defined 5 levels deep
+* There is no explisit dependency between the main resource and the child resources. This can be defined using the dependson property.
+ 
+In this example we defined a SQL Dataqbase on a SQL Database Server - the SQL Database is a child resource of a SQL Database server resource and depends on it:
+```
+{
+     "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+     "contentVersion": "1.0.0.0",
+     "resources": [
+         {
+             "apiVersion": "2.0",
+             "name": "mysqlserver",
+             "type": "Microsoft.Sql/servers",
+             "location": "West US",
+             "properties": {
+                 "administratorLogin": "admin",
+                 "administratorLoginPassword": "password$123"
+             },
+             "resources": [
+                 {
+                      "apiVersion": "2.0",
+                      "name": "mysqldatabase",
+                      "type": "databases",
+                     "location": "West US",
+                      "dependsOn": [
+                           "[concat('Microsoft.Sql/servers/', 'mysqlserver')]"
+                      ],
+                      "properties": {
+                          "edition": "Web",
+                          "maxSizeBytes": "1073741824"
+                      }
+                 }
+             ]
+         }
+     ]
+}
+```
+
+**reference Function**
+
+This function enables an expression to derive its value from another resource's runtime state and defines an implicit dependency between resources. It is recommened to use reference and not dependson whenever possible to avoid potential performance implications. 
+
+This example create a website and set the connection string for the SQL Database Server we priviosly created, using the reference fucntion:
+```
+{
+    "apiVersion": "2014-04-01",
+    "type": "Microsoft.Web/Sites",
+    "name": "mywebsite",
+    "location": "[parameters('serverLocation')]",
+    "dependsOn": [
+        "[concat('Microsoft.Web/serverFarms/', 'myhostplan')]"
+    ],
+    properties": {
+        "name": "mywebsiteddf",
+        "serverFarm": "myhostplan"
+    },
+    "resources": [{
+        "apiVersion": "2014-04-01",
+        "type": "config",
+        "name": "web",
+        "dependsOn": [
+            "[concat('Microsoft.Web/Sites/', 'mywebsiteddf')]"
+        ],
+        "properties": {
+            "connectionStrings": [{
+                "ConnectionString": "[concat('Data Source=tcp:', reference(concat('Microsoft.Sql/servers/', variables('serverName'))).fullyQualifiedDomainName, ',1433;Initial Catalog=mytestdatabase;User Id=admin@', variables('serverName'), ';Password=', parameters('adminPassword'), ';')]",
+                "Name": "DefaultConnection",
+                "Type": 2
+            }]
+        }
+    }]
+}
+```
+**Resource Links**
+
+A dependency between resources can also continue after deployment - a link between a database and an app for example. Resource link are used to document and provide query capabililty over the relationships between resources post-deployment.
+
 
 ## Linked Templates
 
