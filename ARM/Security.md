@@ -20,10 +20,6 @@ Example of some json code
 
 # Access Control 
 
-Azure Resource Manager enables you to control who has access to specific actions on your resources. It natively integrates OAuth and Role-Based Access Control (RBAC) into the management platform and applies that access control to all services in your resource group. 
-You can add users to pre-defined platform and resource-specific roles and apply those roles to a subscription, resource group or resource to limit access. For example, you can grant a user access to a specific virtual machine in a subscription, or give a user the ability to manage all websites in a subscription but no other resources.
-
-
 ## Azure Active Directory Role-based Access Control
 
 
