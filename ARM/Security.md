@@ -32,14 +32,9 @@ Each subscription in Azure belongs to one and only one directory, each resource 
 
 Classic administrators (service-admin and co-admins) have full access to the Azure subscription. In the RBAC model, classic administrators are assigned the Owner role at the subscription scope. The finer-grained authorization model (Azure RBAC) is supported only by the [new management portal](https://portal.azure.com) and Azure Resource Manager APIs.
 
-For more information and instructions how to grant access using the Azure Management Portal, Azure Command-Line tools and Azure Management APIs see: [Azure Active Directory Role-based Access Control](https://azure.microsoft.com/en-us/documentation/articles/role-based-access-control-configure/)
+For more information and instructions how to grant access using the Azure Management Portal, see: [Azure Active Directory Role-based Access Control](https://azure.microsoft.com/en-us/documentation/articles/role-based-access-control-configure/)
+For granting access through command tools like Azure PowerShell, CLI or REST API see: [Managing access to resources](https://azure.microsoft.com/en-us/documentation/articles/resource-group-rbac/)
 
-
-## Managing access to resources
-
-Granting a user with specific permissions can be done through the preview portal or through command tools like Azure PowerShell, CLI or REST API.
-
-https://azure.microsoft.com/en-us/documentation/articles/resource-group-rbac/
 
 ## logging and Audit operations with Resource Manager
 
