@@ -167,6 +167,8 @@ This section defines the resouces to create or update in the deployment. Each re
 |properties	|No	|Resource specific configuration settings|
 |resources	|No	|Child resources that depend on the resource being defined|
 
+#### Querying provides - PowerShell
+
 For a full list of the resource providers namespaces, you can call a powershell command:
 ```
 Get-AzureRmResourceProvider -ListAvailable
@@ -175,7 +177,7 @@ To get resource type names, locations and supported versions for a specific reso
 ```
 (Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute).ResourceTypes
 ```
-Here is the output for the **Compute** provider:
+Here is the output for the `Microsoft.Compute` provider:
 ```
 ResourceTypeName                                          Locations                                    ApiVersions                     
 ----------------                                          ---------                                    -----------                     
@@ -196,7 +198,61 @@ locations/usages                                          {East US, East US 2, W
 locations/publishers                                      {East US, East US 2, West US, Central US...} {2015-06-15, 2015-05-01-preview}
 operations                                                {East US, East US 2, West US, Central US...} {2015-06-15, 2015-05-01-preview}
 ```
-If you want to create a virtual machine, the value of **type** will be a combination of the compute namespace Microsoft.Compute and the resource type name virtualMachines: Microsoft.Compute/virtualMachines.
+If you want to create a virtual machine, the value of **type** will be a combination of the compute namespace Microsoft.Compute and the resource type name virtualMachines: `Microsoft.Compute/virtualMachines`.
+
+#### Querying provides - CLI
+
+For a full list of the resource providers namespaces via the CLI use:
+```
+azure provider list
+```
+To get resource type names, locations and supported versions for a specific resource use the command below. Note that the `--json` switch is optional.
+```
+azure provider show Microsoft.Compute --json
+```
+Here is the output for the `Microsoft.Compute` provider:
+```json
+{
+  "resourceTypes": [
+    {
+      "apiVersions": [ 
+          "2015-06-15", 
+          "2015-05-01-preview"
+          ],
+      "locations": ["East US", "East US 2", "West US", "Central US", "South Central US", "North Europe", "West Europe", "East Asia", "Southeast Asia", "Japan East", "Japan West", "North Central US", "Australia East", "Australia Southeast","Brazil South"],
+      "properties": {},
+      "name": "availabilitySets"
+    },
+    {
+      "apiVersions": [
+        "2015-06-15",
+        "2015-05-01-preview"
+      ],
+      "locations": [ "East US", "East US 2", "West US", "Central US", "South Central US", "North Europe", "West Europe", "East Asia", "Southeast Asia", "Japan East", "Japan West", "North Central US", "Australia East", "Australia Southeast", "Brazil South"
+      ],
+      "properties": {},
+      "name": "virtualMachines"
+    },
+    {
+      "apiVersions": [
+        "2015-06-15",
+        "2015-05-01-preview"
+      ],
+      "locations": [ "East US", "East US 2", "West US", "Central US", "South Central US", "North Europe", "West Europe", "East Asia", "Southeast Asia", "Japan East", "Japan West", "North Central US", "Australia East", "Australia Southeast", "Brazil South"
+      ],
+      "properties": {},
+      "name": "virtualMachines/extensions"
+    },
+    // rest of the output omitted for brevity
+  ],
+  "id": "/subscriptions/e96f24a6-ceee-43a3-8ad4-5e5dca55656b/providers/Microsoft.Compute",
+  "namespace": "Microsoft.Compute",
+  "registrationState": "Registered"
+}
+
+
+```
+If you want to create a virtual machine, the value of **type** will be a combination of the compute namespace Microsoft.Compute and the resource type name virtualMachines: `Microsoft.Compute/virtualMachines`.
 
 ### Output
 This is an optional section, were you can specify the values to be returned from the deployment.
