@@ -1,4 +1,5 @@
-# DevOps with Azure Resource Manager
+# Azure Resource Manager Tools
+
 As described in other sections of this documentation, Azure Resource Manager provides a flexible and consistent model to define a Cloud Deployment made of PaaS and IaaS resources in a consistent and repeatable way.
 Of course the next step in this process is to check how this powerful technology can be put to work in a DevOps process where ARM templates are integrating part of the Infrastructure as Code toolkit available to Ops people to rapidly create and instrument Test, Staging and Production environments.
 
