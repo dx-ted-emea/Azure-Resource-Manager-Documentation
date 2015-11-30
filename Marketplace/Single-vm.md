@@ -1,7 +1,7 @@
 ## Single Virtual Machine 
 
 This document dedicated to single virtual machine apps in Marketplace
-*draft* 
+
 
 Publishing single VM image is one of the easiest ways to publish your application in Azure Marketplace and this can be recommened as a first step for using Azure Marketplace for software vendors. 
 
@@ -342,4 +342,5 @@ v# Building the Offering
 ### Tools
 
 [Microsoft Azure Storage Explorer](http://storageexplorer.com/)
+
 
