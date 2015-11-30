@@ -167,7 +167,7 @@ This section defines the resouces to create or update in the deployment. Each re
 |properties	|No	|Resource specific configuration settings|
 |resources	|No	|Child resources that depend on the resource being defined|
 
-#### Querying provides - PowerShell
+#### Querying providers - PowerShell
 
 For a full list of the resource providers namespaces, you can call a powershell command:
 ```
@@ -200,7 +200,7 @@ operations                                                {East US, East US 2, W
 ```
 If you want to create a virtual machine, the value of **type** will be a combination of the compute namespace Microsoft.Compute and the resource type name virtualMachines: `Microsoft.Compute/virtualMachines`.
 
-#### Querying provides - CLI
+#### Querying providers - CLI
 
 For a full list of the resource providers namespaces via the CLI use:
 ```
