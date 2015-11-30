@@ -43,8 +43,7 @@ This reference is available as a [single page](singlepage.md) or [split into mul
 #### [Azure Resource Manager Use Cases](use-cases/README.md)
   * [Scenario 1](Use-cases/Scenario-1.md)
   * [Scenario 2](Use-cases/Scenario-2.md)
-
-#### [Classic to ARM Migration](ARM/classic2ARM_Migration.md)
+  * [Classic to ARM Migration](Use-cases/classic2ARM_Migration.md)
 
 #### [Tips and tricks](Tips-and-tricks/README.md)
 
