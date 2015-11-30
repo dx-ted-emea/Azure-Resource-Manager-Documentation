@@ -29,6 +29,6 @@ Things to discuss:
   * Search?
 * Joining it up
   * Web App + Traffic Manager + Autoscale + Redis + Database
-  * Linux + 
+  * WAF + nginx on Linux in VM Scale Set + MySQL 
 * ???
 
