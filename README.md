@@ -20,7 +20,7 @@ This reference is available as a [single page](singlepage.md) or [split into mul
  * [Security and authentication](ARM/Security.md)
  * [References and resources](ARM/references.md)
 
-#### [SDK and toolkits](ARM/SDKs/README.md)
+#### [SDKs](ARM/SDKs/README.md)
  * [Java SDK](ARM/SDKs/Java-sdk.md)
  * [.NET SDK](ARM/SDKs/Net-sdk.md)
  * [Python SDK](ARM/SDKs/Python-sdk.md)
@@ -28,16 +28,17 @@ This reference is available as a [single page](singlepage.md) or [split into mul
 
 #### [Azure Resource Manager Templates](ARM/Templates/README.md)
  * [Templates Basic Concepts](ARM/Templates/Templates_Basics.md)
+ * [Resource Provider Schema](ARM/Templates/resources_schema.md)
  * [Templates Advanced Authoring](ARM/Templates/Template_Advanced_Authoring.md)
  * [Create Your First Template](ARM/Templates/My_First_Template.md)
  * [Deploy a Template](ARM/Templates/Template_Deploy.md)
 
-#### [DevOps with Azure Resource Manager](DevOps/README.md)
+#### [Tools](DevOps/README.md)
 
- * [Command Line interface](DevOps/CLI.md)
- * [Powershell](DevOps/Powershell.md)
- * [Visual Studio](DevOps/Visual-studio.md)
- * [Preview Portal](DevOps/Portal.md)
+ * [Command Line interface](Tools/CLI.md)
+ * [Powershell](Tools/Powershell.md)
+ * [Visual Studio](Tools/Visual-studio.md)
+ * [Preview Portal](Tools/Portal.md)
 
 #### Design and implement with the Azure Resource Manager – a real use case overview 
   * [Scenario 1](Use-cases/Scenario-1.md)
@@ -46,6 +47,8 @@ This reference is available as a [single page](singlepage.md) or [split into mul
 #### [Classic to ARM Migration](ARM/classic2ARM_Migration.md)
 
 #### [Tips and tricks](Tips-and-tricks/README.md)
+
+####[FAQs](faq.md)
 
 ### [Marketplace](Marketplace/README.md)
 
