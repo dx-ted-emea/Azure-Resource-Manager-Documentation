@@ -1,5 +1,3 @@
-# ARM-Documentation
-
 Azure Resource Manager documentation by TED EMEA team
 
 Main goal of that documentation is to provide full and consistent information about using Azure Resource Manager from beginning level and up to deep dive into many specifiec areas. This documentation is not replacement of existing MSDN or Azure.com articles, but contains all required information
@@ -9,45 +7,43 @@ We tried to make this document easy to read and simple to use - so hope you will
 
 ---
 
-##Contents
-
-### [Azure Resource Manager](ARM/README.md)  
+#[Azure Resource Manager](ARM/README.md)  
 
  * [Introduction into Azure Resource Manager and it's architecture](ARM/Introduction.md)
  * [ARM Benefits](ARM/Benefits.md)
  * [Security and authentication](ARM/Security.md)
  * [References and resources](ARM/references.md)
 
-#### [SDKs](ARM/SDKs/README.md)
+## [SDKs](ARM/SDKs/README.md)
  * [Java SDK](ARM/SDKs/Java-sdk.md)
  * [.NET SDK](ARM/SDKs/Net-sdk.md)
  * [Python SDK](ARM/SDKs/Python-sdk.md)
  * [REST API Reference and deep dive](ARM/SDKs/Rest-api.md)
 
-#### [Azure Resource Manager Templates](ARM/Templates/README.md)
+## [Templates](ARM/Templates/README.md)
  * [Templates Basic Concepts](ARM/Templates/Templates_Basics.md)
  * [Resource Provider Schema](ARM/Templates/resources_schema.md)
  * [Templates Advanced Authoring](ARM/Templates/Template_Advanced_Authoring.md)
  * [Create Your First Template](ARM/Templates/My_First_Template.md)
  * [Deploy a Template](ARM/Templates/Template_Deploy.md)
 
-#### [Tools](DevOps/README.md)
+## [Tools](DevOps/README.md)
 
  * [Command Line interface](Tools/CLI.md)
  * [Powershell](Tools/Powershell.md)
  * [Visual Studio](Tools/Visual-studio.md)
  * [Preview Portal](Tools/Portal.md)
 
-#### [Azure Resource Manager Use Cases](use-cases/README.md)
+## [Use Cases](use-cases/README.md)
   * [Scenario 1](Use-cases/Scenario-1.md)
   * [Scenario 2](Use-cases/Scenario-2.md)
   * [Classic to ARM Migration](Use-cases/classic2ARM_Migration.md)
 
-#### [Tips and tricks](Tips-and-tricks/README.md)
+## [Tips and tricks](Tips-and-tricks/README.md)
 
-####[FAQs](faq.md)
+## [FAQs](faq.md)
 
-### [Marketplace](Marketplace/README.md)
+# [Marketplace](Marketplace/README.md)
 
  * [Introduction](Marketplace/Introduction.md)
  * [Seller dashboard](Marketplace/Seller-dashboard.md)
