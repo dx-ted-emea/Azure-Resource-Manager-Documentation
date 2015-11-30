@@ -7,8 +7,6 @@ about that topic - all in one place, for each part of document there's a list of
 
 We tried to make this document easy to read and simple to use - so hope you will find that doc usefull.
 
-This reference is available as a [single page](singlepage.md) or [split into multiple pages](readme.md).
-
 ---
 
 ##Contents
