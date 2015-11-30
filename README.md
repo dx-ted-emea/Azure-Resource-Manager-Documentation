@@ -40,7 +40,7 @@ This reference is available as a [single page](singlepage.md) or [split into mul
  * [Visual Studio](Tools/Visual-studio.md)
  * [Preview Portal](Tools/Portal.md)
 
-#### Design and implement with the Azure Resource Manager – a real use case overview 
+#### [Azure Resource Manager Use Cases](use-cases/README.md)
   * [Scenario 1](Use-cases/Scenario-1.md)
   * [Scenario 2](Use-cases/Scenario-2.md)
 
