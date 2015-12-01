@@ -12,8 +12,10 @@
  * [REST API Reference and deep dive](SDKs/Rest-api.md)
   
 ## [Azure Resource Manager Templates](Templates/README.md)
- * [Templates Basic Concepts](Templates/Templates_Basics.md)
- * [Templates Advanced Authoring](Templates/Template_Advanced_Authoring.md)
- * [Create Your First Template](Templates/My_First_Template.md)
- * [Deploy a Template](Templates/Template_Deploy.md)
- * Extensions
+* [Templates Basic Concepts](Templates/Templates_Basics.md)
+* [Resource Providers Schema](Templates/Template_resources_schema.md)
+* [Templates Advanced Authoring](Templates/Template_Advanced_Authoring.md)
+* [Template and Resources Links](Templates/Template_links.md)
+* [Create Your First Template](Templates/My_First_Template.md)
+* [Deploy a Template](Templates/Template_Deploy.md)
+* Extensions
