@@ -219,49 +219,10 @@ This example create a website and set the connection string for the SQL Database
     }]
 }
 ```
-### Resource Links
-
-A dependency between resources can also continue after deployment - a link between a database and an app for example. Resource link are used to document and provide query capabililty over the relationships between resources post-deployment.
-
-Links can be established between resources belonging to different resource groups. However, all the linked resources must belong to the same subscription. Each resource can be linked to 50 other resources. If any of the linked resources are deleted or moved, the link owner must clean up the remaining link.
-
-**Resource Links Template schema**
-The link is applied to the source resource. 
-Add the following to the resources section of the tempalte:
-```
-{
-    "type": enum,
-    "apiVersion": "2015-01-01",
-    "name": string,
-    "dependsOn": [ array values ],
-    "properties":
-    {
-        "targetId": string,
-        "notes": string
-    }
-}
-```
-|NAME	|TYPE	|REQUIRED	|PERMITTED VALUES	|DESCRIPTION|
-|-----|-----|-----------|-----------------|-----------|
-|type	|enum	|Yes	|{namespace}/{type}/providers/links|	The resource type to create. The {namespace} and {type} values refer to the provider namespace and resource type of the source resource.|
-|apiVersion	|enum	|Yes	|2015-01-01	|The API version to use for creating the resource.|
-|name	|string	|Yes	|{resouce}/Microsoft.Resources/{linkname} up to 64 characters. It cannot contain <, > %, &, ?, or any control characters.	|A value that specifes both the name of source resource and a name for the link.|
-|dependsOn	|array	|No	|A comma-separated list of a resource names or resource unique identifiers.	|The collection of resources this link depends on. If the resources you are linking are deployed in the same template, include those resource names in this element to ensure they are deployed first.|
-|properties	|object	|Yes	|(shown below)	|An object that identifies the resource to link to, and notes about the link.|
-
-Properties:
-|NAME	|TYPE	|REQUIRED	|PERMITTED VALUES	|DESCRIPTION|
-|targetId	|string	|Yes		|The identifier of the target resource to link to.|
-|notes	|string	|No	|512 characters	|Description of the lock.|
-
-## Linked Templates
 
 ## Resources and References
 https://azure.microsoft.com/en-us/documentation/articles/resource-group-template-functions/#resourceid
-https://azure.microsoft.com/en-us/documentation/articles/resource-group-linked-templates/
 https://azure.microsoft.com/en-us/documentation/articles/resource-group-define-dependencies/
 https://azure.microsoft.com/en-us/documentation/articles/resource-group-create-multiple/
-https://azure.microsoft.com/en-us/documentation/articles/resource-manager-template-links/
-https://msdn.microsoft.com/library/azure/mt238499.aspx
 
 
