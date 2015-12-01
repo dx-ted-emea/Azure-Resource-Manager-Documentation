@@ -109,7 +109,7 @@ A Resource Manager resource can have dependencies on other resources - a virtual
    }
 ]
 ```
-**dependson Property**
+### dependson Property
 
 The dependsOn property on a resource provides the ability to define this dependency for a resource. It's value can be a comma separated list of resource names. The dependencies between resources are evaluated and resources are deployed in their dependent order. When resources are not dependent on each other, they are attempted to be deployed in parallel. The lifecycle of dependsOn is just for deployment and is not available post-deployment.
 Note that using the dependson property may have implications on the deployment performance.
@@ -143,7 +143,7 @@ In this example, a nic has an explicit dependency on a vnet and public ip - it w
       }
     },
 ```
-**resources Property**
+## resources Property
 
 The resources property of the resource object allows defining child resources of the main resource:
 * Child resources can only be defined 5 levels deep
@@ -184,7 +184,7 @@ In this example we defined a SQL Dataqbase on a SQL Database Server - the SQL Da
 }
 ```
 
-**reference Function**
+### reference Function
 
 This function enables an expression to derive its value from another resource's runtime state and defines an implicit dependency between resources. It is recommened to use reference and not dependson whenever possible to avoid potential performance implications. 
 
@@ -219,10 +219,40 @@ This example create a website and set the connection string for the SQL Database
     }]
 }
 ```
-**Resource Links**
+### Resource Links
 
 A dependency between resources can also continue after deployment - a link between a database and an app for example. Resource link are used to document and provide query capabililty over the relationships between resources post-deployment.
 
+Links can be established between resources belonging to different resource groups. However, all the linked resources must belong to the same subscription. Each resource can be linked to 50 other resources. If any of the linked resources are deleted or moved, the link owner must clean up the remaining link.
+
+**Resource Links Template schema**
+The link is applied to the source resource. 
+Add the following to the resources section of the tempalte:
+```
+{
+    "type": enum,
+    "apiVersion": "2015-01-01",
+    "name": string,
+    "dependsOn": [ array values ],
+    "properties":
+    {
+        "targetId": string,
+        "notes": string
+    }
+}
+```
+|NAME	|TYPE	|REQUIRED	|PERMITTED VALUES	|DESCRIPTION|
+|-----|-----|-----------|-----------------|-----------|
+|type	|enum	|Yes	|{namespace}/{type}/providers/links|	The resource type to create. The {namespace} and {type} values refer to the provider namespace and resource type of the source resource.|
+|apiVersion	|enum	|Yes	|2015-01-01	|The API version to use for creating the resource.|
+|name	|string	|Yes	|{resouce}/Microsoft.Resources/{linkname} up to 64 characters. It cannot contain <, > %, &, ?, or any control characters.	|A value that specifes both the name of source resource and a name for the link.|
+|dependsOn	|array	|No	|A comma-separated list of a resource names or resource unique identifiers.	|The collection of resources this link depends on. If the resources you are linking are deployed in the same template, include those resource names in this element to ensure they are deployed first.|
+|properties	|object	|Yes	|(shown below)	|An object that identifies the resource to link to, and notes about the link.|
+
+Properties:
+|NAME	|TYPE	|REQUIRED	|PERMITTED VALUES	|DESCRIPTION|
+|targetId	|string	|Yes		|The identifier of the target resource to link to.|
+|notes	|string	|No	|512 characters	|Description of the lock.|
 
 ## Linked Templates
 
@@ -232,4 +262,6 @@ https://azure.microsoft.com/en-us/documentation/articles/resource-group-linked-t
 https://azure.microsoft.com/en-us/documentation/articles/resource-group-define-dependencies/
 https://azure.microsoft.com/en-us/documentation/articles/resource-group-create-multiple/
 https://azure.microsoft.com/en-us/documentation/articles/resource-manager-template-links/
+https://msdn.microsoft.com/library/azure/mt238499.aspx
+
 
