@@ -1,14 +1,14 @@
 # Azure Markeplace - introduction
 
 Content for marketplace is : 
- * [Seller dashboard](Marketplace/Seller-dashboard.md)
- * [Publish dashboard](Marketplace/Publish-dashboard.md)
- * [Single VM](Marketplace/Single-vm.md)
- * [Multi VM](Marketplace/Multi-vm.md)
- * [VM Extensions](Marketplace/VM-extensions.md)
- * [Developer services](Marketplace/Developer-services.md)
- * [Data services](Marketplace/Data-services.md)
- * [VM Depot - community managed reposity of Linux/FreeBSD images](Marketplace/VM-depot.md)
+ * [Seller dashboard](Seller-dashboard.md)
+ * [Publish dashboard](Publish-dashboard.md)
+ * [Single VM](Single-vm.md)
+ * [Multi VM](Multi-vm.md)
+ * [VM Extensions](VM-extensions.md)
+ * [Developer services](Developer-services.md)
+ * [Data services](Data-services.md)
+ * [VM Depot - community managed reposity of Linux/FreeBSD images](VM-depot.md)
 
 Seller and Publish dashboard sections are first because these parts should be done before any other steps, also VM Depot is quite popular option for community members or 
 for non-licensing/open sourced based editions - so it's also part of extended 'marketplace'.

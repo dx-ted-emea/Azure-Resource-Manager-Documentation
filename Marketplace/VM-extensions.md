@@ -2,6 +2,8 @@
 
 *draft*
 
+
+
 Azure Marketplace is great place to publish your apps
 Here's example of web link [Azure web site](http://azure.microsoft.com//) and the [Azure stuff on github](http://azure.github.io/).
 Wiki also have *another font* which may be usefull too.
