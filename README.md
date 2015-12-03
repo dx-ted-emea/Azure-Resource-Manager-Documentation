@@ -26,7 +26,7 @@ We tried to make this document easy to read and simple to use - so hope you will
  * [Create Your First Template](ARM/Templates/My_First_Template.md)
  * [Deploy a Template](ARM/Templates/Template_Deploy.md)
 
-### [Tools](DevOps/README.md)
+### [Tools](Tools/README.md)
 
  * [Command Line interface](Tools/CLI.md)
  * [Powershell](Tools/Powershell.md)
