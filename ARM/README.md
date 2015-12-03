@@ -3,7 +3,6 @@
  * [Azure Resource Manager and Architecture](Introduction.md)
  * [ARM Benefits](Benefits.md)
  * [Security and authentication](Security.md)
- * [References and resources](references.md)
 
 ## [SDK and toolkits](SDKs/README.md)
  * [Java SDK](SDKs/Java-sdk.md)
@@ -18,4 +17,3 @@
 * [Template and Resources Links](Templates/Template_links.md)
 * [Create Your First Template](Templates/My_First_Template.md)
 * [Deploy a Template](Templates/Template_Deploy.md)
-* Extensions
