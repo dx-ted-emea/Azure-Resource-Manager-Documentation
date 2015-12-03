@@ -1,7 +1,7 @@
 #Azure Resource Manager  
 
  * [Azure Resource Manager and Architecture](Introduction.md)
- * [ARM Benefits](Benefits.md)
+ * [Why ARM](Benefits.md)
  * [Security and authentication](Security.md)
 
 ## [SDK and toolkits](SDKs/README.md)
