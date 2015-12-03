@@ -1,6 +1,90 @@
 # Resources and Templates Linking
 
 ## Linked Templates
+From within one Azure Resource Manager template, you can link to another template which enables you to decompose your deployment into a set of targeted, purpose-specific templates. This enables you to:
+* Reuse, reference common resource templates from parent templates
+* Unit test, divide smaller deployments, and test those small deployments independently.
+* Maintenance & management of larger more complex templates
+
+### Microsoft.Resources/deployments Resource
+Create a template link by adding a deployments resource un the resources section of the template. The schema of the resource is:
+```
+"resources": [ 
+  { 
+     "apiVersion": "2015-01-01", 
+     "name": "resource name", 
+     "type": "Microsoft.Resources/deployments", 
+     "properties": { 
+       "mode": "incremental", 
+       "templateLink": {
+          "uri": "<uri of the template. You can only provide a URI value that includes either http or https.>",
+          "contentVersion": "1.0.0.0"
+       }, 
+       "parameters": { 
+          "StorageAccountName":{"value": "[parameters('StorageAccountName')]"} 
+       } 
+     } 
+  } 
+] 
+```
+** Using Parameters File**
+Here we used __parameters__ property to pass parameters directly to the linked template. Another option is to use a parameters file:
+```
+"resources": [ 
+  { 
+     "apiVersion": "2015-01-01", 
+     "name": "nestedTemplate", 
+     "type": "Microsoft.Resources/deployments", 
+     "properties": { 
+       "mode": "incremental", 
+       "templateLink": {
+          "uri":"https://www.contoso.com/AzureTemplates/newStorageAccount.json",
+          "contentVersion":"1.0.0.0"
+       }, 
+       "parametersLink": { 
+          "uri":"https://www.contoso.com/AzureTemplates/parameters.json",
+          "contentVersion":"1.0.0.0"
+       } 
+     } 
+  } 
+] 
+```
+> Note: The Resource Manager service must be able to access the linked template, which means you cannot specify a local file or a file that is only available on your local network for the linked template. You can only provide a URI value that includes either http or https. One option is to place your linked template in a storage account, and use the URI for that item.
+
+**Using Variables**
+When working with a large set of modular templates you might want to avoid using hard coded template URLs. The following example shows how to use a base URL to create two URLs for linked templates (sharedTemplateUrl and vmTemplate)
+```
+"variables": {
+    "templateBaseUrl": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/postgresql-on-ubuntu/",
+    "sharedTemplateUrl": "[concat(variables('templateBaseUrl'), 'shared-resources.json')]",
+    "tshirtSizeSmall": {
+        "vmSize": "Standard_A1",
+        "diskSize": 1023,
+        "vmTemplate": "[concat(variables('templateBaseUrl'), 'database-2disk-resources.json')]",
+        "vmCount": 2,
+        "slaveCount": 1,
+        "storage": {
+            "name": "[parameters('storageAccountNamePrefix')]",
+            "count": 1,
+            "pool": "db",
+            "map": [0,0],
+            "jumpbox": 0
+        }
+    }
+}
+```
+
+### Simulating Conditional Linking
+Using parameters can be used to simulate dynamic or conditional tempalte linking, based on input parameters. In this example, the value of the 'jumpbox' parameter can be set to enable or disable, and in turn deploy a different template based on a condition outside of the template (in the calling code for example, or based on user input during deployment):
+```
+"properties": {
+    "mode": "Incremental",
+    "templateLink": {
+        "uri": "[concat(variables('templateBaseUrl'), parameters('jumpbox'), '.json')]",
+        "contentVersion": "1.0.0.0"
+    }
+}
+```
 
 ## Resource Links
 In the Resource Manager model, resources can have several types of dependencies. Resource dependencies during deploymend are detailed in the [Dependencies](../ARM/Templates/Template_Advanced_Authoring.md#dependencies) topics in this repository.
@@ -8,7 +92,7 @@ But, a dependency between resources can also continue after deployment - a link 
 
 Links can be established between resources belonging to different resource groups. However, all the linked resources must belong to the same subscription. Each resource can be linked to 50 other resources. If any of the linked resources are deleted or moved, the link owner must clean up the remaining link.
 
-**Resource Links Template schema**
+### Resource Links Template schema
 The link is applied to the source resource. 
 Add the following to the resources section of the tempalte:
 ```
@@ -36,8 +120,6 @@ Properties:
 |NAME	|TYPE	|REQUIRED	|PERMITTED VALUES	|DESCRIPTION|
 |targetId	|string	|Yes		|The identifier of the target resource to link to.|
 |notes	|string	|No	|512 characters	|Description of the lock.|
-
-**Query about resources**
 
 **Sample Template**
 Apply a link between the App Service and a storage account named storagecontoso:
@@ -94,6 +176,9 @@ Apply a link between the App Service and a storage account named storagecontoso:
 
 ## Resources and References
 https://azure.microsoft.com/en-us/documentation/articles/resource-manager-template-links/
+
 https://msdn.microsoft.com/library/azure/mt238499.aspx
+
 https://azure.microsoft.com/en-gb/documentation/articles/app-service-logic-arm-with-api-app-provision/
+
 https://azure.microsoft.com/en-us/documentation/articles/resource-group-linked-templates/
