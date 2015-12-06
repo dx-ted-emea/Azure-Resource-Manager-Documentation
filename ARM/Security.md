@@ -1,20 +1,15 @@
 ## Security and Authentication 
 
-*draft*
+Authentication and authorization in Azure Resource Manager APIs is based on Azure Active Directory (AAD).
+It means that every user or application calling the APIs must have an AAD identity.
+Before  working with ARM it is highly recomended to understand the basics of Azure Active Directory (AAD).
 
-Azure Marketplace is great place to publish your apps 
-Here's example of web link [Azure web site](http://azure.microsoft.com//) and the [Azure stuff on github](http://azure.github.io/).
-Wiki also have *another font* which may be usefull too.
+Azure Active Directory (AAD) is Microsoft’s multi-tenant cloud based directory and identity management service.
+It includes single sign-on (SSO) access to thousands of cloud SaaS Applications like for example Office365. Application developers can easily integrate with AAD for identity management.
+Azure AD also includes a full suite of identity management capabilities and can be integrated with an existing Windows Server Active Directory
+For details see [What is Azure Active Directory?](https://azure.microsoft.com/en-us/documentation/articles/active-directory-whatis/)
 
 
-Example of some command line code 
-
-    sudo apt-get install apache2
-
-Example of some json code
-```json
-{ "some": "json" }
-```
 
 
 
