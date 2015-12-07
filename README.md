@@ -42,7 +42,7 @@ We tried to make this document easy to read and simple to use - so hope you will
 
 ### [Azure Resource Manager FAQs](arm_faq.md)
 
-# [AzureMarketplace](Marketplace/README.md)
+# [Azure Marketplace](Marketplace/README.md)
 
 ### [Publishing in the Azure Marketplace](Marketplace/publishing_azure_mp.md)
  * [Introduction](Marketplace/Introduction.md)
