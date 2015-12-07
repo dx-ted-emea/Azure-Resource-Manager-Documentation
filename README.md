@@ -55,7 +55,6 @@ We tried to make this document easy to read and simple to use - so hope you will
  * [Data services](Marketplace/Data-services.md)
  * [Certification tools](Marketplace/Azure-certification-tool.md)
  * [VM Depot - community managed reposity of Linux/FreeBSD images](Marketplace/VM-depot.md)
- * 
  
 ### [Using Azure Marketplace Offerings](Marketplace/using_azure_mp.md)
 ### [Azure Marketplace FQAs](Marketplace/mp_faq.md)
