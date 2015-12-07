@@ -40,10 +40,11 @@ We tried to make this document easy to read and simple to use - so hope you will
 
 ### [Tips and tricks](Tips-and-tricks/README.md)
 
-### [FAQs](faq.md)
+### [Azure Resource Manager FAQs](arm_faq.md)
 
-# [Marketplace](Marketplace/README.md)
+# [AzureMarketplace](Marketplace/README.md)
 
+### [Publishing in the Azure Marketplace](Marketplace/publishing_azure_mp.md)
  * [Introduction](Marketplace/Introduction.md)
  * [Seller dashboard](Marketplace/Seller-dashboard.md)
  * [Publish dashboard](Marketplace/Publish-dashboard.md)
@@ -54,8 +55,12 @@ We tried to make this document easy to read and simple to use - so hope you will
  * [Data services](Marketplace/Data-services.md)
  * [Certification tools](Marketplace/Azure-certification-tool.md)
  * [VM Depot - community managed reposity of Linux/FreeBSD images](Marketplace/VM-depot.md)
+ * 
+ 
+### [Using Azure Marketplace Offerings](Marketplace/using_azure_mp.md)
+### [Azure Marketplace FQAs](Marketplace/mp_faq.md)
 
-### Acknowledgements and contributors
+# Acknowledgements and contributors
 
 Feel free to join us on working on this project. Please refer to [GitWiki Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) in case
 if you're not so familiar witk gitwiki markdown ( it's very powerful, but easy to read in raw code ).
