@@ -1,4 +1,4 @@
-## Security and Authentication 
+# Security and Authentication 
 
 Authentication and authorization in Azure Resource Manager APIs is based on Azure Active Directory (AAD).
 It means that every user or application calling the APIs must have an AAD identity.
@@ -11,7 +11,7 @@ For details see [What is Azure Active Directory?](https://azure.microsoft.com/en
 
 # Authentication 
 
-All the tasks on resources using the Azure Resource Manager must be authenticated with Azure Active Directory. Authentication can be set throuh PowerShell, Azure CLI or Azure Management Portal.
+All the tasks on resources using the Azure Resource Manager must be authenticated with Azure Active Directory. 
 
 Setting up authentication includes the following steps:
 
@@ -30,6 +30,9 @@ Setting up authentication includes the following steps:
     The permissions sholud be granted to the Service Pincipal created in step #1.
 
 3. Get the token for authenticating requests to Azure Resource Manager.
+
+
+Authentication can be set throuh PowerShell, Azure CLI or Azure Management Portal.
 
 
 ## Set up authentication using Azure PowerShell or Azure CLI
