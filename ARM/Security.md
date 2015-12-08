@@ -17,6 +17,14 @@ Setting up authentication includes the following steps:
 
 1. Add an application to the Azure Active Directory tenant.
 
+    This step inclueds creating both AD Application in AAD and Service Principal:
+    
+    AD Application - a directory record in AAD that identifies an application to AAD. 
+    
+    Service Principal - an instance of an application in a directory.
+
+
+
 2. Set permissions for the application that you added.
 
 3. Get the token for authenticating requests to Azure Resource Manager.
