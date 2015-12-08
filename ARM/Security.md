@@ -1,4 +1,4 @@
-# Security and Authentication 
+# Authentication 
 
 Authentication and authorization in Azure Resource Manager APIs is based on Azure Active Directory (AAD).
 It means that every user or application calling the APIs must have an AAD identity.
@@ -9,7 +9,6 @@ It includes single sign-on (SSO) access to thousands of cloud SaaS Applications 
 Azure AD also includes a full suite of identity management capabilities and can be integrated with an existing Windows Server Active Directory
 For details see [What is Azure Active Directory?](https://azure.microsoft.com/en-us/documentation/articles/active-directory-whatis/)
 
-# Authentication 
 
 All the tasks on resources using the Azure Resource Manager must be authenticated with Azure Active Directory. 
 
