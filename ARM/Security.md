@@ -67,7 +67,22 @@ For granting access through command tools like Azure PowerShell, CLI or REST API
 
 ## Lock resources with Azure Resource Manager
 
-https://azure.microsoft.com/en-us/documentation/articles/resource-group-lock-resources/
+As an administrator, there are scenarios where you will want to place a lock on a subscription, resource group or resource to prevent other users in your organization from committing write actions or accidentally deleting a critical resource. 
+
+Azure Resource Manager provides the ability to restrict operations on resources through resource management locks. Locks are policies which enforce a lock level at a particular scope. The scope can be a subscription, resource group or resource. The lock level identifies the type of enforcement for the policy, which presently has two values – CanNotDelete and ReadOnly. CanNotDelete means authorized users can still read and modify resources, but they can't delete any of the restricted resources. ReadOnly means authorized users can only read from the resource, but they can't modify or delete any of the restricted resources.
+
+Locks are different from using role-based access control to assign user permissions to perform certain actions. Unlinke role-based access control, you use management locks to apply a restriction across all users and roles, and you typically apply the locks for only limited duration.
+
+To create or delete management locks, you must have access to Microsoft.Authorization/* or Microsoft.Authorization/locks/* actions of the built-in roles, only Owner and User Access Administrator are granted with those actions.
+
+When you apply a lock at a parent scope, all child resources inherit the same lock.
+If you apply more than one lock to a resource, the most restrictive lock takes precedence. 
+
+Locks can be created through an ARM template, REST API or PowerShell.
+
+For more details see: [Lock resources with Azure Resource Manager](https://azure.microsoft.com/en-us/documentation/articles/resource-group-lock-resources/)
+
+
 
 ## Use Policy to manage resources and control access (Customized policy)
 
