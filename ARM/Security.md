@@ -127,7 +127,7 @@ When looking at aspects of security for your Azure Resource Manager templates, t
 
 * Secrets and certificates
 * Network security groups
-* * Role-based access control (covered above in this article)
+* Role-based access control (covered above in this article)
 
 ### Secrets and certificates
 Azure Virtual Machines, Azure Resource Manager and Azure Key Vault are fully integrated to provide support for the secure handling of certificates which are to be deployed in the VM. Utilizing Azure Key Vault with Resource Manager to orchestrate and store VM secrets and certificates is a best practice and provides the following advantages:
