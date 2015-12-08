@@ -47,7 +47,7 @@ Authentication can be set throuh PowerShell, Azure CLI or Azure Management Porta
 
 
 
-# Access Control 
+# Access Control / Authorization
 
 ## Azure Active Directory Role-based Access Control
 
@@ -65,6 +65,13 @@ For more information and instructions how to grant access using the Azure Manage
 
 For granting access through command tools like Azure PowerShell, CLI or REST API see: [Managing access to resources](https://azure.microsoft.com/en-us/documentation/articles/resource-group-rbac/).
 
+## Lock resources with Azure Resource Manager
+
+https://azure.microsoft.com/en-us/documentation/articles/resource-group-lock-resources/
+
+## Use Policy to manage resources and control access (Customized policy)
+
+https://azure.microsoft.com/en-us/documentation/articles/resource-manager-policy/ 
 
 ## logging and Audit operations with Resource Manager
 
@@ -74,13 +81,7 @@ https://azure.microsoft.com/en-us/documentation/articles/resource-group-audit/
 
 https://azure.microsoft.com/en-us/documentation/articles/best-practices-resource-manager-security/
 
-## Lock resources with Azure Resource Manager
 
-https://azure.microsoft.com/en-us/documentation/articles/resource-group-lock-resources/
-
-## Use Policy to manage resources and control access (Customized policy)
-
-https://azure.microsoft.com/en-us/documentation/articles/resource-manager-policy/ 
 
 
 
