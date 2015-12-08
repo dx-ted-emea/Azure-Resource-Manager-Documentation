@@ -31,16 +31,12 @@ Setting up authentication includes the following steps:
 3. Get the token for authenticating requests to Azure Resource Manager.
 
 
+
 Authentication can be set throuh PowerShell, Azure CLI or Azure Management Portal.
 
+For setting up authentication using Azure PowerShell or Azure CLI see: [Authenticating a service principal with Azure Resource Manager](https://azure.microsoft.com/en-us/documentation/articles/resource-group-authenticate-service-principal/)
 
-## Set up authentication using Azure PowerShell or Azure CLI
-
-[Authenticating a service principal with Azure Resource Manager](https://azure.microsoft.com/en-us/documentation/articles/resource-group-authenticate-service-principal/)
-
-## Set up authentication using the Management Portal
-
-[Create Active Directory application and service principal using portal](https://azure.microsoft.com/en-us/documentation/articles/resource-group-create-service-principal-portal/)
+For setting up authentication using the Management Portal see: [Create Active Directory application and service principal using portal](https://azure.microsoft.com/en-us/documentation/articles/resource-group-create-service-principal-portal/)
 
 
 
