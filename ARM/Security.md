@@ -58,7 +58,7 @@ For more information and instructions how to grant access using the Azure Manage
 
 For granting access through command tools like Azure PowerShell, CLI or REST API see: [Managing access to resources](https://azure.microsoft.com/en-us/documentation/articles/resource-group-rbac/).
 
-## Lock resources with Azure Resource Manager
+## Lock resources
 
 As an administrator, there are scenarios where you will want to place a lock on a subscription, resource group or resource to prevent other users in your organization from committing write actions or accidentally deleting a critical resource. 
 
@@ -104,6 +104,8 @@ Creating policy and applying policy can be done through REST API or PowerShell.
 
 
 For mor details see:  [Use Policy to manage resources and control access](https://azure.microsoft.com/en-us/documentation/articles/resource-manager-policy/ )
+
+# Security related topics
 
 ## Audit logs
 
