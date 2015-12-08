@@ -9,6 +9,16 @@ It includes single sign-on (SSO) access to thousands of cloud SaaS Applications 
 Azure AD also includes a full suite of identity management capabilities and can be integrated with an existing Windows Server Active Directory
 For details see [What is Azure Active Directory?](https://azure.microsoft.com/en-us/documentation/articles/active-directory-whatis/)
 
+# Authentication 
+
+## Authenticating a service principal with Azure Resource Manager
+
+https://azure.microsoft.com/en-us/documentation/articles/resource-group-authenticate-service-principal/
+
+## Create Active Directory application and service principal using portal
+
+https://azure.microsoft.com/en-us/documentation/articles/resource-group-create-service-principal-portal/
+
 
 
 
@@ -48,16 +58,6 @@ https://azure.microsoft.com/en-us/documentation/articles/resource-group-lock-res
 
 https://azure.microsoft.com/en-us/documentation/articles/resource-manager-policy/ 
 
-
-# Authentication 
-
-## Authenticating a service principal with Azure Resource Manager
-
-https://azure.microsoft.com/en-us/documentation/articles/resource-group-authenticate-service-principal/
-
-## Create Active Directory application and service principal using portal
-
-https://azure.microsoft.com/en-us/documentation/articles/resource-group-create-service-principal-portal/
 
 
 
