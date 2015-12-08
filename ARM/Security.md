@@ -47,7 +47,7 @@ Authentication can be set throuh PowerShell, Azure CLI or Azure Management Porta
 
 
 
-# Access Control / Authorization
+# Authorization / Access Control
 
 ## Azure Active Directory Role-based Access Control
 
