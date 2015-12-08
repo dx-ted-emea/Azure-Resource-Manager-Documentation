@@ -11,6 +11,23 @@ For details see [What is Azure Active Directory?](https://azure.microsoft.com/en
 
 # Authentication 
 
+All the tasks on resources using the Azure Resource Manager must be authenticated with Azure Active Directory. Authentication can be set throuh PowerShell, Azure CLI or Azure Management Portal.
+
+Setting up authentication includes the following steps:
+
+1.Add an application to the Azure Active Directory tenant.
+
+2.Set permissions for the application that you added.
+
+3.Get the token for authenticating requests to Azure Resource Manager.
+
+
+Set up authentication using Azure PowerShell or Azure CLI
+
+Set up authentication using the Management Portal
+
+
+
 ## Authenticating a service principal with Azure Resource Manager
 
 https://azure.microsoft.com/en-us/documentation/articles/resource-group-authenticate-service-principal/
