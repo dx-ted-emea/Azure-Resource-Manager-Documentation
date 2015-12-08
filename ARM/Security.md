@@ -84,9 +84,30 @@ For more details see: [Lock resources with Azure Resource Manager](https://azure
 
 
 
-## Use Policy to manage resources and control access (Customized policy)
+##  Customized policy
 
-https://azure.microsoft.com/en-us/documentation/articles/resource-manager-policy/ 
+Azure Resource Manager now allows you to control access through custom policies. With policies, you can prevent users in your organization from breaking conventions that are needed to manage your organization's resources. 
+
+You create policy definitions that describe the actions or resources that are specifically denied. You assign those policy definitions at the desired scope, such as the subscription, resource group, or an individual resource. 
+
+There are a few key differences between policy and role-based access control, but the first thing to understand is that policies and RBAC work together. To be able to use policy, the user must be authenticated through RBAC. Unlike RBAC, policy is a default allow and explicit deny system. 
+
+RBAC focuses on the actions a user can perform at different scopes. For example, a particular user is added to the contributor role for a resource group at the desired scope, so the user can make changes to that resource group. 
+
+Policy focuses on resource actions at various scopes. For example, through policies, you can control the types of resources that can be provisioned or restrict the locations in which the resources can be provisioned.
+
+Policy definition is created using JSON. It consists of one or more conditions/logical operators which define the actions and an effect which tells what happens when the conditions are fulfilled.
+
+Basically, a policy contains the following:
+
+* Condition/Logical operators: It contains a set of conditions which can be manipulated through a set of logical operators.
+
+* Effect: This describes what the effect will be when the condition is satisfied – either deny or audit. An audit effect will emit a warning event service log. 
+
+
+
+
+[Use Policy to manage resources and control access](https://azure.microsoft.com/en-us/documentation/articles/resource-manager-policy/ )
 
 ## logging and Audit operations with Resource Manager
 
