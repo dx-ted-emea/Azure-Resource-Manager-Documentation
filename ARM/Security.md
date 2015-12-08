@@ -15,11 +15,11 @@ All the tasks on resources using the Azure Resource Manager must be authenticate
 
 Setting up authentication includes the following steps:
 
-1.Add an application to the Azure Active Directory tenant.
+1. Add an application to the Azure Active Directory tenant.
 
-2.Set permissions for the application that you added.
+2. Set permissions for the application that you added.
 
-3.Get the token for authenticating requests to Azure Resource Manager.
+3. Get the token for authenticating requests to Azure Resource Manager.
 
 
 Set up authentication using Azure PowerShell or Azure CLI
