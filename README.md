@@ -20,7 +20,7 @@ We tried to make this document easy to read and simple to use - so hope you will
 
 ### [Templates](ARM/Templates/README.md)
  * [Templates Basic Concepts](ARM/Templates/Templates_Basics.md)
- * [Resource Provider Schema](ARM/Templates/resources_schema.md)
+ * [Resource Provider Schema](ARM/Templates/Template_resources_schema.md)
  * [Templates Advanced Authoring](ARM/Templates/Template_Advanced_Authoring.md)
  * [Template and Resources Links](ARM/Templates/Template_links.md)
  * [Create Your First Template](ARM/Templates/My_First_Template.md)
