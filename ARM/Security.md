@@ -104,10 +104,13 @@ Basically, a policy contains the following:
 
 * Effect: This describes what the effect will be when the condition is satisfied – either deny or audit. An audit effect will emit a warning event service log. 
 
+ 
+Policies can be applied at different scopes like subscription, resource groups and individual resources. Policies are inherited by all child resources. So if a policy is applied to a resource group, it will be applicable to all the resources in that resource group.
+
+Creating policy and applying policy can be done through REST API or PowerShell.
 
 
-
-[Use Policy to manage resources and control access](https://azure.microsoft.com/en-us/documentation/articles/resource-manager-policy/ )
+For mor details see:  [Use Policy to manage resources and control access](https://azure.microsoft.com/en-us/documentation/articles/resource-manager-policy/ )
 
 ## logging and Audit operations with Resource Manager
 
