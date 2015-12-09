@@ -64,7 +64,7 @@ This example creates public IPs as much as a numberOfIntances variable is set to
 When using **copyindex()** values go from 0 to the set iteration count. To offset the index value, you can pass a value in the **copyindex()** function, such as **copyindex(1)**. The number of iterations to perform is still specified in the copy element, but the value of copyIndex is offset by the specified value. 
 
 Resources can be created based on a an array of values; The **length** function is used to specify the count.
-In this example a parameter of type array is set and used to for names for a web site. The length of the array is used for the number of iterations - 3 websites will be created: examplecopy-Contos, examplecopy-Fabrikam, examplecopy-Coho.
+In this example a parameter of type array is set and being used to set the web sites names. The length of the array is used for the number of iterations - 3 websites will be created: examplecopy-Contos, examplecopy-Fabrikam, examplecopy-Coho.
 ```
 "parameters": { 
   "org": { 
