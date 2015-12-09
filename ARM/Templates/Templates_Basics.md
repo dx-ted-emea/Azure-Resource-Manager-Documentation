@@ -134,7 +134,7 @@ Follwing is an example of a variable constructed from two parameters, one that i
 }
 ```
 ### Resources
-This section defines the resouces to create or update in the deployment. Each resource is defined seperatly. If there are dependencies between resources, they must be described in the resource definision. For example, is a Virtual Machine depends on a Storage Account, this will be defined in the Virtual Machine resource decleration. Azure Resource Manager analyzes dependencies to ensure resources are created in the correct order, and there is no meaning to the order in which the resources are defined in the template. 
+This section defines the resouces to create or update in the deployment. Each resource is defined seperatly. If there are dependencies between resources, they must be described in the resource definision. For example, if a Virtual Machine depends on a Storage Account, this will be defined in the Virtual Machine resource decleration. Azure Resource Manager analyzes dependencies to ensure resources are created in the correct order, and there is no meaning to the order in which the resources are defined in the template. 
 
 ```
 "resources": [
