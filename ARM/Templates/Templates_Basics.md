@@ -27,7 +27,7 @@ Basic template structure:
 |outputs | No | Values that are returned after deployment |
 
 ### Parameters
-The parameters section defined the values a user can input while deploying the resources. The values of the parameters can use used thoughout the template.
+The parameters section defined the values a user can input while deploying the resources. The values of the parameters can be used thoughout the template.
 
 ```
 "parameters": {
