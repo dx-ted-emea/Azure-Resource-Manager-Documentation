@@ -7,7 +7,7 @@ From within one Azure Resource Manager template, you can link to another templat
 * Maintenance & management of larger more complex templates
 
 ### Microsoft.Resources/deployments Resource
-Create a template link by adding a deployments resource un the resources section of the template. The schema of the resource is:
+Create a template link by adding a deployments resource under the resources section of the template. The schema of the resource is:
 ```
 "resources": [ 
   { 
