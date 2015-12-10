@@ -31,9 +31,8 @@ mechanism.
 
 ## Marketplace Content
 
+Details on each marketplace publishing option can be found on the respective page:
 
-
-Content for marketplace is : 
  * [Seller dashboard](Seller-dashboard.md)
  * [Publish dashboard](Publish-dashboard.md)
  * [Single VM](Single-vm.md)
@@ -42,10 +41,3 @@ Content for marketplace is :
  * [Developer services](Developer-services.md)
  * [Data services](Data-services.md)
  * [VM Depot - community managed reposity of Linux/FreeBSD images](VM-depot.md)
-
-Seller and Publish dashboard sections are first because these parts should be done before any other steps, also VM Depot is quite popular option for community members or 
-for non-licensing/open sourced based editions - so it's also part of extended 'marketplace'.
-
-# Marketplace Verticals Overview 
-
-# On boarding the Marketplace 
