@@ -5,8 +5,8 @@ It means that every user or application calling the APIs must have an AAD identi
 Before  working with ARM it is highly recomended to understand the basics of Azure Active Directory (AAD).
 
 Azure Active Directory (AAD) is Microsoft’s multi-tenant cloud based directory and identity management service.
-It includes single sign-on (SSO) access to thousands of cloud SaaS Applications like for example Office365. Application developers can easily integrate with AAD for identity management.
-Azure AD also includes a full suite of identity management capabilities and can be integrated with an existing Windows Server Active Directory
+It includes single sign-on (SSO) access to thousands of cloud SaaS Applications such as Office365. Application developers can easily integrate with AAD for identity management.
+Azure AD also includes a full suite of identity management capabilities and can be integrated with an existing Windows Server Active Directory.
 For details see [What is Azure Active Directory?](https://azure.microsoft.com/en-us/documentation/articles/active-directory-whatis/)
 
 
@@ -131,11 +131,11 @@ When looking at aspects of security for your Azure Resource Manager templates, t
 
 ### Secrets and certificates
 Azure Virtual Machines, Azure Resource Manager and Azure Key Vault are fully integrated to provide support for the secure handling of certificates which are to be deployed in the VM. Utilizing Azure Key Vault with Resource Manager to orchestrate and store VM secrets and certificates is a best practice and provides the following advantages:
-The templates only contain URI references to the secrets, which means the actual secrets are not in code, configuration or source code repositories. 
-Secrets stored in the Key Vault are under full RBAC control of a trusted operator. 
+* The templates only contain URI references to the secrets, which means the actual secrets are not in code, configuration or source * code repositories. 
+* Secrets stored in the Key Vault are under full RBAC control of a trusted operator. 
 Full compartmentalization of all assets.
-The loading of secrets into a VM at deployment time occurs via direct channel between the Azure Fabric and the Key Vault within the confines of the Microsoft datacenter. 
-Key Vaults are always regional, so the secrets always have locality (and sovereignty) with the VMs. There are no global Key Vaults.
+* The loading of secrets into a VM at deployment time occurs via direct channel between the Azure Fabric and the Key Vault within the confines of the Microsoft datacenter. 
+* Key Vaults are always regional, so the secrets always have locality (and sovereignty) with the VMs. There are no global Key Vaults.
 
 Additionally, a best practice is to maintain separate templates for:
 
