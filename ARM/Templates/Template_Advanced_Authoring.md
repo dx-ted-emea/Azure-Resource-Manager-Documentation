@@ -149,7 +149,7 @@ The resources property of the resource object allows defining child resources of
 * Child resources can only be defined 5 levels deep
 * There is no explisit dependency between the main resource and the child resources. This can be defined using the dependson property.
  
-In this example we defined a SQL Dataqbase on a SQL Database Server - the SQL Database is a child resource of a SQL Database server resource and depends on it:
+In this example we defined a SQL Database on a SQL Database Server - the SQL Database is a child resource of a SQL Database server resource and depends on it:
 ```
 {
      "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
