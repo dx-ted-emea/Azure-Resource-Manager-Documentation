@@ -87,7 +87,7 @@ Using parameters can be used to simulate dynamic or conditional tempalte linking
 ```
 
 ## Resource Links
-In the Resource Manager model, resources can have several types of dependencies. Resource dependencies during deploymend are detailed in the [Dependencies](../ARM/Templates/Template_Advanced_Authoring.md#dependencies) topics in this repository.
+In the Resource Manager model, resources can have several types of dependencies. Resource dependencies during deployment are detailed in the [Dependencies](../ARM/Templates/Template_Advanced_Authoring.md#dependencies) topics in this repository.
 But, a dependency between resources can also continue after deployment - a link between a database and an app for example. Resource link are used to document and provide query capabililty over the relationships between resources post-deployment.
 
 Links can be established between resources belonging to different resource groups. However, all the linked resources must belong to the same subscription. Each resource can be linked to 50 other resources. If any of the linked resources are deleted or moved, the link owner must clean up the remaining link.
