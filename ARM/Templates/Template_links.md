@@ -117,9 +117,10 @@ Add the following to the resources section of the tempalte:
 |properties	|object	|Yes	|(shown below)	|An object that identifies the resource to link to, and notes about the link.|
 
 Properties:
+
 |NAME	|TYPE	|REQUIRED	|PERMITTED VALUES	|DESCRIPTION|
-|-----|-----|---------------------------|-----------|
-|targetId	|string	|Yes		|The identifier of the target resource to link to.|
+|-----|-----|-----------|-----------------|-----------|
+|targetId	|string	|Yes	|The identifier of the target resource to link to.|
 |notes	|string	|No	|512 characters	|Description of the lock.|
 
 **Sample Template**
