@@ -1,5 +1,6 @@
 
-Q: Is dev/test process for extensions?
+
+Q  : Is dev/test process for extensions?
 A: Yes, there is – you can publish your extension which will be visible only for your subscription and test it from SDK and UI ( azure.com portal ). Be care that this is not a really private space – it just not show your extension in list of available extensions for all users, if user know extension name and version they can manually add it. 
 
 Q: Is it only about Windows ?
