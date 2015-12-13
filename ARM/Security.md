@@ -66,7 +66,7 @@ As an administrator, there are scenarios where you will want to place a lock on 
 
 Azure Resource Manager provides the ability to restrict operations on resources through resource management locks. Locks are policies which enforce a lock level at a particular scope. The scope can be a subscription, resource group or resource. The lock level identifies the type of enforcement for the policy, which presently has two values – CanNotDelete and ReadOnly. CanNotDelete means authorized users can still read and modify resources, but they can't delete any of the restricted resources. ReadOnly means authorized users can only read from the resource, but they can't modify or delete any of the restricted resources.
 
-Locks are different from using role-based access control to assign user permissions to perform certain actions. Unlinke role-based access control, you use management locks to apply a restriction across all users and roles, and you typically apply the locks for only limited duration.
+Locks are different from using role-based access control to assign user permissions to perform certain actions. Unlike role-based access control, you use management locks to apply a restriction across all users and roles, and you typically apply the locks for only limited duration.
 
 To create or delete management locks, you must have access to Microsoft.Authorization/* or Microsoft.Authorization/locks/* actions of the built-in roles, only Owner and User Access Administrator are granted with those actions.
 
