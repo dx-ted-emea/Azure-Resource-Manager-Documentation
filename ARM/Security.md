@@ -38,6 +38,8 @@ For setting up authentication using the Management Portal see: [Create Active Di
 
 ## Set Authentication for REST API Calls
 
+As explained above authentication for ARM is handled by Azure Active Directory. In order to connect to any APIs you first need to authenticate with Azure AD to receive an authentication token that you can pass on to every request to the APIs. As we are describing a pure calls directly to the REST APIs, we will also assume that you don’t want to authenticate with a normal username password where a pop-up-screen might prompt you for username and password and perhaps even other authentication mechanisms used in two factor authentication scenarios. Therefore, we will create what is called an Azure AD Application and a Service Principal that we will use to login with. But remember that Azure AD support several authentication procedures and all of them could be used to retrieve that authentication token that we need for subsequent API requests.
+
 ### Configuring Azure AD to allow requests from you and your application
 
 In order to have an application authenticated and authorized to to requests against the ARM APIs you first need to register the app and the Service Principal in Azure AD. To do that we are going to use Azure Command Line Interface, CLI, a cross platform tool written in Node.js that runs on Windows, Mac and Linux (and every other computer that can run Node.JS).
