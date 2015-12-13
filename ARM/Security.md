@@ -46,11 +46,11 @@ For setting up authentication using the Management Portal see: [Create Active Di
 
 
 Azure Roles-Based Access Control (RBAC) enables fine-grained access management for Azure. Users, groups, and applications can be granted access to manage resources in the Azure subscription, using Azure Management Portal, Azure Command-Line tools and Azure Management APIs.
-Access is granted by assigning the appropriate RBAC role to users, groups, and applications, at the right scope. Roles can be asigned at a subscription level, resource group level or specific resource level.
+Access is granted by assigning the appropriate RBAC role to users, groups, and applications, at the right scope. Roles can be assigned at a subscription level, resource group level or specific resource level.
 
 Azure RBAC has three basic roles that apply to all resource types: Owner, Contributor and Reader. In addition you can use [RBAC Built-In Roles](https://azure.microsoft.com/en-us/documentation/articles/role-based-access-built-in-roles/) for role specifies operations, or you can create [Custom Roles](http://blogs.technet.com/b/ad/archive/2015/12/10/custom-roles-in-azure-rbac-is-now-ga.aspx).
 
-Azure RBAC Built-In roles is a list of roles that can be assigned to users, groups, and services. You can’t modify the definition of Built-In roles. With RBAC Custom-Roles you can define custom roles by composing a set of actions from a list of available actions that can be performed on Azure resources. Currently you can create Custom-Roles using PowerShell or Azure CLI. The Custom-Role creation operation involves import of a JSON file with a list of apprved actions for the specific role on a specific resource type, a best practice to build a custom role is to export the JSON file with the approved actions for a build-in role and modify it.
+Azure RBAC Built-In roles is a list of roles that can be assigned to users, groups, and services. You can’t modify the definition of Built-In roles. With RBAC Custom-Roles you can define custom roles by composing a set of actions from a list of available actions that can be performed on Azure resources. Currently you can create Custom-Roles using PowerShell or Azure CLI. The Custom-Role creation operation involves import of a JSON file with a list of approved actions for the specific role on a specific resource type, a best practice to build a custom role is to export the JSON file with the approved actions for a build-in role and modify it.
 
 Each subscription in Azure belongs to one and only one directory, each resource group belongs to one and only one subscription, and each resource belongs to one and only one resource group. Access that you grant at parent scopes is inherited at child scopes.
 
