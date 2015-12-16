@@ -16,7 +16,7 @@ Follow [this guide to authenticate and authorize yourself and/or an app to acces
 
 ### Generic
 
-#### Autentication
+#### Authentication
 
 As we previously assumed, this documentation will show you how to authenticate using the above created Service Principal. Remember, this is only one way to authenticate your application or you as an end user, but full documentation on how to authenticate against Azure AD is out of scope for this documentation.
 
@@ -235,7 +235,7 @@ You can install "jq" easily using "[brew](http://brew.sh/)" from the termial
 brew install jq
 ```
 
-#### Autentication
+#### Authentication
 
 Since the ARM API is RESTful we can easily call it using the command line tool "curl" and in order to call any other API we first need to authenticate agains Azure AD using the Service Principal we previously created. As a result of that authentication we will get a token that we then can use while calling the other ARM APIs. 
 
