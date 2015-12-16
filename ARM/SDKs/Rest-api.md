@@ -20,7 +20,7 @@ Follow [this guide to authenticate and authorize yourself and/or an app to acces
 
 As we previously assumed, this documentation will show you how to authenticate using the above created Service Principal. Remember, this is only one way to authenticate your application or you as an end user, but full documentation on how to authenticate against Azure AD is out of scope for this documentation.
 
-Autentication against Azure AD is done by calling out to Azure AD, located at login.microsoftonline.com. In order to authenticate you need to have the following information:
+Authentication against Azure AD is done by calling out to Azure AD, located at login.microsoftonline.com. In order to authenticate you need to have the following information:
 
 * Azure AD Tenant ID (the name of that Azure AD you are using to login, often the same as your company but not necessary)
 * Application ID (created above)
@@ -60,9 +60,9 @@ As you can see from the above HTTP Result, the token is valid for a specific per
 
 #### Calling ARM APIs
 
-[Azure Resource Manager REST APIs are documentet here](https://msdn.microsoft.com/en-us/library/azure/dn790568.aspx) and it's out of scoop for this tutorial to document the usage of each and every. This documentation will only use a few APIs to explain the basic usage of the APIs and after that we refer you to the official documentation.
+[Azure Resource Manager REST APIs are documentet here](https://msdn.microsoft.com/en-us/library/azure/dn790568.aspx) and it's out of scope for this tutorial to document the usage of each and every. This documentation will only use a few APIs to explain the basic usage of the APIs and after that we refer you to the official documentation.
 
-The access token you recieved in the previous HTTP call mustbe passed in for all request to the ARM API as a header named "Authorization" with the value "Bearer YOUR_ACCESS_TOKEN". Notice the space between "Bearer" and your Access Token.
+The access token you recieved in the previous HTTP call must be passed in for all request to the ARM API as a header named "Authorization" with the value "Bearer YOUR_ACCESS_TOKEN". Notice the space between "Bearer" and your Access Token.
 
 ##### List all subscriptions
 
