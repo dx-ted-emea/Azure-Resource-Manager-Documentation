@@ -1,0 +1,62 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"serverName": {
+			"type": "string",
+			"metadata": {
+				"description": "The name of the new database server to create."
+			}
+		},
+		"serverLocation": {
+			"type": "string",
+			"metadata": {
+				"description": "The location of the database server. For best performance, this location should be the same as the location of the web app."
+			}
+		},
+		"databaseName": {
+			"type": "string",
+			"metadata": {
+				"description": "The name of the new database to create."
+			}
+		},
+		"edition": {
+			"type": "string",
+			"defaultValue": "Standard",
+			"metadata": {
+				"description": "The type of database to create. The available options are: Web, Business, Basic, Standard, and Premium."
+			}
+		},
+		"requestedServiceObjectiveName": {
+			"type": "string",
+			"defaultValue": "S0",
+			"metadata": {
+				"description": "The name corresponding to the performance level for edition. The available options are: Shared, Basic, S0, S1, S2, S3, P1, P2, and P3."
+			}
+		}
+	},
+	"resources": [
+		{
+			"name": "[parameters('serverName')]",
+			"type": "Microsoft.Sql/servers",
+			"location": "[parameters('serverLocation')]",
+			"apiVersion": "2014-04-01-preview",
+			"properties": {},
+			"resources": [
+				{
+					"name": "[parameters('databaseName')]",
+					"type": "databases",
+					"location": "[parameters('serverLocation')]",
+					"apiVersion": "2014-04-01-preview",
+					"dependsOn": [
+						"[concat('Microsoft.Sql/servers/', parameters('serverName'))]"
+					],
+					"properties": {
+						"edition": "[parameters('edition')]",
+						"requestedServiceObjectiveName": "[parameters('requestedServiceObjectiveName')]"
+					}
+				}
+			]
+		}
+	]
+}
