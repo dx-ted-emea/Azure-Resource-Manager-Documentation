@@ -262,7 +262,7 @@ _todo_ : command_line_reference
 
 # Publish image in Marketplace
 
-After testing is done and you ready to publish your offer you need to let us to know where your VHD is - marketplace team will took this images and process it through publication process. Note: you need to share your _generalized_ VHD. In publisher portal interface there's a field where you need to put a link on your VHD :
+After testing is done and you ready to publish your offer, you need to let us to know where your VHD is - marketplace team will took this images and process it through publication process. Note: you need to share your _generalized_ VHD. In publisher portal interface there's a field where you need to put a link on your VHD :
 
 ![VM image link](/Marketplace/images/azure-publisher-portal-vm-image-link.png)
 
