@@ -1,29 +1,41 @@
 
+[Is dev/test process for extensions?]
+[Is it only about Windows ?]
+[Where supported OS is specified ?]
+[How can I see my extension ( which is private mode) in portal ?]
+[How can I see my extension ( which is private mode) in portal ?]
+[Is is possible that not only one extensions can be running on VM on same time?]
+[Can my extensions get some updates from my web site ?]
+[How testing process from Microsoft side looks – how you validate our extensions? ]
+[Can VM extensions check to updates of application and make that updates?]
+[How extension should be documented?]
+[Do not (bad practice from real life ) 
 
-Q  : Is dev/test process for extensions?
-A: Yes, there is – you can publish your extension which will be visible only for your subscription and test it from SDK and UI ( azure.com portal ). Be care that this is not a really private space – it just not show your extension in list of available extensions for all users, if user know extension name and version they can manually add it. 
 
-Q: Is it only about Windows ?
-A: Linux supported as well as Linux. 
+## Is dev/test process for extensions?
+ Yes, there is – you can publish your extension which will be visible only for your subscription and test it from SDK and UI ( azure.com portal ). Be care that this is not a really private space – it just not show your extension in list of available extensions for all users, if user know extension name and version they can manually add it. 
+
+## Is it only about Windows ?
+A: Linux supported as well as Windows. Actually almost everything which works under HyperV may be published here.
 
 
-Q: Where supported OS is specified ?
+## Where supported OS is specified ?
 A: It specified here in Extension.def.xml file like 
   <SupportedOS>Windows</SupportedOS>
 
-Q: How can I see my extension ( which is private mode) in portal ?
+## How can I see my extension ( which is private mode) in portal ?
 A: Use this link - https://portal.azure.com/?HubsExtension_ItemHideKey=<ext_name >  ( for example 
 https://portal.azure.com/?HubsExtension_ItemHideKey=ESETFileSecurity )
 
 
-Q: Is is possible that not only one extensions can be running on VM on same time?
+## Is is possible that not only one extensions can be running on VM on same time?
 A: Yes, user can install several extensions on VM, so not only your extension can be running there. Please keep in mind that sharing resource can be changed/readed by some one other.
 
 
-Q: Can my extensions get some updates from my web site ?
+## Can my extensions get some updates from my web site ?
 A: Yes, it’s possible – incoming to Azure traffic is free  But keep in mind that user may change default settings on VM and it may happened that no traffic allowed, some default port isn’t open, HTTPS is disabled, etc.
 
-Q: How testing process from Microsoft side looks – how you validate our extensions? 
+## How testing process from Microsoft side looks – how you validate our extensions? 
 A: We do validate your xml/json/config files to check that they are correct, but we do not check functionality/any scope/ of your extension – this part is completely on your side. We surely help you to make your application be better, help you with publishing updates for app, but testing of how your application works as VM extension is on your side.
 
 Q: Can VM extensions check to updates of application and make that updates?
