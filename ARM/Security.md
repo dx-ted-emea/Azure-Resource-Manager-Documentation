@@ -195,7 +195,7 @@ When looking at aspects of security for your Azure Resource Manager templates, t
 
 ### Secrets and certificates
 Azure Virtual Machines, Azure Resource Manager and Azure Key Vault are fully integrated to provide support for the secure handling of certificates which are to be deployed in the VM. Utilizing Azure Key Vault with Resource Manager to orchestrate and store VM secrets and certificates is a best practice and provides the following advantages:
-* The templates only contain URI references to the secrets, which means the actual secrets are not in code, configuration or source * code repositories. 
+* The templates only contain URI references to the secrets, which means the actual secrets are not in code, configuration or source code repositories. 
 * Secrets stored in the Key Vault are under full RBAC control of a trusted operator. 
 Full compartmentalization of all assets.
 * The loading of secrets into a VM at deployment time occurs via direct channel between the Azure Fabric and the Key Vault within the confines of the Microsoft datacenter. 
