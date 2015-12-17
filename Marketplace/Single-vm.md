@@ -129,8 +129,9 @@ The best way to begin is to create a VM from one of the following images, locate
 * SQL Server 2014 Enterprise/Standard/Web
 * SQL Server 2012 SP2 Enterprise/Standard/Web
 * SQL Server 2008 R2 SP2 Enterprise/Standard/Web
+
 These links can also be found in the Publishing Portal under the SKU page.
-Main idea for this requirement is to use well-patched and updated Windows Server kernel, currently this requirement means thatt you may use  Windows Server Images published after September 8, 2014 :
+Main idea for this requirement is to use well-patched and updated Windows Server kernel, currently this requirement means that you may use  Windows Server Images published after September 8, 2014 :
 ![Azure publisher portal](/Marketplace/images/azure-publisher-portal.png)
 
 #### Create Windows Server VM image
