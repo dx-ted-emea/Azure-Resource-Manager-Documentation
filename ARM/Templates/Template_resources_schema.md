@@ -5,11 +5,11 @@ To find what providers are available and how their schema looks like you can use
 ## Querying providers - PowerShell
 
 For a full list of the resource providers namespaces, you can call a powershell command:
-```
+```powershell
 Get-AzureRmResourceProvider -ListAvailable
 ```
 To get resource type names, locations and supported versions for a specific resource:
-```
+```powershell
 (Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute).ResourceTypes
 ```
 Here is the output for the `Microsoft.Compute` provider:
@@ -38,11 +38,11 @@ If you want to create a virtual machine, the value of **type** will be a combina
 ## Querying providers - CLI
 
 For a full list of the resource providers namespaces via the CLI use:
-```
+```bash
 azure provider list
 ```
 To get resource type names, locations and supported versions for a specific resource use the command below. Note that the `--json` switch is optional.
-```
+```bash
 azure provider show Microsoft.Compute --json
 ```
 Here is the output for the `Microsoft.Compute` provider:
