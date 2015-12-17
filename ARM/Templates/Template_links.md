@@ -97,14 +97,14 @@ The link is applied to the source resource.
 Add the following to the resources section of the tempalte:
 ```json
 {
-    "type": enum,
+    "type": "<enum>",
     "apiVersion": "2015-01-01",
-    "name": string,
-    "dependsOn": [ array values ],
+    "name": "<string>",
+    "dependsOn": [ "<array values>" ],
     "properties":
     {
-        "targetId": string,
-        "notes": string
+        "targetId": "<string>",
+        "notes": "<string>"
     }
 }
 ```
