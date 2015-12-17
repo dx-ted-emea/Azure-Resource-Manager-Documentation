@@ -34,8 +34,7 @@ We tried to make this document easy to read and simple to use - so hope you will
  * [Preview Portal](Tools/Portal.md)
 
 ### [Use Cases](use-cases/README.md)
-  * [Scenario 1](Use-cases/Scenario-1.md)
-  * [Scenario 2](Use-cases/Scenario-2.md)
+  * [Web App and SQL Database](Use-cases/web-app-and-sql-database/README.md)
   * [Classic to ARM Migration](Use-cases/classic2ARM_Migration.md)
 
 ### [Tips and tricks](Tips-and-tricks/README.md)
