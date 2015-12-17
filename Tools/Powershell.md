@@ -10,15 +10,21 @@ Most AzureRM commandlets allow piping and do output objects.
 
 To get a list of all AzureRM cmdlets type:
 
-    help AzureRM
+```powershell
+    Get-Help AzureRM
+```
 
 Detailed help for each command is available by typing
 
-    help [command] -Detailed
+```powershell
+    Get-Help [command] -Detailed
+```
 
 In example:
 
-    help New-AzureRmResourceGroup -Detailed
+```powershell
+    Get-Help New-AzureRmResourceGroup -Detailed
+```
 
 ...will display detailed help and examples for the command to create a Resource Group
 
@@ -28,45 +34,75 @@ Once Azure PowerShell is up and running, to leverage it with ARM templates, eith
 
 In order to perform a Login to the Azure Resource Manager APIs, type
 
+```powershell
 	Login-AzureRmAccount
+```
 
 This will display a code that you need to enter on the url [http://aka.ms/devicelogin](http://aka.ms/devicelogin "http://aka.ms/devicelogin") in order to complete the authentication
 
 If you need to perform a "silent" login, you need to use an Azure Active Directory login by the following commands
 
+```powershell
     $credential=Get-Credential
 	Login-AzureRmAccount -Credential $credential
+```
 
 If you have more than one azure subscription, you can select the subscription by typing
 
+```powershell
     Select-AzureRmSubscription -SubscriptionName [your-subscription-name]
+```
 
 or
 
+```powershell
 	Select-AzureRmSubscription -SubscriptionId [your-subscription-id]
+```
 
 Now you are all set to use the Azure Resource Manager Command to deploy resources in Azure
 
 First, you can use the following command to create a Resource Group:
 
-    New-AzureRmResourceGroup -Name [your-resource-group-name] -Location [an-azure-location]
+```powershell
+    New-AzureRmResourceGroup -Name [your-resource-group-name] `
+        -Location [an-azure-location]
+```
 
 Adding the -Tag option with a sequence of tags, will define tags in the resource group that can be used to track billing in your Azure billing reports as in the following example:
 
-	-Tag tag1=value1;tag2=value2
+```powershell
+    New-AzureRmResourceGroup -Name [your-resource-group-name] `
+        -Location [an-azure-location] `
+        -Tag tag1=value1;tag2=value2
+```
 
 Now you are ready to create resources in the resource group by using your deployment templates and eventually your preset parameter files with the following command
 
-    New-AzureRmResourceGroupDeployment -Name [deployment-name] -ResourceGroupName [your-resource-group-name] -TemplateFile [path-to-the-arm-template-local-json-file] -TemplateParameterFile [path-to-the-arm-template-local-json-file]
+```powershell
+    New-AzureRmResourceGroupDeployment -Name [deployment-name] `
+            -ResourceGroupName [your-resource-group-name] `
+            -TemplateFile [path-to-the-arm-template-local-json-file] `
+            -TemplateParameterFile [path-to-the-arm-template-local-json-file]
+```
 
 As another option, you can provide the parameters interactively, by omitting the --parameters-file option or inline with a json formatted string as in the following example:
 
-	New-AzureRmResourceGroupDeployment -Name [deployment-name] -ResourceGroupName [your-resource-group-name] -TemplateFile [path-to-the-arm-template-local-json-file] -TemplateParameterObject [json-formatted-parameter-string]
+```powershell
+	New-AzureRmResourceGroupDeployment -Name [deployment-name] `
+        -ResourceGroupName [your-resource-group-name] `
+        -TemplateFile [path-to-the-arm-template-local-json-file] `
+        -TemplateParameterObject [json-formatted-parameter-string]
+```
 
 If you need to delete a deployment in a Resource Group you can type:
 
-    Remove-AzureRmResourceGroupDeployment -Name [deployment-name] -ResourceGroupName [your-resource-group-name]
+```powershell
+    Remove-AzureRmResourceGroupDeployment -Name [deployment-name] `
+        -ResourceGroupName [your-resource-group-name]
+```
 
 If you need to the whole Resource Group you can type:
 
-    Remove-AzureRmResourceGroup -Name --name [your-resource-group-name]
+```powershell
+    Remove-AzureRmResourceGroup -Name [your-resource-group-name]
+```
