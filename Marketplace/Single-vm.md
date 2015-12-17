@@ -2,7 +2,6 @@
 
 This document dedicated to single virtual machine apps in Marketplace
 
-
 Publishing single VM image is one of the easiest ways to publish your application in Azure Marketplace and this can be recommened as a first step for using Azure Marketplace for software vendors. 
 
 [Common requirements]
@@ -273,45 +272,6 @@ The SAS URI created should adhere to the following requirements :
 * To avoid immediate errors due to clock skews, specify a time 15 minutes before the current time.
 
 Simplest way to do that is to use open sourced [AzureStorageExplorer tool](http://AzureStorageExplorer.codeplex.com).
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Azure Marketplace is great place to publish your apps
-Here's example of web link [Azure web site](http://azure.microsoft.com//) and the [Azure stuff on github](http://azure.github.io/).
-Wiki also have *another font* which may be usefull too.
-
-
-Example of some command line code 
-
-
-    sudo apt-get install apache2
-
-Example of some json code
-```json
-{ "some": "json" }
-```
-
-# Overview 
-
-v# Building the Offering 
-
-# Examples 
-
-# On-Boarding Process 
-
 
 # Tip & Tricks 
 
