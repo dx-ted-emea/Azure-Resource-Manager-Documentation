@@ -35,7 +35,7 @@ Once the request has been submitted Resource Explorer re-issues the GET request 
 ## Invoking the API via PowerShell
 The generic PowerShell resource cmdlets (e.g. `Get-AzureRmResource`, `Set-AzureRmResource`) allow you to easily interact with the REST API from PowerShell. The PowerShell tab in Resource Explorer shows you the cmdlets to use to interact with the resource that you are currently exploring:
 
-![PowerShell](images/are-07-PowerShell.png)
+![PowerShell](images/are-07-powershell.png)
  
 For a comparison of different ways to interact with ARM, see the section on [Scaling a SQL Database](../Use-cases/web-app-and-sql-database/README.md).
 
