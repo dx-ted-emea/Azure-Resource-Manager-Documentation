@@ -116,3 +116,5 @@ Content-Type: application/json
   }
 }
 ```
+
+As well as calling the API from code, the Azure Resource Explorer is a great tool that lets you interact with the REST APIs and is great way to get to know the API schema. See the [Resource Explorer](../../Tips-and-tricks/Resource-explorer.md) section for more information.
