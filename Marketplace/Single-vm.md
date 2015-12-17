@@ -166,8 +166,8 @@ Get-AzureRemoteDesktopFile -ServiceName "abokov-ws2012DC" -Name "abokov-ws2012DC
 
 #### Generalize Windows Server VM
 
-Windows images should be sysprep’ed  - run command line ( not PowerShell! ), change directory to “c:\windows\system32\sysprep”
-* “sysprep.eex /generalize /oobe /shutdown”
+Windows images should be sysprep’ed  - RDP to the VM and run command line ( not PowerShell! ), change directory to “c:\windows\system32\sysprep”
+* “sysprep.exe /generalize /oobe /shutdown”
 * Please be aware Remote Desktop Connection will be closed immediately
 *  Wait for generalize and shutdown…
 ![Sysprep dialog](/Marketplace/images/sysprep-windows-server-vm-azure.png)
