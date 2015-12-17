@@ -60,7 +60,7 @@ As you can see from the above HTTP Result, the token is valid for a specific per
 
 #### Calling ARM APIs
 
-[Azure Resource Manager REST APIs are documentet here](https://msdn.microsoft.com/en-us/library/azure/dn790568.aspx) and it's out of scope for this tutorial to document the usage of each and every. This documentation will only use a few APIs to explain the basic usage of the APIs and after that we refer you to the official documentation.
+[Azure Resource Manager REST APIs are documented here](https://msdn.microsoft.com/en-us/library/azure/dn790568.aspx) and it's out of scope for this tutorial to document the usage of each and every. This documentation will only use a few APIs to explain the basic usage of the APIs and after that we refer you to the official documentation.
 
 The access token you recieved in the previous HTTP call must be passed in for all request to the ARM API as a header named "Authorization" with the value "Bearer YOUR_ACCESS_TOKEN". Notice the space between "Bearer" and your Access Token.
 
