@@ -151,7 +151,7 @@ In case if your PC under domain don't forget to add '/' in the beginning, unless
 
 If you by some reason would like to use command line you can that for opening RDP as well: 
 You can use powershell to access your VM (we expect that you already have RDP file in c:\tools )
-```
+```powershell
 Get-AzureAccount
 Get-AzureVM
 Get-AzureRemoteDesktopFile -ServiceName "abokov-ws2012DC" -Name "abokov-ws2012DC" -LocalPath "C:\tools\abokov-ws2012DC.rdp"
@@ -190,7 +190,7 @@ Ok, so generalized OS VHD from Azure storage account can be registered as a user
 
 This cmdlet allow you easily create VM image based on generalized VHD - for more information you migh refer to [VM Image](https://azure.microsoft.com/en-us/blog/vm-image-blog-post/)
 
-```
+```powershell
 Save-AzureVMImage –ServiceName “myServiceName” –Name “myVMtoCapture” –OSState “Generalized” –ImageName “myAwesomeVMImage” –ImageLabel “This is my Virtual Machine Image” -Verbose
 ```
 Next section is about how to do almost the same things by direct REST API calls, if you good with Save-AzureVMImage (as 99.95% of users :-)) feel free to skip that part and go to [Where's my image]
@@ -200,7 +200,7 @@ Next section is about how to do almost the same things by direct REST API calls,
 
 You can use the Invoke-WebRequest cmdlet to create a VM image from command line and example below is about how to create a VM image with an OS and one data disk, this example is taken from that [Guide to create a virtual machine image for the Azure Marketplace](https://azure.microsoft.com/sv-se/documentation/articles/marketplace-publishing-vm-image-creation/) - you might also need to take a look on that post in case if you need additional changes. 
 
-```
+```powershell
 # Image Parameters to Specify
             $ImageName='myVMImage'
             $Label='IMAGE_LABEL'
