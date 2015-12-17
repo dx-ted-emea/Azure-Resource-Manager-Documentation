@@ -21,7 +21,7 @@ For information on the development of the different services please visit the pa
 ### Pre-Requisites
 
 For offers that will include a charge for software above the billed Azure infrastructure cost 
-ensure the [Seller Dashboard](Seller-Dashboard.md) steps have been followed. 
+ensure the [Seller Dashboard](Seller-dashboard.md) steps have been followed. 
 Offers with no seller charge or a Bring Your Own Licence model do not require seller registration. 
 
 ## Registration
