@@ -75,7 +75,7 @@ When working with a large set of modular templates you might want to avoid using
 ```
 
 ### Simulating Conditional Linking
-Using parameters can be used to simulate dynamic or conditional tempalte linking, based on input parameters. In this example, the value of the 'jumpbox' parameter can be set to enable or disable, and in turn deploy a different template based on a condition outside of the template (in the calling code for example, or based on user input during deployment):
+Using parameters can be used to simulate dynamic or conditional template linking, based on input parameters. In this example, the value of the 'jumpbox' parameter can be set to enable or disable, and in turn deploy a different template based on a condition outside of the template (in the calling code for example, or based on user input during deployment):
 ```json
 "properties": {
     "mode": "Incremental",
