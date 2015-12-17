@@ -1,5 +1,5 @@
 
-[Is dev/test process for extensions?]
+[Is dev/test process for extensions]
 [Is it only about Windows ?]
 [Where supported OS is specified ?]
 [How can I see my extension ( which is private mode) in portal ?]
@@ -12,7 +12,7 @@
 [Do not (bad practice from real life ) 
 
 
-## Is dev/test process for extensions?
+## Is dev/test process for extensions
  Yes, there is – you can publish your extension which will be visible only for your subscription and test it from SDK and UI ( azure.com portal ). Be care that this is not a really private space – it just not show your extension in list of available extensions for all users, if user know extension name and version they can manually add it. 
 
 ## Is it only about Windows ?
