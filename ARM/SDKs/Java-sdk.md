@@ -60,7 +60,7 @@ After creating the service principal, you should have:
 2. Client secret (string)
 3. Tenant id (GUID) or domain name (string)
 
-Once you have this values, you can obtain an Active Directory Access Token. This token is valid for one hour, and can be refreshed to last 14 days. Read more about AD toekn lifetime [here](http://www.cloudidentity.com/blog/2015/03/20/azure-ad-token-lifetime/).
+Once you have this values, you can obtain an Active Directory Access Token. This token is valid for one hour, and can be refreshed to last 14 days. Read more about AD token lifetime [here](http://www.cloudidentity.com/blog/2015/03/20/azure-ad-token-lifetime/).
 
 The Java SDK include a helper class [AuthHelper](https://github.com/Azure/azure-sdk-for-java/blob/master/resource-management/azure-mgmt-utility/src/main/java/com/microsoft/azure/utility/AuthHelper.java) that creates the access token, once provided with the client id, secret and tanant id.
 
