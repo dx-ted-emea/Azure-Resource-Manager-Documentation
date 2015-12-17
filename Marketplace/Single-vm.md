@@ -272,7 +272,7 @@ The SAS URI created should adhere to the following requirements :
 * The duration for access should be a minimum of 7 business days from when the SAS URI is created.
 * To avoid immediate errors due to clock skews, specify a time 15 minutes before the current time.
 
-Simplest way to do that is to use open sourced (AzureStorageExplorer tool)[http://AzureStorageExplorer.codeplex.com].
+Simplest way to do that is to use open sourced [AzureStorageExplorer tool](http://AzureStorageExplorer.codeplex.com).
 
 
 
