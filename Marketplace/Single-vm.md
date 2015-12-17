@@ -39,7 +39,7 @@ Good reference regarding that topic is [Creating and Uploading a Virtual Hard Di
 
 ### Azure Linux agent ( waagent ) and required libs/packages 
 
-The Azure Linux agent (waagent) provides key functions for deploying Linux IaaS deployment in Azure, such as image provisioning and networking capabilities. You get this agent from repos RPM/Deb packages  [Linux on Azure-Endorsed Distributions](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-endorsed-distributions/) or from (github.com/Azure/WALinuxAgent)[https://github.com/Azure/WALinuxAgent]. 
+The Azure Linux agent (waagent) provides key functions for deploying Linux IaaS deployment in Azure, such as image provisioning and networking capabilities. You get this agent from repos RPM/Deb packages  [Linux on Azure-Endorsed Distributions](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-endorsed-distributions/) or from [github.com/Azure/WALinuxAgent](https://github.com/Azure/WALinuxAgent). 
 If you took waagent from source make these steps to install waagent :
 * copy 'waagent' file to /usr/sbin 
 * chmod 755 /usr/sbin/waagent; /usr/sbin/waagent install
