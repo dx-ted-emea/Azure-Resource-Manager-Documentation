@@ -102,10 +102,10 @@ A Resource Manager resource can have dependencies on other resources - a virtual
     "type": "<resource-provider-namespace/resource-type-name>",
     "apiVersion": "<supported-api-version-of-resource>",
     "location": "<location-of-resource>",
-    "tags": { <name-value-pairs-for-resource-tagging> },
-    "dependsOn": [ <array-of-related-resource-names> ],
-    "properties": { <settings-for-the-resource> },
-    "resources": { <dependent-resources> }
+    "tags": { "<name-value-pairs-for-resource-tagging>" },
+    "dependsOn": [ "<array-of-related-resource-names>" ],
+    "properties": { "<settings-for-the-resource>" },
+    "resources": { "<dependent-resources>" }
    }
 ]
 ```
