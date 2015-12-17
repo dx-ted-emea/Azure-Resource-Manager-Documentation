@@ -43,7 +43,7 @@ The SDK includes helper classes for several of the main packages. The helper cla
 * StorageHelper - storage helper class
  
 **Maven dependency information**
-```
+```xml
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>azure-mgmt-utility</artifactId>
@@ -65,7 +65,7 @@ Once you have this values, you can obtain an Active Directory Access Token. This
 The Java SDK include a helper class [AuthHelper](https://github.com/Azure/azure-sdk-for-java/blob/master/resource-management/azure-mgmt-utility/src/main/java/com/microsoft/azure/utility/AuthHelper.java) that creates the access token, once provided with the client id, secret and tanant id.
 
 Example usage  [ServicePrincipalExample](https://github.com/Azure/azure-sdk-for-java/blob/master/azure-mgmt-samples/src/main/java/com/microsoft/azure/samples/authentication/ServicePrincipalExample.java): 
-```
+```java
 public static Configuration createConfiguration() throws Exception {
         String baseUri = System.getenv("arm.url");
 
@@ -85,7 +85,7 @@ public static Configuration createConfiguration() throws Exception {
 The utility package includes a helper class [ComputeHelper](https://github.com/Azure/azure-sdk-for-java/blob/master/resource-management/azure-mgmt-utility/src/main/java/com/microsoft/azure/utility/ComputeHelper.java) to create a virtual machine. A few samples for working with virtual machines can be found in the azure-mgmt-samples package under [compute](https://github.com/Azure/azure-sdk-for-java/tree/master/azure-mgmt-samples/src/main/java/com/microsoft/azure/samples/compute).
 
 The follwing is a simple flow for creating a virtual machine. In this example, the helper class will create the sotrage and the netwrok as part of creating the VM:
-```
+```java
 public static void main(String[] args) throws Exception {
         Configuration config = createConfiguration();
         ResourceManagementClient resourceManagementClient = ResourceManagementService.create(config);
@@ -117,7 +117,7 @@ public static void main(String[] args) throws Exception {
 
 ## Deploy a template
 The [ResouceHelper](https://github.com/Azure/azure-sdk-for-java/blob/master/resource-management/azure-mgmt-utility/src/main/java/com/microsoft/azure/utility/ResourceHelper.java) class was created to ease the process of deploying an ARM template with the Java SDK. 
-```
+```java
 // create a new resource group
 ResourceManagementClient resourceManagementClient = createResourceManagementClient();
 ResourceContext resourceContext = new ResourceContext(
