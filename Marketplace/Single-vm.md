@@ -136,10 +136,10 @@ Main idea for this requirement is to use well-patched and updated Windows Server
 
 #### Create Windows Server VM image
 
-Actually what you do is create VM under Azure portal, that’s all.
+Actually what you do is creating a VM under Azure portal, that’s all.
 Hints:
-* Choose US-* region for deployment, it would helps during certification process because when you will submit your image for certification team
-* We highly recommend to do all thing in cloud, create/customize/configure VM on-premise under Hyper-V technically correct and will work if you follow documentation, but we don’t recommend it in most cases. Reality is that using on-premise for this purpose makes whole process much longer and brings very hard-to-find issues when VM is finally goes to cloud.
+* Choose US-* region for deployment, it would help during certification process when you will submit your image for the certification team.
+* We highly recommend to do everything in the cloud. Create/customize/configure VM in on-premise under Hyper-V is technically correct and will work if you follow documentation, but we don’t recommend it in most cases. Reality is that using on-premise for this purpose makes whole process much longer and brings very hard-to-find issues when VM is finally goes to cloud.
 
 #### Customize your Windows Server VM using RDP
 
