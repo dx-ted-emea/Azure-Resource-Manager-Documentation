@@ -86,12 +86,13 @@ Do not:
 ### Generalize image
 
 OS VHD must be deprovisioned: “waagent deprovision”. This command does:
-*Removes the nameserver configuration in /etc/resolv.conf
-*Removes cached DHCP client leases
-*Resets host name to localhost.localdomain
+* Removes the nameserver configuration in /etc/resolv.conf
+* Removes cached DHCP client leases
+* Resets host name to localhost.localdomain
+
 We recommend setting /etc/waagent.conf to ensure the following actions are also completed:
-*Remove all SSH host keys:    Provisioning.RegenerateSshHostKeyPair='y'
-*Remore root password from /etc/shadow : Provisioning.DeleteRootPassword='y‘
+* Remove all SSH host keys:    Provisioning.RegenerateSshHostKeyPair='y'
+* Remove root password from /etc/shadow : Provisioning.DeleteRootPassword='y‘
 
 #### Example of /etc/waagent.conf 
 ```
