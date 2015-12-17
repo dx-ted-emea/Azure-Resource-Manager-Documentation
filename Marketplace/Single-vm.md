@@ -33,7 +33,7 @@ Before going deep in that area I would like to note that if you're creating imag
 Main requirements regarding VHD are quite simple:
    *  The Linux OS VHD in your VM Image should be created as a 30GB — 50GB fixed format VHD. 
    *  It cannot be less than 30GB. If the physical size is less than VHD size, the VHD should be sparse. 
-   *  Linux VHDs larger than 50GB will be considered on a case by case basis. If you treat this as required please take a look onto [Mutli VM templates](Mutil-vm.md) - make be they will be better option for you.
+   *  Linux VHDs larger than 50GB will be considered on a case by case basis. If you treat this as required please take a look onto [Mutli VM templates](Mutil-vm.md) - maybe they will be better option for you.
 
 Good reference regarding that topic is [Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-create-upload-vhd)
 
