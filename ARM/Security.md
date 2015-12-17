@@ -50,7 +50,7 @@ In the introduction we said that we would not use any SDK to to complete the req
 
 Azure CLI is written in Node.js and can be installed directly from the terminal/command line using the following command as long as you have Node.js installed:
 
-```
+```bash
 > npm install -g azure-cli
 ```
 
@@ -64,13 +64,13 @@ The complete process of [Authenticating a service principal with Azure Resource 
 
 From a terminal/console window, execute the following command to switch to ARM mode (needed to access the ARM APIs in Azure)
 
-```
+```bash
 > azure config mode arm
 ```
 
 Attach your subscription to Azure CLI by executing
 
-```
+```bash
 > azure login
 ```
 
@@ -82,19 +82,19 @@ Execute the following command to register an application in Azure AD. Replace th
 
 The URLs need to be well formed URLs but don't have to be working globally accessable URLs so just use any URL for now. (We will not make use of those URLs during this tutorial, but they can be important in other scenarios)
 
-```
+```bash
 azure ad app create --name "<name>" --home-page "<well formed URI to application homepage" --identifier-uris "well formed URI that identifies the application" --password "<password to use for authentication>"
 ```
 
 If successfully executed, the above command will have created your application inside your Azure AD Tenant and will (among other) return an Application Id. Please make a note of that ID, since you will use it in the below command that will create a Service Principal and attach that to your application. Execute the following command and replace "application id" with the value you received above.
 
-```
+```bash
 azure ad sp create <application id>
 ```
 
 Among others, that command will return the "object id" of the newly created Service Principal. Note that and use it in the below command to assign the role as subscription owner to the new Service Principal
 
-```
+```bash
 azure role assignment create --objectId <object id> --roleName Owner
 ```
 
