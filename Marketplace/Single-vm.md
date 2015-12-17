@@ -124,7 +124,7 @@ After you made all changes and already have generalized VHD ( please see ) - you
 ### Base image for virtual machine
 
 The OS VHD for your VM Image must be based on a Microsoft Azure-approved base image, containing Windows Server or SQL Server.
-Best thing to begi is create a VM from one of the following images, located at the Microsoft Azure Portal (portal.azure.com), currently basic images are ( you always can see updates list in Azure portal - or just use default Windows Server image ):
+The best way to begin is to create a VM from one of the following images, located at the Microsoft Azure Portal (portal.azure.com), currently basic images are ( you always can see updates list in Azure portal - or just use default Windows Server image ):
 * Windows Server 2012 R2 Datacenter, 2012 Datacenter, 2008 R2 SP1
 * SQL Server 2014 Enterprise/Standard/Web
 * SQL Server 2012 SP2 Enterprise/Standard/Web
