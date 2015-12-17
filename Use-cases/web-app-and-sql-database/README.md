@@ -53,7 +53,11 @@ The Azure PowerShell cmdlets include cmdlets specific to Azure SQL Database.
 In the example below, the database `mydatabase` on server `myserver` in resource group `mygroup` is scaled to the S1 SKU in the Standard tier:
 	
 ```powershell
-Set-AzureRmSqlDatabase -ResourceGroupName mygroup -ServerName myserver -DatabaseName mydatabase -Edition Standard -RequestedServiceObjectiveName S1 
+Set-AzureRmSqlDatabase -ResourceGroupName mygroup `
+	-ServerName myserver `
+	-DatabaseName mydatabase `
+	-Edition Standard `
+	-RequestedServiceObjectiveName S1 
 ```
 
 ### CLI
