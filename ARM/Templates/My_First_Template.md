@@ -10,7 +10,7 @@ Lets look at a very simple architecture:
 The full template can be found in this directory - [sample_arc_template.json](json/sample_arc_template.json)
 
 ## Virtual Network with one Subnet
-```
+```json
  {
       "apiVersion": "2015-05-01-preview",
       "type": "Microsoft.Network/virtualNetworks",
@@ -34,7 +34,7 @@ The full template can be found in this directory - [sample_arc_template.json](js
   }
 ```
 ## Storage Account
-```
+```json
   {
       "type": "Microsoft.Storage/storageAccounts",
       "name": "[parameters('storageAccountName')]",
@@ -46,7 +46,7 @@ The full template can be found in this directory - [sample_arc_template.json](js
   }
 ```
 ## Availability Set
-```
+```json
  {
       "type": "Microsoft.Compute/availabilitySets",
       "name": "[variables('availabilitySetName')]",
@@ -56,7 +56,7 @@ The full template can be found in this directory - [sample_arc_template.json](js
   }
 ```
 ## Public IP for the Load Balancer
-```
+```json
   {
       "apiVersion": "2015-05-01-preview",
       "type": "Microsoft.Network/publicIPAddresses",
@@ -72,7 +72,7 @@ The full template can be found in this directory - [sample_arc_template.json](js
 ```
 ## 2 Public IPs for the VMs
 Use the **copyindex()** fucntion that loops over the value of **numberOfIntances** variables to create 2 public ips.
-```
+```json
  {
       "apiVersion": "2015-05-01-preview",
       "type": "Microsoft.Network/publicIPAddresses",
@@ -91,7 +91,7 @@ Use the **copyindex()** fucntion that loops over the value of **numberOfIntances
   }
 ```
 ## Load Balancer with load balancing rule
-```
+```json
 {
       "apiVersion": "2015-05-01-preview",
       "name": "[parameters('lbName')]",
@@ -178,7 +178,7 @@ Use the **copyindex()** fucntion that loops over the value of **numberOfIntances
   }
 ```
 ## 2 Network Interfaces
-```
+```json
  {
       "apiVersion": "2015-05-01-preview",
       "type": "Microsoft.Network/networkInterfaces",
@@ -222,7 +222,7 @@ Use the **copyindex()** fucntion that loops over the value of **numberOfIntances
   }
 ```
 ## 2 Virtual Machines
-```
+```json
 {
       "apiVersion": "2015-06-15",
       "type": "Microsoft.Compute/virtualMachines",
