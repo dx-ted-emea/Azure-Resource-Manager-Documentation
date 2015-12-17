@@ -8,7 +8,7 @@ From within one Azure Resource Manager template, you can link to another templat
 
 ### Microsoft.Resources/deployments Resource
 Create a template link by adding a deployments resource under the resources section of the template. The schema of the resource is:
-```
+```json
 "resources": [ 
   { 
      "apiVersion": "2015-01-01", 
@@ -29,7 +29,7 @@ Create a template link by adding a deployments resource under the resources sect
 ```
 ** Using Parameters File**
 Here we used __parameters__ property to pass parameters directly to the linked template. Another option is to use a parameters file:
-```
+```json
 "resources": [ 
   { 
      "apiVersion": "2015-01-01", 
@@ -53,7 +53,7 @@ Here we used __parameters__ property to pass parameters directly to the linked t
 
 **Using Variables**
 When working with a large set of modular templates you might want to avoid using hard coded template URLs. The following example shows how to use a base URL to create two URLs for linked templates (sharedTemplateUrl and vmTemplate)
-```
+```json
 "variables": {
     "templateBaseUrl": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/postgresql-on-ubuntu/",
     "sharedTemplateUrl": "[concat(variables('templateBaseUrl'), 'shared-resources.json')]",
@@ -76,7 +76,7 @@ When working with a large set of modular templates you might want to avoid using
 
 ### Simulating Conditional Linking
 Using parameters can be used to simulate dynamic or conditional tempalte linking, based on input parameters. In this example, the value of the 'jumpbox' parameter can be set to enable or disable, and in turn deploy a different template based on a condition outside of the template (in the calling code for example, or based on user input during deployment):
-```
+```json
 "properties": {
     "mode": "Incremental",
     "templateLink": {
@@ -95,7 +95,7 @@ Links can be established between resources belonging to different resource group
 ### Resource Links Template schema
 The link is applied to the source resource. 
 Add the following to the resources section of the tempalte:
-```
+```json
 {
     "type": enum,
     "apiVersion": "2015-01-01",
@@ -125,7 +125,7 @@ Properties:
 
 **Sample Template**
 Apply a link between the App Service and a storage account named storagecontoso:
-```
+```json
 {
 "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
 "contentVersion": "1.0.0.0",
