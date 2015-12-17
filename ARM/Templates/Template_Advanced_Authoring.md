@@ -8,7 +8,7 @@ The basic syntax of the template is JSON; however, expressions and functions ext
 * Function calls are formatted as functionName(arg1,arg2,arg3). Properties are referenced by using the dot and [index] operators
 
 Functions used to construct values:
-```
+```json
 "variables": {
    "location": "[resourceGroup().location]",
    "usernameAndPassword": "[concat('parameters('username'), ':', parameters('password'))]",
@@ -16,7 +16,7 @@ Functions used to construct values:
 }
 ```
 Return deployment information in the outputs section:
-```
+```json
 "outputs": {
   "exampleOutput": {
     "value": "[deployment()]",
@@ -25,7 +25,7 @@ Return deployment information in the outputs section:
 }
 ```
 Convert a user-provided parameter value to Integer:
-```
+```json
 "parameters": {
     "appId": { "type": "string" }
 },
@@ -43,7 +43,7 @@ ARM template expressions include iterative fucntions that allow creating multipl
 typicly the number of iterations will be defined in a parameter or a variable. In the following snippet, numberOfInstances was defined as a variable.
 To set an iterative loop, a **copy** section is defined. To access the current value of the iteration use **copyindex()** fuction.
 This example creates public IPs as much as a numberOfIntances variable is set to.
-```
+```json
    {
       "apiVersion": "2015-05-01-preview",
       "type": "Microsoft.Network/publicIPAddresses",
@@ -65,7 +65,7 @@ When using **copyindex()** values go from 0 to the set iteration count. To offse
 
 Resources can be created based on a an array of values; The **length** function is used to specify the count.
 In this example a parameter of type array is set and being used to set the web sites names. The length of the array is used for the number of iterations - 3 websites will be created: examplecopy-Contos, examplecopy-Fabrikam, examplecopy-Coho.
-```
+```json
 "parameters": { 
   "org": { 
      "type": "array", 
@@ -95,7 +95,7 @@ In this example a parameter of type array is set and being used to set the web s
 ## Dependencies 
 A Resource Manager resource can have dependencies on other resources - a virtual machine must have a storage account available before its provisioned, a network interface needs a virtual network to be defined first etc.
 
-```
+```json
 "resources": [
    {
     "name": "<name-of-the-resource>",
@@ -115,7 +115,7 @@ The dependsOn property on a resource provides the ability to define this depende
 Note that using the dependson property may have implications on the deployment performance.
 
 In this example, a nic has an explicit dependency on a vnet and public ip - it will not be provioned until those resources are created:
-```
+```json
 {
       "apiVersion": "2015-05-01-preview",
       "type": "Microsoft.Network/networkInterfaces",
@@ -150,7 +150,7 @@ The resources property of the resource object allows defining child resources of
 * There is no explisit dependency between the main resource and the child resources. This can be defined using the dependson property.
  
 In this example we defined a SQL Database on a SQL Database Server - the SQL Database is a child resource of a SQL Database server resource and depends on it:
-```
+```json
 {
      "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
      "contentVersion": "1.0.0.0",
@@ -189,7 +189,7 @@ In this example we defined a SQL Database on a SQL Database Server - the SQL Dat
 This function enables an expression to derive its value from another resource's runtime state and defines an implicit dependency between resources. It is recommened to use reference and not dependson whenever possible to avoid potential performance implications. 
 
 This example create a website and set the connection string for the SQL Database Server we priviosly created, using the reference fucntion:
-```
+```json
 {
     "apiVersion": "2014-04-01",
     "type": "Microsoft.Web/Sites",
@@ -198,7 +198,7 @@ This example create a website and set the connection string for the SQL Database
     "dependsOn": [
         "[concat('Microsoft.Web/serverFarms/', 'myhostplan')]"
     ],
-    properties": {
+    "properties": {
         "name": "mywebsiteddf",
         "serverFarm": "myhostplan"
     },
