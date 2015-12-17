@@ -1,7 +1,7 @@
 # Azure Resource Manager Java SDK
 
 ## Overview 
-The Azure Resource Manager SDK is hosted in github [Azure Java SDK repostiory](https://github.com/azure/azure-sdk-for-java). Note that at the time of writing this the SDK is in **preview**. 
+The Azure Resource Manager SDK is hosted in github [Azure Java SDK repository](https://github.com/azure/azure-sdk-for-java). Note that at the time of writing this the SDK is in **preview**. 
 
 The following packages are available:
 * Compute Management: (azure-mgmt-compute)
