@@ -7,7 +7,7 @@ With Resource Manager, you can create a simple template (in JSON format) that de
 A tempalte consists of 4 basics parts, that constracts the resources needed to deploy the application, the parameters and their valus and any output values.
 
 Basic template structure:
-```
+```json
 {
    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
    "contentVersion": "",
@@ -29,7 +29,7 @@ Basic template structure:
 ### Parameters
 The parameters section defined the values a user can input while deploying the resources. The values of the parameters can be used thoughout the template.
 
-```
+```json
 "parameters": {
    "<parameterName>" : {
      "type" : "<type-of-parameter-value>",
@@ -76,7 +76,7 @@ secureString - all passwords, keys, and other secrets should use the **secureStr
 **Parameter File**
 
 Parameters can be passed to the deployment using a parameter file. This is also a JSON file, with the following structure:
-```
+```json
 {
    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
    "contentVersion": "",
@@ -90,7 +90,7 @@ Parameters can be passed to the deployment using a parameter file. This is also 
 
 ### Variables
 Variables are used to simplify template language expressions. Typically, these variables will be based on values provided from the parameters. Basic variables section structure:
-```
+```json
 "variables": {
    "<variable-name>": "<variable-value>",
    "<variable-name>": { 
@@ -100,7 +100,7 @@ Variables are used to simplify template language expressions. Typically, these v
 ```
 
 Follwing is an example of a variable constructed from two parameters, one that is custructed from other variables and a varialbe that is a complex JSON object:
-```
+```json
 "parameters": {
    "username": {
      "type": "string"
@@ -136,7 +136,7 @@ Follwing is an example of a variable constructed from two parameters, one that i
 ### Resources
 This section defines the resouces to create or update in the deployment. Each resource is defined seperatly. If there are dependencies between resources, they must be described in the resource definision. For example, if a Virtual Machine depends on a Storage Account, this will be defined in the Virtual Machine resource decleration. Azure Resource Manager analyzes dependencies to ensure resources are created in the correct order, and there is no meaning to the order in which the resources are defined in the template. 
 
-```
+```json
 "resources": [
    {
      "apiVersion": "<api-version-of-resource>",
@@ -169,7 +169,7 @@ This section defines the resouces to create or update in the deployment. Each re
 
 ### Output
 This is an optional section, were you can specify the values to be returned from the deployment.
-```
+```json
 "outputs": {
    "<outputName>" : {
      "type" : "<type-of-output-value>",
@@ -185,7 +185,7 @@ This is an optional section, were you can specify the values to be returned from
 
 ## Template Sample - simple compute deployment
 The following template creates a virtual network with 2 subnets, a network interface, storage account and a Windows virtual machine. The json file can be found in this directoy [simple-win-vm-sample.json](json/simple-win-vm-sample.json)
-```
+```json
 {
   "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
