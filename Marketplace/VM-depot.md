@@ -1,30 +1,13 @@
-## VM-Depot - community managed repository for Linux and FreeBSD images
-
-*draft*
 
 
-Azure Marketplace is great place to publish your apps
-Here's example of web link [Azure web site](http://azure.microsoft.com//) and the [Azure stuff on github](http://azure.github.io/).
-Wiki also have *another font* which may be usefull too.
+## VM depot
 
+In addition to Azure Marketplace where you may publish your commercial and business applications, there's a place where community and open source driven initiatives may live - this place is https://vmdepot.msopentech.com. Here you may share your open source ( i.e. Linux distro or FreeBSD ) based images and share your work with others.
+Below you may find quick intro to publication process and some tips and tricks around vm depot.
 
-Example of some command line code 
-
-    sudo apt-get install apache2
-
-Example of some json code
-```json
-{ "some": "json" }
-```
-
-# Overview 
-
-# Building the Offering 
-
-# Examples 
-
-# On-Boarding Process 
-
-# Tip & Tricks 
+_to_be_done_
 
 # Resources and References 
+
+## Great example of images
+
