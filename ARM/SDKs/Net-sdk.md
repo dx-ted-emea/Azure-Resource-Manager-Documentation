@@ -104,7 +104,7 @@ All of the following API calls will need the token you received from Azure AD in
 var credentials = new TokenCredentials(token);
 ```
 
-### Creating a Resource Group
+## Creating a Resource Group
 
 Everything in Azure is focused around the Resource Groups, so let's start by creating one. General resources and resource groups are handled by the ResourceManagementClient and as any of the following more specialiced Management Clients that we will use, you need to provide your credentials as well as a Subscription ID to identify what subscription you want to work with.
 
@@ -120,6 +120,9 @@ private static async Task<ResourceGroup> CreateResourceGroupAsync(TokenCredentia
         });
 }
 ```
+
+## Creating resources manually or using templates
+
 
 ### Creating a Virtual Machine, piece by piece
 
