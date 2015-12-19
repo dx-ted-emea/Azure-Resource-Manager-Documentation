@@ -95,3 +95,28 @@ async private static Task<List<string>> GetSubscriptionsAsync(string token)
 Notice taht we do get a JSON response from Azure that we then extract the subscription IDs from in order to return a list of IDs. All the subsequent calls to Azure ARM APIs in this documentation only uses a single Azure Subscription ID, so if your application are associated with several subscriptions, just pick the right one of them and pass as a parameter going forward.
 
 From here on every call we do against the Azure APIs will use the Azure SDK for .NET so the code do look a little bit different.
+
+### Wrapping the token as a TokenCredentials Object
+
+All of the following API calls will need the token you received from Azure AD in the format of a "TokenCredentials" object. Such an object is easily created by just passing the raw token as a parameter to the class' constructor.
+
+```csharp
+var credentials = new TokenCredentials(token);
+```
+
+### Creating a Resource Group
+
+Everything in Azure is focused around the Resource Groups, so let's start by creating one. General resources and resource groups are handled by the ResourceManagementClient and as any of the following more specialiced Management Clients that we will use, you need to provide your credentials as well as a Subscription ID to identify what subscription you want to work with.
+
+```csharp
+private static async Task<ResourceGroup> CreateResourceGroupAsync(TokenCredentials credentials, string subscriptionId, string resourceGroup, string location)
+{
+    Console.WriteLine($"Creating Resource Group {resourceGroup}");
+    var resourceClient = new ResourceManagementClient(credentials) { SubscriptionId = subscriptionId };
+    return await resourceClient.ResourceGroups.CreateOrUpdateAsync(resourceGroup,
+        new ResourceGroup
+        {
+            Location = location
+        });
+}
+
