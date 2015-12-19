@@ -6,9 +6,24 @@ At the time of writing this documentation the Azure SDK for .NET is still in pre
 
 Azure SDK for .NET is provided as a set of NuGet Packages that helps you call most of the APIs exposed by Azure Resrouce Manager. If the SDK doesn't expose the requried functionality you can easily combine the SDK with regular calls to the ARM REST API behind the scenes.
 
-This documentation is not intended to describe all aspects of Azure SDK for .NET or Azure ARM APIs, but is rather provided as a fast way for you to get started.
+This documentation is not intended to describe all aspects of Azure SDK for .NET, Azure ARM APIs or Visual Studio, but is rather provided as a fast way for you to get started.
 
 A full downloadable sample project from where all code snippets below have been taken, can be found [here](Samples/Net).
+
+## Setting up the environment
+
+The following NuGet Packages are needed to complete the tasks in this documentation. Install them from the graphical version of NuGet Manager or from the NuGet Manager Console. 
+
+```bash
+Install-Package Microsoft.Azure.Common.Authentication -Pre
+Install-Package Microsoft.Azure.Management.Compute -Pre
+Install-Package Microsoft.Azure.Management.Network -Pre
+Install-Package Microsoft.Azure.Management.Resources -Pre
+Install-Package Microsoft.Azure.Management.Storage -Pre
+```
+
+(As of the time of writing, these packages are only provided as "preview packages" hence you must add the "-Pre" switch in order to have them installed)
+
 ## Authentication
 
 Authentication against the Azure APIs are done by passign a token to your requests. You can receive that token by first authenticating against Azure AD. A more indept explanation how it all works can be found in the [REST API documentation](Rest-api.md).
@@ -24,6 +39,7 @@ Please make sure you follow that instruction or make sure you have allready regi
 
 ### Receiving the AccessToken 
 
+The authentication token can easily be aquired with the below lines of code, passing in only your Azure AD Tenant ID, your Azure AD Application Client ID and the Azure AD Application Client Secret. Save the token for several requests since it by default is valid for 1 hour.
 
 ```csharp
 private static AuthenticationResult GetAccessToken(string tenantId, string clientId, string clientSecret)
