@@ -1,4 +1,4 @@
-## ARM .NET SDK
+#Azure SDK for .NET
 
 *draft*
 
@@ -12,8 +12,21 @@ Example of some command line code
     sudo apt-get install apache2
 
 Example of some json code
-```json
-{ "some": "json" }
+```csharp
+private static AuthenticationResult GetAccessToken(string tenantId, string clientId, string clientSecret)
+{
+    Console.WriteLine("Aquiring Access Token from Azure AD");
+    AuthenticationContext authContext = new AuthenticationContext
+        ("https://login.windows.net/" /* AAD URI */
+            + $"{tenantId}.onmicrosoft.com" /* Tenant ID or AAD domain */);
+
+    var credential = new ClientCredential(clientId, clientSecret);
+
+    AuthenticationResult token = authContext.AcquireToken("https://management.azure.com/", credential);
+
+    Console.WriteLine($"Token: {token.AccessToken}");
+    return token;
+}
 ```
 
 
