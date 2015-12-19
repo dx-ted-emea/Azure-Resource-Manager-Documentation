@@ -1,6 +1,6 @@
 # ARM PYTHON SDK
 
-* Soruce Code for Azure SDK for Python is available at [https://github.com/Azure/azure-sdk-for-python] where you also find some very usefull pointers to documentation.
+* Soruce Code for Azure SDK for Python is available at [GitHub](https://github.com/Azure/azure-sdk-for-python) where you also find some very usefull pointers to documentation.
 * Azure SDK for Python is well documented at [Read the Docs](http://azure-sdk-for-python.readthedocs.org)
     * [Resource Management documentation](http://azure-sdk-for-python.readthedocs.org/en/latest/resourcemanagement.html) including:
         * Create management client
