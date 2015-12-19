@@ -37,7 +37,7 @@ Please make sure you follow that instruction or make sure you have allready regi
 * Application Client ID
 * Application Client Secret
 
-### Receiving the AccessToken 
+### Receiving the AccessToken from code
 
 The authentication token can easily be aquired with the below lines of code, passing in only your Azure AD Tenant ID, your Azure AD Application Client ID and the Azure AD Application Client Secret. Save the token for several requests since it by default is valid for 1 hour.
 
@@ -58,12 +58,36 @@ private static AuthenticationResult GetAccessToken(string tenantId, string clien
 }
 ```
 
+### Querying Azure subscriptions attached to the authenticated application
 
-# Overview 
+One of the first things you might want to do is querying what Azure Subscriptions that are associated with the just authenticated application. The Subscription ID for your targeted subscription will be mandatory to pass to each API call you do from now on.
 
-# Authentication Sample 
+The below sample code queries Azure APIs directly using the REST API, i.e. not using any features in Azure SDK for .NET.
 
-# "Hello World" Sample 
+```csharp
+async private static Task<List<string>> GetSubscriptionsAsync(string token)
+{
+    Console.WriteLine("Querying for subscriptions");
+    const string apiVersion = "2015-01-01";
 
-# Going deep and references
-  
+    var client = new HttpClient();
+    client.BaseAddress = new Uri("https://management.azure.com/");
+    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+    var response = await client.GetAsync($"subscriptions?api-version={apiVersion}");
+
+    var jsonResponse = response.Content.AsString();
+
+    var subscriptionIds = new List<string>();
+    dynamic json = JsonConvert.DeserializeObject(jsonResponse);
+
+    for (int i = 0; i < json.value.Count; i++)
+    {
+        subscriptionIds.Add(json.value[i].subscriptionId.Value);
+    }
+
+    Console.WriteLine($"Found {subscriptionIds.Count} subscription(s)");
+    return subscriptionIds;
+}
+```
