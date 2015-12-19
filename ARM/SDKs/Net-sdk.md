@@ -91,3 +91,7 @@ async private static Task<List<string>> GetSubscriptionsAsync(string token)
     return subscriptionIds;
 }
 ```
+
+Notice taht we do get a JSON response from Azure that we then extract the subscription IDs from in order to return a list of IDs. All the subsequent calls to Azure ARM APIs in this documentation only uses a single Azure Subscription ID, so if your application are associated with several subscriptions, just pick the right one of them and pass as a parameter going forward.
+
+From here on every call we do against the Azure APIs will use the Azure SDK for .NET so the code do look a little bit different.
