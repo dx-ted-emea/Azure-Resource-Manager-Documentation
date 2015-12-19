@@ -339,8 +339,8 @@ namespace ArmDocConsole
         private static Task<VirtualNetwork> CreateVirtualNetworkAsync(TokenCredentials credentials, string subscriptionId, string resourceGroup, string location, string vNetName, string vNetAddressPrefix, Subnet[] subnets)
         {
             Console.WriteLine("Creating Virtual Network");
-            var networkClient1 = new NetworkManagementClient(credentials) { SubscriptionId = subscriptionId };
-            var createVNetTask = networkClient1.VirtualNetworks.CreateOrUpdateAsync(resourceGroup, vNetName,
+            var networkClient = new NetworkManagementClient(credentials) { SubscriptionId = subscriptionId };
+            var createVNetTask = networkClient.VirtualNetworks.CreateOrUpdateAsync(resourceGroup, vNetName,
                 new VirtualNetwork
                 {
                     Location = location,

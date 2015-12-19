@@ -120,3 +120,137 @@ private static async Task<ResourceGroup> CreateResourceGroupAsync(TokenCredentia
         });
 }
 ```
+
+### Creating a Virtual Machine, piece by piece
+
+So now we have our subscription and our resource group. If we now want to deploy a Virtual Machine we need to figure out what parts actually make up a Virtual Machine and it turns out it's quite a few parts:
+
+* 1 or many Storage Accounts, for storing persistent disks
+* 1 or many Public IP Address, PIP, for beeing accessable from the Internet (includes a DNS name)
+* 1 or many Virtual Networks, VNET, for internal communication between your resources
+* 1 or many Network Interface Cards, NIC, to allow the VM to communicate
+* 1 or many Virtual Machines, VM, to run our software
+
+Another interesting piece is also how some of these resources can be created in parallel while other once can not. For example:
+
+* NICs, depend on PIP and VNet
+* VMs, depend on NICs and Storage Accounts
+
+You need to make sure you don't try to instantiate any resources before the required dependencies have been created. The full [sample](Samples/Net) provided with this documentation shows how you can efficiently create your resources in parallel while still keeping track on what's been created.
+
+#### Creating the Storage Account
+```csharp
+private static async Task<StorageAccount> CreateStorageAccountAsync(TokenCredentials credentials, string subscriptionId, string resourceGroup, string location, string storageAccountName, AccountType accountType = AccountType.StandardLRS)
+{
+    Console.WriteLine("Creating Storage Account");
+    var storageClient = new StorageManagementClient(credentials) { SubscriptionId = subscriptionId };
+    return await storageClient.StorageAccounts.CreateAsync(resourceGroup, storageAccountName,
+        new StorageAccountCreateParameters
+        {
+            Location = location,
+            AccountType = accountType,
+        });
+}
+```
+
+#### Creating the Public IP Address, PIP
+```csharp
+private static Task<PublicIPAddress> CreatePublicIPAddressAsync(TokenCredentials credentials, string subscriptionId, string resourceGroup, string location, string pipAddressName, string pipDnsName)
+{
+    Console.WriteLine("Creating Public IP");
+    var networkClient = new NetworkManagementClient(credentials) { SubscriptionId = subscriptionId };
+    var createPipTask = networkClient.PublicIPAddresses.CreateOrUpdateAsync(resourceGroup, pipAddressName,
+        new PublicIPAddress
+        {
+            Location = location,
+            DnsSettings = new PublicIPAddressDnsSettings { DomainNameLabel = pipDnsName },
+            PublicIPAllocationMethod = "Dynamic" // This sample doesn't support Static IP Addresses but could be extended to do so
+        });
+
+    return createPipTask;
+}
+```
+
+#### Creating the Virtual Network, VNET
+```csharp
+private static Task<VirtualNetwork> CreateVirtualNetworkAsync(TokenCredentials credentials, string subscriptionId, string resourceGroup, string location, string vNetName, string vNetAddressPrefix, Subnet[] subnets)
+{
+    Console.WriteLine("Creating Virtual Network");
+    var networkClient = new NetworkManagementClient(credentials) { SubscriptionId = subscriptionId };
+    var createVNetTask = networkClient.VirtualNetworks.CreateOrUpdateAsync(resourceGroup, vNetName,
+        new VirtualNetwork
+        {
+            Location = location,
+            AddressSpace = new AddressSpace(new[] { vNetAddressPrefix }),
+            Subnets = subnets
+        });
+
+    return createVNetTask;
+}
+```
+
+#### Creating the Network Interface Card, NIC
+```csharp
+private static Task<NetworkInterface> CreateNetworkInterfaceAsync(TokenCredentials credentials, string subscriptionId, string resourceGroup, string location, string nicName, string nicIPConfigName, PublicIPAddress pip, Subnet subnet)
+{
+    Console.WriteLine("Creating Network Interface");
+    var networkClient = new NetworkManagementClient(credentials) { SubscriptionId = subscriptionId };
+    var createNicTask = networkClient.NetworkInterfaces.CreateOrUpdateAsync(resourceGroup, nicName,
+        new NetworkInterface()
+        {
+            Location = location,
+            IpConfigurations = new[] {
+                new NetworkInterfaceIPConfiguration
+                {
+                    Name = nicIPConfigName,
+                    PrivateIPAllocationMethod = "Dynamic",
+                    PublicIPAddress = pip,
+                    Subnet = subnet
+                }
+            }
+        });
+
+    return createNicTask;
+}
+```
+
+#### Creating the Virtual Machine, VM
+```csharp
+private static async Task<VirtualMachine> CreateVirtualMachineAsync(TokenCredentials credentials, string subscriptionId, string resourceGroup, string location, string storageAccountName, string vmName, string vmSize, string vmAdminUsername, string vmAdminPassword, string vmImagePublisher, string vmImageOffer, string vmImageSku, string vmImageVersion, string vmOSDiskName, string nicId)
+{
+    Console.WriteLine("Creating Virtual Machine (this may take a while)");
+    var computeClient = new ComputeManagementClient(credentials) { SubscriptionId = subscriptionId };
+    var vm = await computeClient.VirtualMachines.CreateOrUpdateAsync(resourceGroup, vmName,
+        new VirtualMachine
+        {
+            Location = location,
+            HardwareProfile = new HardwareProfile(vmSize),
+            OsProfile = new OSProfile(vmName, vmAdminUsername, vmAdminPassword),
+            StorageProfile = new StorageProfile(
+                new ImageReference
+                {
+                    Publisher = vmImagePublisher,
+                    Offer = vmImageOffer,
+                    Sku = vmImageSku,
+                    Version = vmImageVersion
+                },
+                new OSDisk
+                {
+                    Name = vmOSDiskName,
+                    Vhd = new VirtualHardDisk($"http://{storageAccountName}.blob.core.windows.net/vhds/{vmOSDiskName}.vhd"),
+                    Caching = "ReadWrite",
+                    CreateOption = "FromImage"
+                }),
+            NetworkProfile = new NetworkProfile(
+                new[] { new NetworkInterfaceReference { Id = nicId } }),
+            DiagnosticsProfile = new DiagnosticsProfile(
+                new BootDiagnostics
+                {
+                    Enabled = true,
+                    StorageUri = $"http://{storageAccountName}.blob.core.windows.net"
+                })
+        });
+
+    return vm;
+}
+```
