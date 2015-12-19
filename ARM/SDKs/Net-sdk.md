@@ -155,6 +155,9 @@ Another interesting piece is also how some of these resources can be created in 
 You need to make sure you don't try to instantiate any resources before the required dependencies have been created. The full [sample](Samples/Net) provided with this documentation shows how you can efficiently create your resources in parallel while still keeping track on what's been created.
 
 #### Creating the Storage Account
+
+You need a storage account to store the Virtual HDDs for you Virtual Machine. If you have an existing storage account you can use it for several VMs, but remember to spread your load across several storage accounts not to run into limits. Remember that the type of Storage Account and it's location can limit the VM Size you can chose since not all VM Sizes are available in all regions and/or for all storage account types.
+
 ```csharp
 private static async Task<StorageAccount> CreateStorageAccountAsync(TokenCredentials credentials, string subscriptionId, string resourceGroup, string location, string storageAccountName, AccountType accountType = AccountType.StandardLRS)
 {
@@ -170,6 +173,9 @@ private static async Task<StorageAccount> CreateStorageAccountAsync(TokenCredent
 ```
 
 #### Creating the Public IP Address, PIP
+
+The public IP Address is what makes your resources in Azure accessable from Internet. Together with the IP Address you'll also be assigned a fully qualified domain name, FQDN, that you can use for easier access.
+
 ```csharp
 private static Task<PublicIPAddress> CreatePublicIPAddressAsync(TokenCredentials credentials, string subscriptionId, string resourceGroup, string location, string pipAddressName, string pipDnsName)
 {
@@ -188,6 +194,9 @@ private static Task<PublicIPAddress> CreatePublicIPAddressAsync(TokenCredentials
 ```
 
 #### Creating the Virtual Network, VNET
+
+Every VM created with the ARM APIs need to be part of a Virtual Network, even if the VM is alone in it. The virtual network must contain at least one subnet, but you can have many do divide and protect your resources in several subnets.
+
 ```csharp
 private static Task<VirtualNetwork> CreateVirtualNetworkAsync(TokenCredentials credentials, string subscriptionId, string resourceGroup, string location, string vNetName, string vNetAddressPrefix, Subnet[] subnets)
 {
@@ -206,6 +215,9 @@ private static Task<VirtualNetwork> CreateVirtualNetworkAsync(TokenCredentials c
 ```
 
 #### Creating the Network Interface Card, NIC
+
+The Network Interface Card, NIC, is what connects your VM with the Virtual Network it recides in. A VM can have many NICs and hence be associated with several Virtual Networks. This sample assumes you are only attaching your VMs to one VNET.
+
 ```csharp
 private static Task<NetworkInterface> CreateNetworkInterfaceAsync(TokenCredentials credentials, string subscriptionId, string resourceGroup, string location, string nicName, string nicIPConfigName, PublicIPAddress pip, Subnet subnet)
 {
@@ -231,6 +243,9 @@ private static Task<NetworkInterface> CreateNetworkInterfaceAsync(TokenCredentia
 ```
 
 #### Creating the Virtual Machine, VM
+
+Finally it's time to create the actual Virtual Machine. The VM depends direcly or inderectly of all of the above created resources, so you need to wait for all of the above to be ready before you try to provision a VM. Provisioning a VM is what takes the longest time of the above resources so expect your application to be waiting a while for this to happen.
+
 ```csharp
 private static async Task<VirtualMachine> CreateVirtualMachineAsync(TokenCredentials credentials, string subscriptionId, string resourceGroup, string location, string storageAccountName, string vmName, string vmSize, string vmAdminUsername, string vmAdminPassword, string vmImagePublisher, string vmImageOffer, string vmImageSku, string vmImageVersion, string vmOSDiskName, string nicId)
 {
@@ -270,3 +285,6 @@ private static async Task<VirtualMachine> CreateVirtualMachineAsync(TokenCredent
     return vm;
 }
 ```
+
+### Using a templated deployment
+
