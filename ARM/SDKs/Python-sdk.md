@@ -1,27 +1,29 @@
-## ARM PYTHON SDK
+# ARM PYTHON SDK
 
-*draft*
+* Soruce Code for Azure SDK for Python is available at [https://github.com/Azure/azure-sdk-for-python] where you also find some very usefull pointers to documentation.
+* Azure SDK for Python is well documented at [Read the Docs](http://azure-sdk-for-python.readthedocs.org)
+    * [Resource Management documentation](http://azure-sdk-for-python.readthedocs.org/en/latest/resourcemanagement.html) including:
+        * Create management client
+        * Create resource group
+        * List resource groups
+        * Create resource
+        * Create deployment from linked template
+        * Create deployment from template
+        * etc.
 
-Azure Marketplace is great place to publish your apps 
-Here's example of web link [Azure web site](http://azure.microsoft.com//) and the [Azure stuff on github](http://azure.github.io/).
-Wiki also have *another font* which may be usefull too.
+## Installation
 
+Azure SDK for Python can be installed by using "pip"
 
-Example of some command line code 
-
-    sudo apt-get install apache2
-
-Example of some json code
-```json
-{ "some": "json" }
+```bash
+pip install azure
 ```
 
+or by installing from the source at http://github.com/Azure/azure-sdk-for-python
 
-# Overview 
+```bash
+git clone https://github.com/Azure/azure-sdk-for-python.git
+cd azure-sdk-for-python
+python setup.py install
+```
 
-# Authentication Sample 
-
-# "Hello World" Sample 
-
-# Going deep and references
- 
