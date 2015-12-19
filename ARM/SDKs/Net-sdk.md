@@ -1,5 +1,22 @@
 #Azure SDK for .NET
 
+## Introduction
+
+
+## Authentication
+
+Authentication against the Azure APIs are done by passign a token to your requests. You can receive that token by first authenticating against Azure AD. A more indept explanation how it all works can be found in the [REST API documentation](Rest-api.md).
+
+### Registering
+
+The process of regestering an application for programatic access to Azure and Azure AD is described in [the Authentication documentation](../Authentication.md).
+Please make sure you follow that instruction or make sure you have allready registered an Azure AD Application and have the corresponding:
+
+* Azure AD Tenant ID
+* Application Client ID
+* Application Client Secret
+
+### Calling 
 *draft*
 
 Azure Marketplace is great place to publish your apps 
