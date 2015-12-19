@@ -42,11 +42,48 @@ namespace ArmDocConsole
 {
     class Program
     {
+#error Replace tenantId, clientId and clientSecret and then remove or comment this row!!!
+
+        // Authentication parameters
+        const string TenantId = "yourtenantid";                             // Identifies your tenant in Azure AD, often your company name (<tenantid>.onmicrosoft.com)
+        const string ClientId = "1a11a111-bbb2-33c3-d4dd-55e55e5e55e5";     // ClientId as registered in Azure AD
+        const string ClientSecret = "yourclientsecret";                     // ClientSecret as registered in Azure AD
+
+
         static void Main()
         {
-            ArmApiSample().Wait();
+            try
+            {
+                Console.WriteLine("ARM API Sample");
+                Console.WriteLine();
+                Console.WriteLine("Press <M> for Manual ARM API Deployment of Windows VM");
+                Console.WriteLine("Press <T> for Templated ARM Deployment of Linux VM");
+                Console.WriteLine();
+
+                var k = Console.ReadKey(true);
+
+                if (k.Key == ConsoleKey.M)
+                {
+                    ManualArmApiDeployment().Wait();
+                }
+                else if (k.Key == ConsoleKey.T)
+                {
+                    TemplatedArmDeployment().Wait();
+                }
+
+                Console.WriteLine("Deployment done!");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("ERROR");
+                Console.WriteLine();
+                Console.WriteLine(ex.ToString());
+            }
+            Console.WriteLine("Press <Enter> to exit");
+            Console.ReadLine();
         }
 
+        #region Manual ARM API Deployment
         /// <summary>
         /// Creates new Virtual Machine using ARM APIs, one by one, building a complete Virtual Machine from the bottom up including:
         /// Resource Group, Storage Account, Public IP Address, Virtual Network, Network Interface Card and the Virtual Machine itself.
@@ -58,22 +95,17 @@ namespace ArmDocConsole
         /// * How parts of the deployment can be optimized using parallel tasks
         /// </summary>
         /// <returns></returns>
-        async static Task ArmApiSample()
+        async static Task ManualArmApiDeployment()
         {
-//#error Replace tenantId, clientId and clientSecret and then remove or comment this row!!!
 
-            // Authentication parameters
-            const string tenantId = "yourtenantid";                             // Identifies your tenant in Azure AD, often your company name (<tenantid>.onmicrosoft.com)
-            const string clientId = "1a11a111-bbb2-33c3-d4dd-55e55e5e55e5";     // ClientId as registered in Azure AD
-            const string clientSecret = "yourclientsecret";                     // ClientSecret as registered in Azure AD
 
-//#error Replace the values for storageAccountName and pipDnsName to a globally unique value and then remove or comment this row!!!
+#error Replace the values for storageAccountName and pipDnsName to a globally unique value and then remove or comment this row!!!
             // Globally unique values used in DNS names
             const string storageAccountName = "armstorage";                     // Globally unique name used for the created storage account, pick a name no one else could have chosen
             const string pipDnsName = "armdns";                                 // Globally unique name that will be used as part of the DNS name for your public IP and Virtual Machine
 
             // Parameters used in creation of Virtual Machine
-            const string resourceGroup = "sampleresourcegroup";                 // Name of resource group to deploy to
+            const string resourceGroup = "manualrg";                            // Name of resource group to deploy to
             const string location = "North Europe";                             // Location of deployed resources
             const string pipAddressName = "pip001";                             // Internal name for Public IP Address
             const string vNetName = "vnet001";                                  // Internal name for Virtual Network
@@ -93,7 +125,7 @@ namespace ArmDocConsole
             const string vmOSDiskName = "osdisk";                               // Internal name for VM Operating System Disk
 
             // Authenticate against Azure AD using client id and client secret
-            var token = GetAccessToken(tenantId, clientId, clientSecret).AccessToken;
+            var token = GetAccessToken(TenantId, ClientId, ClientSecret).AccessToken;
             var credentials = new TokenCredentials(token);
 
             // List subscriptions and save first subscription id (might be incorrect if you have several subscriptions)
@@ -193,89 +225,6 @@ namespace ArmDocConsole
             Console.WriteLine("Success!!!");
             Console.WriteLine($"VM ProvisioningState: {vm.ProvisioningState}");
 
-        }
-
-        /// <summary>
-        /// Autenticates against Azure AD using clientId and clientSecret. Requires that you previously have registered
-        /// an app in your tenantId's AD.
-        /// </summary>
-        /// <remarks>
-        /// There are several other ways of authenticating against Azure AD and they all work in somewhat different ways
-        /// but still very similar. This sample has the assumption that you've registered an Application in Azure AD and
-        /// gotten the Client ID and Client Secret for that application.
-        /// Also application must also have the authorization to access management.azure.com in order for this sample to
-        /// work.
-        /// </remarks>
-        /// <param name="tenantId">Identifies your tenant in Azure AD, often the same as your company's name</param>
-        /// <param name="clientId">ID that identifies this application to Azure AD</param>
-        /// <param name="clientSecret">Secret password used to validate authentication of App</param>
-        /// <returns>Returns AuthenticationResult containing AccessToken to be used in requests to other APIs</returns>
-        private static AuthenticationResult GetAccessToken(string tenantId, string clientId, string clientSecret)
-        {
-            Console.WriteLine("Aquiring Access Token from Azure AD");
-            AuthenticationContext authContext = new AuthenticationContext
-                ("https://login.windows.net/" /* AAD URI */
-                    + $"{tenantId}.onmicrosoft.com" /* Tenant ID or AAD domain */);
-
-            var credential = new ClientCredential(clientId, clientSecret);
-
-            AuthenticationResult token = authContext.AcquireToken("https://management.azure.com/", credential);
-
-            Console.WriteLine($"Token: {token.AccessToken}");
-            return token;
-        }
-
-        /// <summary>
-        /// Showcase how you can call Azure ARM APIs directly using C# and .NET Framework without any additional SDK
-        /// or NuGet Package. In order to use this method, the only thing you need is an authentication token from
-        /// Azure AD.
-        /// </summary>
-        /// <param name="token">Valid AccessToken returned from Azure AD that identifies his caller as having
-        /// assess rights to the ARM APIs</param>
-        /// <returns>Returns a list of Subcription IDs that the identified application has access right to</returns>
-        async private static Task<List<string>> GetSubscriptionsAsync(string token)
-        {
-            Console.WriteLine("Querying for subscriptions");
-            const string apiVersion = "2015-01-01";
-
-            var client = new HttpClient();
-            client.BaseAddress = new Uri("https://management.azure.com/");
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-            var response = await client.GetAsync($"subscriptions?api-version={apiVersion}");
-
-            var jsonResponse = response.Content.AsString();
-
-            var subscriptionIds = new List<string>();
-            dynamic json = JsonConvert.DeserializeObject(jsonResponse);
-
-            for (int i = 0; i < json.value.Count; i++)
-            {
-                subscriptionIds.Add(json.value[i].subscriptionId.Value);
-            }
-
-            Console.WriteLine($"Found {subscriptionIds.Count} subscription(s)");
-            return subscriptionIds;
-        }
-
-        /// <summary>
-        /// Creates (or updates existing) resource group
-        /// </summary>
-        /// <param name="credentials">Credentials to authorize application</param>
-        /// <param name="subscriptionId">SubscriptionID that identifies subscription to create resoruce group in</param>
-        /// <param name="resourceGroup">Name of resource group</param>
-        /// <param name="location">Location for resource group</param>
-        /// <returns>Awaitable task</returns>
-        private static async Task<ResourceGroup> CreateResourceGroupAsync(TokenCredentials credentials, string subscriptionId, string resourceGroup, string location)
-        {
-            Console.WriteLine($"Creating Resource Group {resourceGroup}");
-            var resourceClient = new ResourceManagementClient(credentials) { SubscriptionId = subscriptionId };
-            return await resourceClient.ResourceGroups.CreateOrUpdateAsync(resourceGroup,
-                new ResourceGroup
-                {
-                    Location = location
-                });
         }
 
         /// <summary>
@@ -441,5 +390,138 @@ namespace ArmDocConsole
 
             return vm;
         }
+        #endregion
+
+        #region Templated ARM Deployment
+
+        async static Task TemplatedArmDeployment()
+        {
+            Console.Write("Template URI   :");
+            var templateUri = Console.ReadLine();
+            Console.Write("Parameters URI :");
+            var parametersUri = Console.ReadLine();
+
+            const string resourceGroup = "templatedrg";                         // Name of resource group to deploy to
+            const string location = "North Europe";                             // Location of deployed resources
+
+            // Authenticate against Azure AD using client id and client secret
+            var token = GetAccessToken(TenantId, ClientId, ClientSecret).AccessToken;
+            var credentials = new TokenCredentials(token);
+
+            // List subscriptions and save first subscription id (might be incorrect if you have several subscriptions)
+            var subscriptionId = (await GetSubscriptionsAsync(token)).FirstOrDefault();
+            if (subscriptionId == null) throw new Exception("No subscription found");
+
+            // Create Resource Group
+            //   Await the creation of the storage group since everything else in this deployment
+            //   depend on the existence of the resource group.
+            await CreateResourceGroupAsync(
+                credentials,
+                subscriptionId,
+                resourceGroup,
+                location);
+
+            await CreateTemplatedDeployment(credentials, subscriptionId, resourceGroup, templateUri, parametersUri);
+        }
+
+        private static async Task<DeploymentExtended> CreateTemplatedDeployment(TokenCredentials credentials, string subscriptionId, string resourceGroup, string templateUri, string parametersUri)
+        {
+            var resourceClient = new ResourceManagementClient(credentials) { SubscriptionId = subscriptionId };
+
+            return await resourceClient.Deployments.BeginCreateOrUpdateAsync(resourceGroup, "mytemplateddeployment", new Deployment(
+                new DeploymentProperties()
+                {
+                    Mode = DeploymentMode.Incremental,
+                    TemplateLink = new TemplateLink(templateUri),
+                    ParametersLink = new ParametersLink(parametersUri)
+                }));
+
+        }
+        #endregion
+
+        #region Shared methods
+        /// <summary>
+        /// Autenticates against Azure AD using clientId and clientSecret. Requires that you previously have registered
+        /// an app in your tenantId's AD.
+        /// </summary>
+        /// <remarks>
+        /// There are several other ways of authenticating against Azure AD and they all work in somewhat different ways
+        /// but still very similar. This sample has the assumption that you've registered an Application in Azure AD and
+        /// gotten the Client ID and Client Secret for that application.
+        /// Also application must also have the authorization to access management.azure.com in order for this sample to
+        /// work.
+        /// </remarks>
+        /// <param name="tenantId">Identifies your tenant in Azure AD, often the same as your company's name</param>
+        /// <param name="clientId">ID that identifies this application to Azure AD</param>
+        /// <param name="clientSecret">Secret password used to validate authentication of App</param>
+        /// <returns>Returns AuthenticationResult containing AccessToken to be used in requests to other APIs</returns>
+        private static AuthenticationResult GetAccessToken(string tenantId, string clientId, string clientSecret)
+        {
+            Console.WriteLine("Aquiring Access Token from Azure AD");
+            AuthenticationContext authContext = new AuthenticationContext
+                ("https://login.windows.net/" /* AAD URI */
+                    + $"{tenantId}.onmicrosoft.com" /* Tenant ID or AAD domain */);
+
+            var credential = new ClientCredential(clientId, clientSecret);
+
+            AuthenticationResult token = authContext.AcquireToken("https://management.azure.com/", credential);
+
+            Console.WriteLine($"Token: {token.AccessToken}");
+            return token;
+        }
+
+        /// <summary>
+        /// Showcase how you can call Azure ARM APIs directly using C# and .NET Framework without any additional SDK
+        /// or NuGet Package. In order to use this method, the only thing you need is an authentication token from
+        /// Azure AD.
+        /// </summary>
+        /// <param name="token">Valid AccessToken returned from Azure AD that identifies his caller as having
+        /// assess rights to the ARM APIs</param>
+        /// <returns>Returns a list of Subcription IDs that the identified application has access right to</returns>
+        async private static Task<List<string>> GetSubscriptionsAsync(string token)
+        {
+            Console.WriteLine("Querying for subscriptions");
+            const string apiVersion = "2015-01-01";
+
+            var client = new HttpClient();
+            client.BaseAddress = new Uri("https://management.azure.com/");
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            var response = await client.GetAsync($"subscriptions?api-version={apiVersion}");
+
+            var jsonResponse = response.Content.AsString();
+
+            var subscriptionIds = new List<string>();
+            dynamic json = JsonConvert.DeserializeObject(jsonResponse);
+
+            for (int i = 0; i < json.value.Count; i++)
+            {
+                subscriptionIds.Add(json.value[i].subscriptionId.Value);
+            }
+
+            Console.WriteLine($"Found {subscriptionIds.Count} subscription(s)");
+            return subscriptionIds;
+        }
+
+        /// <summary>
+        /// Creates (or updates existing) resource group
+        /// </summary>
+        /// <param name="credentials">Credentials to authorize application</param>
+        /// <param name="subscriptionId">SubscriptionID that identifies subscription to create resoruce group in</param>
+        /// <param name="resourceGroup">Name of resource group</param>
+        /// <param name="location">Location for resource group</param>
+        /// <returns>Awaitable task</returns>
+        private static async Task<ResourceGroup> CreateResourceGroupAsync(TokenCredentials credentials, string subscriptionId, string resourceGroup, string location)
+        {
+            Console.WriteLine($"Creating Resource Group {resourceGroup}");
+            var resourceClient = new ResourceManagementClient(credentials) { SubscriptionId = subscriptionId };
+            return await resourceClient.ResourceGroups.CreateOrUpdateAsync(resourceGroup,
+                new ResourceGroup
+                {
+                    Location = location
+                });
+        }
+        #endregion
     }
 }

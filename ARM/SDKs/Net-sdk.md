@@ -288,3 +288,22 @@ private static async Task<VirtualMachine> CreateVirtualMachineAsync(TokenCredent
 
 ### Using a templated deployment
 
+Please read and follow the [Deploy Azure resources using .NET libraries and a template](https://azure.microsoft.com/en-us/documentation/articles/arm-template-deployment/#step-4-create-the-credentials-that-are-used-to-authenticate-requests) tutorial for detailed instructions on how to deploy a template.
+
+In short deploying a template is much easier than doing in manual and the below code show you how to do it by pointing at the URIs where you have the template and a parameters file. 
+
+```csharp
+private static async Task<DeploymentExtended> CreateTemplatedDeployment(TokenCredentials credentials, string subscriptionId, string resourceGroup, string templateUri, string parametersUri)
+{
+    var resourceClient = new ResourceManagementClient(credentials) { SubscriptionId = subscriptionId };
+
+    return await resourceClient.Deployments.BeginCreateOrUpdateAsync(resourceGroup, "mytemplateddeployment", new Deployment(
+        new DeploymentProperties()
+        {
+            Mode = DeploymentMode.Incremental,
+            TemplateLink = new TemplateLink(templateUri),
+            ParametersLink = new ParametersLink(parametersUri)
+        }));
+
+}
+```
