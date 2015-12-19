@@ -123,6 +123,19 @@ private static async Task<ResourceGroup> CreateResourceGroupAsync(TokenCredentia
 
 ## Creating resources manually or using templates
 
+There are several different ways of interacting with the Azure Resource Manager APIs but the two big differnt ways of doing it is:
+
+* Manually, by calling specific Resource Providers manually or
+* By using an Azure Resource Manager Template (aka. ARM Template)
+
+Using the ARM Templates have the following benefits:
+
+* You declaratively specify what you want the end result should look like, rather than how it should be achieved
+* You don't have to manually handle parallel execution of your deployments, ARM will do that for you.
+* You don't have to learn C# or any other language in order to deploy an ARM Template even though you can use any language to start a templated deployment.
+* The domain specific language, DSL, that is used in the templates are build using JSON and is easy enough to understans by anyone that have worked with JSON.
+
+Even though, with all the benefits of the templates we will start by showing you how to call the API's manually.
 
 ### Creating a Virtual Machine, piece by piece
 
