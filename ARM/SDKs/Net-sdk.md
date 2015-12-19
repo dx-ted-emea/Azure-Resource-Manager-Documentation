@@ -119,4 +119,4 @@ private static async Task<ResourceGroup> CreateResourceGroupAsync(TokenCredentia
             Location = location
         });
 }
-
+```
