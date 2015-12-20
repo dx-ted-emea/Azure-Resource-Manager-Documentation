@@ -53,7 +53,7 @@ The SDK includes helper classes for several of the main packages. The helper cla
 This will use the 0.8.0 version of the utility package. Find all the packages in the [maven public repository](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.microsoft.azure%22)
 
 ## Authentication
-Authentication against the Azure Resource Manager is achieved using a Service Principal. A complete walkthrough can be found in the [ARM Authentication](../Authentication.md) section in this repository. 
+Authentication against the Azure Resource Manager is achieved using a Service Principal. A complete walkthrough can be found in the [ARM Authentication](../security/Authentication.md) section in this repository. 
 After creating the service principal, you should have:
 
 1. Client id (GUID)
