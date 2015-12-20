@@ -24,7 +24,7 @@ Using parameters can be used to simulate dynamic or conditional template linking
 In the Resource Manager model, resources can have several types of dependencies. Resource dependencies during deployment are detailed in the [Dependencies](../ARM/Templates/Template_Advanced_Authoring.md#dependencies) topics in this repository.
 But, a dependency between resources can also continue after deployment - a link between a database and an app for example. Resource link are used to document and provide query capabililty over the relationships between resources post-deployment.
 
-To learn about resource linked, follow the [Resource Linked]https://azure.microsoft.com/en-us/documentation/articles/resource-manager-template-links/ tutorial.
+To learn about resource linked, follow the [Resource Linked](https://azure.microsoft.com/en-us/documentation/articles/resource-manager-template-links/) tutorial.
 
 ## Resources and References
 https://azure.microsoft.com/en-us/documentation/articles/resource-manager-template-links/
