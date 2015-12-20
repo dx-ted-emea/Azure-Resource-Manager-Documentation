@@ -10,7 +10,7 @@ This documentation will not go through every API that is exposed in Azure, but w
 
 Authentication for ARM is handled by Azure Active Directory, AD. In order to connect to any APIs you first need to authenticate with Azure AD to receive an authentication token that you can pass on to every request to the APIs. As we are describing a pure calls directly to the REST APIs, we will also assume that you don’t want to authenticate with a normal username password where a pop-up-screen might prompt you for username and password and perhaps even other authentication mechanisms used in two factor authentication scenarios. Therefore, we will create what is called an Azure AD Application and a Service Principal that we will use to login with. But remember that Azure AD support several authentication procedures and all of them could be used to retrieve that authentication token that we need for subsequent API requests.
 
-Follow [this guide to authenticate and authorize yourself and/or an app to access the APIs programatically](../Authentication.md), then come back here and continue.
+Follow [this guide to authenticate and authorize yourself and/or an app to access the APIs programatically](../security/Authentication.md), then come back here and continue.
 
 ## Calling ARM REST API
 
