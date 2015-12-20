@@ -30,7 +30,7 @@ Authentication against the Azure APIs are done by passign a token to your reques
 
 ### Registering your application for programatic access
 
-The process of regestering an application for programatic access to Azure and Azure AD is described in [the Authentication documentation](../Authentication.md).
+The process of regestering an application for programatic access to Azure and Azure AD is described in [the Authentication documentation](../security/Authentication.md).
 Please make sure you follow that instruction or make sure you have allready registered an Azure AD Application and have the corresponding:
 
 * Azure AD Tenant ID
