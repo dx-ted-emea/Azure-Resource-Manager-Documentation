@@ -2,7 +2,7 @@
 
  * [Azure Resource Manager and Architecture](Introduction.md)
  * [Why ARM](Benefits.md)
- * [Security and authentication](Security.md)
+ * [Security and Authentication](Security/README.md)
 
 ## [SDK and toolkits](SDKs/README.md)
  * [Java SDK](SDKs/Java-sdk.md)

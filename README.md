@@ -10,7 +10,7 @@ We tried to make this document easy to read and simple to use - so hope you will
 # [Azure Resource Manager](ARM/README.md)  
  * [Azure Resource Manager Introduction and Architecture](ARM/Introduction.md)
  * [Why ARM?](ARM/Benefits.md)
- * [Security and authentication](ARM/Security.md)
+ * [Security and Authentication](ARM/Security/README.md)
 
 ### [SDKs](ARM/SDKs/README.md)
  * [Java SDK](ARM/SDKs/Java-sdk.md)
