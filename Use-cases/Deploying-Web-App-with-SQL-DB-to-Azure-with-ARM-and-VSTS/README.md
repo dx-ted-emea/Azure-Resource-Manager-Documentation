@@ -18,7 +18,7 @@ In this scenario we focus on VSTS as a source code repository, Continuous Integr
 ##Deploying to Azure using ARM templates in Release management
 In this scenario we focus on VSTS as a source code repository, Continuous Integration(CI), Continuous Deployment(CD) and Release Management(RM) components to manage the code. Release management is used for deployment of the application to multiple environments in Azure using ARM templates to build these environments and with a approval and acceptance chain.
 
-<insert link to MD>
+[Deploying and Web app by using Release management](../Deploying-Web-App-with-SQL-DB-to-Azure-with-ARM-and-VSTS/Deploying-Web-app-using-RM.md)
 
 
 
