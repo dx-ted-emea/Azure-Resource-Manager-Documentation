@@ -7,93 +7,17 @@ The basic syntax of the template is JSON; however, expressions and functions ext
 * Expressions can appear anywhere in a JSON string value and always return another JSON value. If you need to use a literal string that starts with a bracket [, you must use two brackets [[
 * Function calls are formatted as functionName(arg1,arg2,arg3). Properties are referenced by using the dot and [index] operators
 
-Functions used to construct values:
-```json
-"variables": {
-   "location": "[resourceGroup().location]",
-   "usernameAndPassword": "[concat('parameters('username'), ':', parameters('password'))]",
-   "authorizationHeader": "[concat('Basic ', base64(variables('usernameAndPassword')))]"
-}
-```
-Return deployment information in the outputs section:
-```json
-"outputs": {
-  "exampleOutput": {
-    "value": "[deployment()]",
-    "type" : "object"
-  }
-}
-```
-Convert a user-provided parameter value to Integer:
-```json
-"parameters": {
-    "appId": { "type": "string" }
-},
-"variables": { 
-    "intValue": "[int(parameters('appId'))]"
-}
-```
-
-The full list of functions, visit [Template Functions](https://azure.microsoft.com/en-us/documentation/articles/resource-group-template-functions/)
+For the full list of functions, visit [Template Functions](https://azure.microsoft.com/en-us/documentation/articles/resource-group-template-functions/)
 
 ## Multiple Instances of Resources
 ARM template expressions include iterative fucntions that allow creating multiple instances of a resource. This way you can deploy several virtual machines for example, by adding a single resource section in the template file. Making the template more readable and easier to edit.
 
-### copy, copyIndex, and length
-typicly the number of iterations will be defined in a parameter or a variable. In the following snippet, numberOfInstances was defined as a variable.
-To set an iterative loop, a **copy** section is defined. To access the current value of the iteration use **copyindex()** fuction.
-This example creates public IPs as much as a numberOfIntances variable is set to.
-```json
-   {
-      "apiVersion": "2015-05-01-preview",
-      "type": "Microsoft.Network/publicIPAddresses",
-      "name": "[concat(parameters('publicIPPrefix'), copyindex())]",
-      "location": "[resourceGroup().location]",
-      "copy": {
-        "name": "ipLoop",
-        "count": "[variables('numberOfInstances')]"
-      },
-      "properties": {
-        "publicIPAllocationMethod": "[variables('publicIPAddressType')]",
-        "dnsSettings": {
-          "domainNameLabel": "[concat(parameters('dnsNameforPublicIP'), copyindex())]"
-        }
-      }
-   }
-```
-When using **copyindex()** values go from 0 to the set iteration count. To offset the index value, you can pass a value in the **copyindex()** function, such as **copyindex(1)**. The number of iterations to perform is still specified in the copy element, but the value of copyIndex is offset by the specified value. 
+For an overview on copy, copyIndex and length functions, visit [multiple instances of resources](https://azure.microsoft.com/en-us/documentation/articles/resource-group-create-multiple/) page
 
-Resources can be created based on a an array of values; The **length** function is used to specify the count.
-In this example a parameter of type array is set and being used to set the web sites names. The length of the array is used for the number of iterations - 3 websites will be created: examplecopy-Contos, examplecopy-Fabrikam, examplecopy-Coho.
-```json
-"parameters": { 
-  "org": { 
-     "type": "array", 
-         "defaultValue": [ 
-         "Contoso", 
-         "Fabrikam", 
-         "Coho" 
-      ] 
-  }
-}, 
-"resources": [ 
-  { 
-      "name": "[concat('examplecopy-', parameters('org')[copyIndex()])]", 
-      "type": "Microsoft.Web/sites", 
-      "location": "East US", 
-      "apiVersion": "2015-08-01",
-      "copy": { 
-         "name": "websitescopy", 
-         "count": "[length(parameters('org'))]" 
-      }, 
-      "properties": {
-          "serverFarmId": "hostingPlanName"
-      } 
-  } 
-]
-```
 ## Dependencies 
 A Resource Manager resource can have dependencies on other resources - a virtual machine must have a storage account available before its provisioned, a network interface needs a virtual network to be defined first etc.
+
+For an overview on defining dependencies in Azure Resource Manager templates visit [here](https://azure.microsoft.com/en-us/documentation/articles/resource-group-define-dependencies/).
 
 ```json
 "resources": [
@@ -110,10 +34,6 @@ A Resource Manager resource can have dependencies on other resources - a virtual
 ]
 ```
 ### dependson Property
-
-The dependsOn property on a resource provides the ability to define this dependency for a resource. It's value can be a comma separated list of resource names. The dependencies between resources are evaluated and resources are deployed in their dependent order. When resources are not dependent on each other, they are attempted to be deployed in parallel. The lifecycle of dependsOn is just for deployment and is not available post-deployment.
-Note that using the dependson property may have implications on the deployment performance.
-
 In this example, a nic has an explicit dependency on a vnet and public ip - it will not be provioned until those resources are created:
 ```json
 {
@@ -144,11 +64,6 @@ In this example, a nic has an explicit dependency on a vnet and public ip - it w
     },
 ```
 ## resources Property
-
-The resources property of the resource object allows defining child resources of the main resource:
-* Child resources can only be defined 5 levels deep
-* There is no explisit dependency between the main resource and the child resources. This can be defined using the dependson property.
- 
 In this example we defined a SQL Database on a SQL Database Server - the SQL Database is a child resource of a SQL Database server resource and depends on it:
 ```json
 {
@@ -185,9 +100,6 @@ In this example we defined a SQL Database on a SQL Database Server - the SQL Dat
 ```
 
 ### reference Function
-
-This function enables an expression to derive its value from another resource's runtime state and defines an implicit dependency between resources. It is recommened to use reference and not dependson whenever possible to avoid potential performance implications. 
-
 This example create a website and set the connection string for the SQL Database Server we priviosly created, using the reference fucntion:
 ```json
 {
