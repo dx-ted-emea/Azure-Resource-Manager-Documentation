@@ -8,6 +8,9 @@ Lets look at a very simple architecture:
 ![alt tag](../images/arm_arch.png)
 
 The full template can be found in this directory - [sample_arc_template.json](json/sample_arc_template.json)
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fdx-ted-emea%2FARM-Documentation%2Fmaster%2FARM%2FTemplates%2Fjson%2Fsample_arc_template.json" target="_blank">
+    <img src="http://azuredeploy.net/deploybutton.png"/>
+</a>
 
 ## Virtual Network with one Subnet
 ```json
