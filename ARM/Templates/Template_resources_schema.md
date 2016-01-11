@@ -1,6 +1,6 @@
 # Resource Providers Schema
 
-All Resource Manager Schemas are located in main github repository [ARM Scehma](https://github.com/Azure/azure-resource-manager-schemas)
+All Resource Manager Schemas are located in main github repository [ARM Schema](https://github.com/Azure/azure-resource-manager-schemas)
 To find what providers are available you can use Powershell or CLI commands.
 
 ## Querying providers - PowerShell
