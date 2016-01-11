@@ -1,4 +1,6 @@
-![alt tag](images/beta.png)
+<p align="center">
+  <img src="images/beta.png">
+</p>
 
 ### Azure Resource Manager Community Documentation - Beta Version
 
