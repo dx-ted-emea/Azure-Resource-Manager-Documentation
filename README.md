@@ -34,7 +34,7 @@ We tried to make this document easy to read and simple to use - so hope you will
  * [Command Line interface](Tools/CLI.md)
  * [Powershell](Tools/Powershell.md)
  * [Visual Studio](Tools/Visual-studio.md)
- * [Preview Portal](Tools/Portal.md)
+ * [New Azure Portal](Tools/Portal.md)
 
 ### [Use Cases](use-cases/README.md)
   * [Web App and SQL Database](Use-cases/web-app-and-sql-database/README.md)
