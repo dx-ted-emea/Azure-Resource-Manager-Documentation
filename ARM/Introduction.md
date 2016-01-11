@@ -19,7 +19,7 @@ The adoption of ARM for IaaS introduces capabilities such as:
 
 > **IaaS components deployed using ARM cannot be mixed with components created using the Classic APIs. This means that for  example, virtual machines deployed with the classic deployment model cannot be included in a virtual network deployed with  Resource Manager.**
 
-> **Components deployed using the Classic APIs, will be presented in the Azure preview portal https://portal.azure.com under the "classic" label:**
+> **Components deployed using the Classic APIs, will be presented in the new Azure portal https://portal.azure.com under the "classic" label:**
 
 ![alt tag](/ARM/images/classic_arm_portal.png)
 
