@@ -60,4 +60,4 @@ We tried to make this document easy to read and simple to use - so hope you will
 # Acknowledgements and contributors
 
 Feel free to join us on working on this project. Please refer to [GitWiki Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) in case
-if you're not so familiar witk gitwiki markdown ( it's very powerful, but easy to read in raw code ).
+if you're not so familiar with gitwiki markdown ( it's very powerful, but easy to read in raw code ).
