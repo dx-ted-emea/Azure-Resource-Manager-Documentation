@@ -1,4 +1,6 @@
-### Azure Resource Manager Documentation
+![alt tag](images/beta.png)
+
+### Azure Resource Manager Community Documentation - Beta Version
 
 Main goal of that documentation is to provide full and consistent information about using Azure Resource Manager from beginning level and up to deep dive into many specifiec areas. This documentation is not replacement of existing MSDN or Azure.com articles, but contains all required information
 about that topic - all in one place, for each part of document there's a list of references where you may source information.
