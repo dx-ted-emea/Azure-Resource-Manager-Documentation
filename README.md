@@ -38,7 +38,7 @@ We tried to make this document easy to read and simple to use - so hope you will
 
 ### [Tips and tricks](Tips-and-tricks/README.md)
 
-### [Azure Resource Manager FAQs](arm_faq.md)
+### [Azure Resource Manager FAQs](ARM_FAQ.md)
 
 # [Azure Marketplace](Marketplace/README.md)
 
