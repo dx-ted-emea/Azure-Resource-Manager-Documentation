@@ -1,3 +1,10 @@
+> Azure Resource Manager Community Documentation - Beta Version
+
+> Work in progress - This community driven documentation is considered to be in preview stage at this time. Documentation might contain errors, might not cover every aspect or might lack complete parts, even important parts. Please help us make this documentation better by [contributing](CONTRIBUTING.md) anything that you think would make it better.
+
+
+---
+
 # Deploying a Web application and SQL Database to Azure using an ARM template task in the Build process
 #
 
@@ -58,6 +65,7 @@ In this step you will create the Build task that will have an "Azure Resource Gr
 
 ##Next Steps
 This is a simple way to leverage ARM templates for IaC within a build process. If you have more complex release management requirements go to this [**link**](Deploying-Web-app-using-RM.md) to see how to configure Release Management within VSTS.
+
 
 
 

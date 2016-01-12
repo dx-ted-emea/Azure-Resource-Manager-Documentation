@@ -1,3 +1,10 @@
+> Azure Resource Manager Community Documentation - Beta Version
+
+> Work in progress - This community driven documentation is considered to be in preview stage at this time. Documentation might contain errors, might not cover every aspect or might lack complete parts, even important parts. Please help us make this documentation better by [contributing](CONTRIBUTING.md) anything that you think would make it better.
+
+
+---
+
 # Security related topics
 
 ## Audit logs
@@ -51,3 +58,4 @@ To read more about security considerations with Azure Resource Manager see:
 [Security considerations for Azure Resource Manager](https://azure.microsoft.com/en-us/documentation/articles/best-practices-resource-manager-security/)
 
 This topic is part of a larger whitepaper. To read the full paper, download [World Class ARM Templates Considerations and Proven Practices](http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World%20Class%20ARM%20Templates%20-%20Considerations%20and%20Proven%20Practices.pdf).
+

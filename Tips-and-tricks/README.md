@@ -1,3 +1,10 @@
+> Azure Resource Manager Community Documentation - Beta Version
+
+> Work in progress - This community driven documentation is considered to be in preview stage at this time. Documentation might contain errors, might not cover every aspect or might lack complete parts, even important parts. Please help us make this documentation better by [contributing](CONTRIBUTING.md) anything that you think would make it better.
+
+
+---
+
 # Tips And Tricks
 
 ** TODO - everyone pitch in here with tips/tricks :-D
@@ -15,3 +22,4 @@ Scripts to help check on the status of deployments and find errors:
 
 ## Add conditions to ARM Template
 Use linked template and parameters to simulate conditional execution of templates -  [Simulating Conditional Linking](../ARM/Templates/Template_links.md#simulating-conditional-linking)
+

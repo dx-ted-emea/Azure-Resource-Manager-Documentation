@@ -1,3 +1,10 @@
+> Azure Resource Manager Community Documentation - Beta Version
+
+> Work in progress - This community driven documentation is considered to be in preview stage at this time. Documentation might contain errors, might not cover every aspect or might lack complete parts, even important parts. Please help us make this documentation better by [contributing](CONTRIBUTING.md) anything that you think would make it better.
+
+
+---
+
 # ARM PYTHON SDK
 
 * Soruce Code for Azure SDK for Python is available at [GitHub](https://github.com/Azure/azure-sdk-for-python) where you also find some very usefull pointers to documentation.
@@ -26,4 +33,5 @@ git clone https://github.com/Azure/azure-sdk-for-python.git
 cd azure-sdk-for-python
 python setup.py install
 ```
+
 

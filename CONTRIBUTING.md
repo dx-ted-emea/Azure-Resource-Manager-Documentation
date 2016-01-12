@@ -1,3 +1,10 @@
+> Azure Resource Manager Community Documentation - Beta Version
+
+> Work in progress - This community driven documentation is considered to be in preview stage at this time. Documentation might contain errors, might not cover every aspect or might lack complete parts, even important parts. Please help us make this documentation better by [contributing](CONTRIBUTING.md) anything that you think would make it better.
+
+
+---
+
 # How to contribute
 
 One of the easiest ways to contribute is to participate in discussions and discuss issues. You can also contribute by submitting [pull requests](https://help.github.com/articles/using-pull-requests/) with code changes. Submissions are subject to the [repo license](LICENSE).
@@ -18,3 +25,4 @@ Here are questions you can answer before you file a bug to make sure you're not 
 4. What endpoints/SDK/other tools are you using?
 
 GitHub supports [markdown](https://help.github.com/articles/github-flavored-markdown/), so when filing bugs make sure you check the formatting before clicking submit.
+

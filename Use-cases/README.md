@@ -1,3 +1,10 @@
+> Azure Resource Manager Community Documentation - Beta Version
+
+> Work in progress - This community driven documentation is considered to be in preview stage at this time. Documentation might contain errors, might not cover every aspect or might lack complete parts, even important parts. Please help us make this documentation better by [contributing](CONTRIBUTING.md) anything that you think would make it better.
+
+
+---
+
 # Scenarios
 The [ARM](../ARM/README.md) section gives you a good walkthrough of the available ARM APIs, and how to create and use ARM templates. This section gives some examples of how you can use ARM templates in different scenarios.
 
@@ -38,4 +45,5 @@ Things to discuss:
   * Web App + Traffic Manager + Autoscale + Redis + Database
   * WAF + nginx on Linux in VM Scale Set + MySQL 
 * ???
+
 

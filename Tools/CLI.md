@@ -1,3 +1,10 @@
+> Azure Resource Manager Community Documentation - Beta Version
+
+> Work in progress - This community driven documentation is considered to be in preview stage at this time. Documentation might contain errors, might not cover every aspect or might lack complete parts, even important parts. Please help us make this documentation better by [contributing](CONTRIBUTING.md) anything that you think would make it better.
+
+
+---
+
 ## Tools for ARM - Command Line Interface 
 
 The Azure Command Line Interface (CLI) is a cross platform shell that runs both on Windows and Linux.
@@ -69,3 +76,4 @@ If you need to the whole Resource Group you can type:
     azure group delete --name [your-resource-group-name]
 
 You can append the **--json** option to any of those commands to get json formatted output and parse it
+

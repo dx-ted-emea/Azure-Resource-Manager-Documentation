@@ -1,3 +1,10 @@
+> Azure Resource Manager Community Documentation - Beta Version
+
+> Work in progress - This community driven documentation is considered to be in preview stage at this time. Documentation might contain errors, might not cover every aspect or might lack complete parts, even important parts. Please help us make this documentation better by [contributing](CONTRIBUTING.md) anything that you think would make it better.
+
+
+---
+
 ## Introduction to Azure Resource Manager
 
 ### Overview
@@ -75,4 +82,5 @@ All of these resources of this application are managed through the single resour
 * https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-azure-resource-manager-architecture/
 * https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-azurerm-versus-azuresm/
 * http://windowsitpro.com/azure/what-are-key-differences-iaas-v2-enabled-through-azure-resource-manager
+
 

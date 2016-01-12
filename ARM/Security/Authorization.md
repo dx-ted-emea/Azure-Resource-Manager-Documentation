@@ -1,3 +1,10 @@
+> Azure Resource Manager Community Documentation - Beta Version
+
+> Work in progress - This community driven documentation is considered to be in preview stage at this time. Documentation might contain errors, might not cover every aspect or might lack complete parts, even important parts. Please help us make this documentation better by [contributing](CONTRIBUTING.md) anything that you think would make it better.
+
+
+---
+
 
 # Authorization / Access Control
 
@@ -63,3 +70,4 @@ Creating policy and applying policy can be done through REST API or PowerShell.
 
 
 For mor details see:  [Use Policy to manage resources and control access](https://azure.microsoft.com/en-us/documentation/articles/resource-manager-policy/ )
+

@@ -1,3 +1,10 @@
+> Azure Resource Manager Community Documentation - Beta Version
+
+> Work in progress - This community driven documentation is considered to be in preview stage at this time. Documentation might contain errors, might not cover every aspect or might lack complete parts, even important parts. Please help us make this documentation better by [contributing](CONTRIBUTING.md) anything that you think would make it better.
+
+
+---
+
 #  Deploying a Template
 There are several ways to deploy a template, all described in details in the [Tools](../Tools/README.md) section of this document. You can also find examples in each programing language [SDK](../ARM/SDKs/README.md) section.
 We will cover in high level some of the deployment methods, to get you started with deploying templates:
@@ -72,3 +79,4 @@ The Azure Portal allows you to deploy your own templates in a UI exepriance.
 ## Resorces and References
 https://azure.microsoft.com/en-us/documentation/articles/resource-group-template-deploy/
 https://azure.microsoft.com/en-us/blog/azps-1-0-pre/
+

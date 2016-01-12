@@ -1,3 +1,10 @@
+> Azure Resource Manager Community Documentation - Beta Version
+
+> Work in progress - This community driven documentation is considered to be in preview stage at this time. Documentation might contain errors, might not cover every aspect or might lack complete parts, even important parts. Please help us make this documentation better by [contributing](CONTRIBUTING.md) anything that you think would make it better.
+
+
+---
+
 # Checking deployment operations with Azure CLI
 When deploying ARM templates it is often useful to be able to see the status of the operations performed in the deployment.
 If a deployment has failed then drilling into the operations to find the one(s) that failed helps diagnose the issue.
