@@ -1,3 +1,10 @@
+> Azure Resource Manager Community Documentation - Beta Version
+
+> Work in progress - This community driven documentation is considered to be in preview stage at this time. Documentation might contain errors, might not cover every aspect or might lack complete parts, even important parts. Please help us make this documentation better by [contributing](CONTRIBUTING.md) anything that you think would make it better.
+
+
+---
+
 # Azure Resource Manager Templates
 
 Azure Resource Manager allows you to provision your applications using a declarative template. In a single template, you can deploy multiple services along with their dependencies. 
@@ -15,4 +22,5 @@ Azure Resource Manager performs an update instead of creating a new asset. Azure
 ## Azure Resource Manager QuickStart Templates
 The quickstart template gallery repository contains various templates, in all sorts of complexity levels you can use as-is for your deployments, or edit and extend to suit you individual needs.
 [QuickStart Templates](https://github.com/Azure/azure-quickstart-templates)
+
 

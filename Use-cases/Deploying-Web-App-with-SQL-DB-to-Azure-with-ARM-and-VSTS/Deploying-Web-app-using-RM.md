@@ -1,3 +1,10 @@
+> Azure Resource Manager Community Documentation - Beta Version
+
+> Work in progress - This community driven documentation is considered to be in preview stage at this time. Documentation might contain errors, might not cover every aspect or might lack complete parts, even important parts. Please help us make this documentation better by [contributing](CONTRIBUTING.md) anything that you think would make it better.
+
+
+---
+
 # Deploying a Web application and SQL Database to Azure using ARM templates with Release Management in VSTS
 #
 
@@ -32,6 +39,7 @@ The Release Management defines how your application moves through various Enviro
 After you have finished all steps, in this scenario, you have exercised IaC, CI/CD, RM leveraging Azure ARM templates to define, configure and deploy your solution/app.
   
 To learn more about VSTS and to follow the news, find technical documentation and etc. follow this [**link**](https://azure.microsoft.com/en-us/services/visual-studio-team-services/)
+
 
 
 

@@ -1,3 +1,10 @@
+> Azure Resource Manager Community Documentation - Beta Version
+
+> Work in progress - This community driven documentation is considered to be in preview stage at this time. Documentation might contain errors, might not cover every aspect or might lack complete parts, even important parts. Please help us make this documentation better by [contributing](CONTRIBUTING.md) anything that you think would make it better.
+
+
+---
+
 # Deploying a Web application to Azure using Visual Studio Team Services (VSTS) and ARM templates
 
 #
@@ -19,6 +26,7 @@ In this scenario we focus on VSTS as a source code repository, Continuous Integr
 In this scenario we focus on VSTS as a source code repository, Continuous Integration(CI), Continuous Deployment(CD) and Release Management(RM) components to manage the code. Release management is used for deployment of the application to multiple environments in Azure using ARM templates to build these environments and with a approval and acceptance chain.
 
 [Deploying and Web app by using Release management](../Deploying-Web-App-with-SQL-DB-to-Azure-with-ARM-and-VSTS/Deploying-Web-app-using-RM.md)
+
 
 
 

@@ -1,3 +1,10 @@
+> Azure Resource Manager Community Documentation - Beta Version
+
+> Work in progress - This community driven documentation is considered to be in preview stage at this time. Documentation might contain errors, might not cover every aspect or might lack complete parts, even important parts. Please help us make this documentation better by [contributing](CONTRIBUTING.md) anything that you think would make it better.
+
+
+---
+
 # Authentication 
 
 Authentication and authorization in Azure Resource Manager APIs is based on Azure Active Directory (AAD).
@@ -99,3 +106,4 @@ azure role assignment create --objectId <object id> --roleName Owner
 ```
 
 By now, everything should be registered in Azure AD you you to start authenticating and calling ARM APIs.
+

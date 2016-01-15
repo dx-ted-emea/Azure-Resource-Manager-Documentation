@@ -1,9 +1,14 @@
-### Azure Resource Manager Documentation by TED EMEA team
+<p align="center">
+  <img src="images/beta.png">
+</p>
+
+### Azure Resource Manager Community Documentation - Beta Version
 
 Main goal of that documentation is to provide full and consistent information about using Azure Resource Manager from beginning level and up to deep dive into many specifiec areas. This documentation is not replacement of existing MSDN or Azure.com articles, but contains all required information
 about that topic - all in one place, for each part of document there's a list of references where you may source information.
 
-We tried to make this document easy to read and simple to use - so hope you will find that doc usefull.
+We tried to make this document easy to read and simple to use - so hope you will find that doc useful.
+To learn how to contribute to this document visit [Contributing](CONTRIBUTING.md) page.
 
 ---
 
@@ -30,7 +35,7 @@ We tried to make this document easy to read and simple to use - so hope you will
  * [Command Line interface](Tools/CLI.md)
  * [Powershell](Tools/Powershell.md)
  * [Visual Studio](Tools/Visual-studio.md)
- * [Preview Portal](Tools/Portal.md)
+ * [New Azure Portal](Tools/Portal.md)
 
 ### [Use Cases](use-cases/README.md)
   * [Web App and SQL Database](Use-cases/web-app-and-sql-database/README.md)
@@ -38,7 +43,7 @@ We tried to make this document easy to read and simple to use - so hope you will
 
 ### [Tips and tricks](Tips-and-tricks/README.md)
 
-### [Azure Resource Manager FAQs](arm_faq.md)
+### [Azure Resource Manager FAQs](ARM-FAQ.md)
 
 # [Azure Marketplace](Marketplace/README.md)
 
@@ -60,4 +65,4 @@ We tried to make this document easy to read and simple to use - so hope you will
 # Acknowledgements and contributors
 
 Feel free to join us on working on this project. Please refer to [GitWiki Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) in case
-if you're not so familiar witk gitwiki markdown ( it's very powerful, but easy to read in raw code ).
+if you're not so familiar with gitwiki markdown ( it's very powerful, but easy to read in raw code ).

@@ -1,6 +1,17 @@
+> Azure Resource Manager Community Documentation - Beta Version
+
+> Work in progress - This community driven documentation is considered to be in preview stage at this time. Documentation might contain errors, might not cover every aspect or might lack complete parts, even important parts. Please help us make this documentation better by [contributing](CONTRIBUTING.md) anything that you think would make it better.
+
+
+---
+
 #  Deploying a Template
 There are several ways to deploy a template, all described in details in the [Tools](../Tools/README.md) section of this document. You can also find examples in each programing language [SDK](../ARM/SDKs/README.md) section.
 We will cover in high level some of the deployment methods, to get you started with deploying templates:
+
+## Deployment Mode
+Deployments can be either Incremental or Complete. In Incremental mode, resources are deployed without deleting existing resources that are not included in the template. In complete mode resources are deployed and existing resources in the resource group not included in the template are deleted. The default mode is Incremental. For more info, visit [Deploy an application with Azure Resource Manager template](https://azure.microsoft.com/en-gb/documentation/articles/resource-group-template-deploy/)
+
 ## Powershell
 Azure PowerShell is currently available in two releases - 1.0 and 0.9.8. The examples in this section use the 1.0 version.
 For information about the 1.0 release, including how to install and uninstall the release, see [Azure PowerShell 1.0 Preview](https://azure.microsoft.com/en-us/blog/azps-1-0-pre/). 
@@ -68,3 +79,4 @@ The Azure Portal allows you to deploy your own templates in a UI exepriance.
 ## Resorces and References
 https://azure.microsoft.com/en-us/documentation/articles/resource-group-template-deploy/
 https://azure.microsoft.com/en-us/blog/azps-1-0-pre/
+

@@ -1,3 +1,10 @@
+> Azure Resource Manager Community Documentation - Beta Version
+
+> Work in progress - This community driven documentation is considered to be in preview stage at this time. Documentation might contain errors, might not cover every aspect or might lack complete parts, even important parts. Please help us make this documentation better by [contributing](CONTRIBUTING.md) anything that you think would make it better.
+
+
+---
+
 #Azure Resource Manager  
 
  * [Azure Resource Manager and Architecture](Introduction.md)
@@ -19,3 +26,4 @@
 
 ## References
 Microsoft Virtual Academy [Deep Dive into Azure Resource Manager Scenarios and Patterns](https://mva.microsoft.com/en-us/training-courses/deep-dive-into-azure-resource-manager-scenarios-and-patterns-13793?l=i1m06ZJYB_7001937557)
+

@@ -1,6 +1,13 @@
+> Azure Resource Manager Community Documentation - Beta Version
+
+> Work in progress - This community driven documentation is considered to be in preview stage at this time. Documentation might contain errors, might not cover every aspect or might lack complete parts, even important parts. Please help us make this documentation better by [contributing](CONTRIBUTING.md) anything that you think would make it better.
+
+
+---
+
 # Resource Providers Schema
 
-All Resource Manager Schemas are located in main github repository [ARM Scehma](https://github.com/Azure/azure-resource-manager-schemas)
+All Resource Manager Schemas are located in main github repository [ARM Schema](https://github.com/Azure/azure-resource-manager-schemas)
 To find what providers are available you can use Powershell or CLI commands.
 
 ## Querying providers - PowerShell
@@ -89,4 +96,5 @@ Here is the output for the `Microsoft.Compute` provider:
 
 ```
 If you want to create a virtual machine, the value of **type** will be a combination of the compute namespace Microsoft.Compute and the resource type name virtualMachines: `Microsoft.Compute/virtualMachines`.
+
 

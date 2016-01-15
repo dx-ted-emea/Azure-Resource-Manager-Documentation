@@ -1,3 +1,10 @@
+> Azure Resource Manager Community Documentation - Beta Version
+
+> Work in progress - This community driven documentation is considered to be in preview stage at this time. Documentation might contain errors, might not cover every aspect or might lack complete parts, even important parts. Please help us make this documentation better by [contributing](CONTRIBUTING.md) anything that you think would make it better.
+
+
+---
+
 # Publisher Dashboard in Azure Marketplace
 
 *draft*
@@ -207,3 +214,4 @@ It is possible to add multiple co-administrators to a publisher dashboard, this 
 Promotions cannot be accessed until an offer is published.
 
 Promotion codes are not available for plans that charge customers based on metered usage. This includes Virtual Machines and Developer Services with meters. 
+

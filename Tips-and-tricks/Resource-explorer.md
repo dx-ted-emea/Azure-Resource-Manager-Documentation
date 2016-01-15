@@ -1,3 +1,10 @@
+> Azure Resource Manager Community Documentation - Beta Version
+
+> Work in progress - This community driven documentation is considered to be in preview stage at this time. Documentation might contain errors, might not cover every aspect or might lack complete parts, even important parts. Please help us make this documentation better by [contributing](CONTRIBUTING.md) anything that you think would make it better.
+
+
+---
+
 # Azure Resource Explorer
 The [Resource Explorer](https://resources.azure.com) is a great tool for looking at resources that you've already created to understand how the resources are structured and what properties they have. The source is available on [github](https://github.com/projectkudu/ARMExplorer), so also provides a reference if you need to implement similar behaviour.
 
@@ -43,4 +50,5 @@ For a comparison of different ways to interact with ARM, see the section on [Sca
 When working with ARM, the Resource Explorer can be an extremely useful tool. It is a great way to find ways to use PowerShell to query and make changes. If you're working with the REST API it is a great way to get started and quickly test API calls before you start writing code. And if you're writing ARM templates it can be a great way to understand the resource hierarchy and find where to put configuration - you can make a change in the Portal and then find the corresponding entries in Resource Explorer!
 
 For more information, watch the [Channel 9 video with Scott Hanselman and David Ebbo](https://channel9.msdn.com/Shows/Azure-Friday/Azure-Resource-Manager-Explorer-with-David-Ebbo)
+
 

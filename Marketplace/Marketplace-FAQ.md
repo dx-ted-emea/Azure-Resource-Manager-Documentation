@@ -1,3 +1,10 @@
+> Azure Resource Manager Community Documentation - Beta Version
+
+> Work in progress - This community driven documentation is considered to be in preview stage at this time. Documentation might contain errors, might not cover every aspect or might lack complete parts, even important parts. Please help us make this documentation better by [contributing](CONTRIBUTING.md) anything that you think would make it better.
+
+
+---
+
 
 
 
@@ -65,4 +72,5 @@ Good documentation may seriously increase popularity of VM extension and it make
 Good examples are :
                 Microsoft AntiMailware : http://azure.microsoft.com/blog/2014/10/30/microsoft-antimalware-for-azure-cloud-services-and-virtual-machines/
                 Docker VM extension ( looks complex, but okay for docker ) :  https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-docker-with-portal/
+
 

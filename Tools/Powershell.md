@@ -1,8 +1,15 @@
+> Azure Resource Manager Community Documentation - Beta Version
+
+> Work in progress - This community driven documentation is considered to be in preview stage at this time. Documentation might contain errors, might not cover every aspect or might lack complete parts, even important parts. Please help us make this documentation better by [contributing](CONTRIBUTING.md) anything that you think would make it better.
+
+
+---
+
 ## Tools for ARM - Powershell 
 
 The Microsoft Azure Powershell Modules allow to manage Azure Resources with Powershell cmdlets and scripts.
 
-Instructions on how to setup Azure Powershell are available here [[TODO add link]](https://azure.microsoft.com/en-us/documentation/articles/powershell-install-configure/ "Azure Powershell")
+Instructions on how to setup Azure Powershell are available here [Configure Powershell](https://azure.microsoft.com/en-us/documentation/articles/powershell-install-configure/ "Azure Powershell")
 
 Starting from Azure Powershell version 1.0, all Resource Manager commands are in specific modules in **AzureRM.***
 

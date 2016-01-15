@@ -1,3 +1,10 @@
+> Azure Resource Manager Community Documentation - Beta Version
+
+> Work in progress - This community driven documentation is considered to be in preview stage at this time. Documentation might contain errors, might not cover every aspect or might lack complete parts, even important parts. Please help us make this documentation better by [contributing](CONTRIBUTING.md) anything that you think would make it better.
+
+
+---
+
 # Create Your First Resource Manager Template
 
 Lets look at a very simple architecture:
@@ -7,7 +14,7 @@ Lets look at a very simple architecture:
 
 ![alt tag](../images/arm_arch.png)
 
-The full template can be [viewed/downloaded](sample_arc_template.json) from this directory
+The full template can be [viewed/downloaded](json/sample_arc_template.json) from this directory
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fdx-ted-emea%2FARM-Documentation%2Fmaster%2FARM%2FTemplates%2Fjson%2Fsample_arc_template.json" target="_blank">
     <img src="http://azuredeploy.net/deploybutton.png"/>
@@ -285,3 +292,4 @@ Use the **copyindex()** fucntion that loops over the value of **numberOfIntances
       }
   }
 ```
+

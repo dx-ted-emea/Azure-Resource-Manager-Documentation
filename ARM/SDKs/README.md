@@ -1,3 +1,10 @@
+> Azure Resource Manager Community Documentation - Beta Version
+
+> Work in progress - This community driven documentation is considered to be in preview stage at this time. Documentation might contain errors, might not cover every aspect or might lack complete parts, even important parts. Please help us make this documentation better by [contributing](CONTRIBUTING.md) anything that you think would make it better.
+
+
+---
+
 # Azure Resource Manager SDKs
 
 Azure Resource Manager (ARM) Preview SDKs are available for multiple languages and platforms. Each of these language implementations are available through their ecosystem package managers and GitHub. 
@@ -13,3 +20,4 @@ The code in each of these SDKs is generated from [Azure RESTful API specificatio
 
 ## Resources and References
 https://azure.microsoft.com/en-us/blog/azure-resource-manager-preview-sdks/
+

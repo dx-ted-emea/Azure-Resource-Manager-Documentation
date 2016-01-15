@@ -1,3 +1,10 @@
+> Azure Resource Manager Community Documentation - Beta Version
+
+> Work in progress - This community driven documentation is considered to be in preview stage at this time. Documentation might contain errors, might not cover every aspect or might lack complete parts, even important parts. Please help us make this documentation better by [contributing](CONTRIBUTING.md) anything that you think would make it better.
+
+
+---
+
 ## Introduction to Azure Resource Manager
 
 ### Overview
@@ -19,7 +26,7 @@ The adoption of ARM for IaaS introduces capabilities such as:
 
 > **IaaS components deployed using ARM cannot be mixed with components created using the Classic APIs. This means that for  example, virtual machines deployed with the classic deployment model cannot be included in a virtual network deployed with  Resource Manager.**
 
-> **Components deployed using the Classic APIs, will be presented in the Azure preview portal https://portal.azure.com under the "classic" label:**
+> **Components deployed using the Classic APIs, will be presented in the new Azure portal https://portal.azure.com under the "classic" label:**
 
 ![alt tag](/ARM/images/classic_arm_portal.png)
 
@@ -75,4 +82,5 @@ All of these resources of this application are managed through the single resour
 * https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-azure-resource-manager-architecture/
 * https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-azurerm-versus-azuresm/
 * http://windowsitpro.com/azure/what-are-key-differences-iaas-v2-enabled-through-azure-resource-manager
+
 
