@@ -101,7 +101,7 @@ If you need to delete a deployment in a Resource Group you can type:
         -ResourceGroupName [your-resource-group-name]
 ```
 
-If you need to the whole Resource Group you can type:
+If you need to delete the whole Resource Group you can type:
 
 ```powershell
     Remove-AzureRmResourceGroup -Name [your-resource-group-name]

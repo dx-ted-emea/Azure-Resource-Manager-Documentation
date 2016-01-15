@@ -64,7 +64,7 @@ If you need to delete a deployment in a Resource Group you can type:
 
     azure group deployment delete --resource-group [your-resource-group-name] --name [deployment-name]
 
-If you need to the whole Resource Group you can type:
+If you need to delete the whole Resource Group you can type:
 
     azure group delete --name [your-resource-group-name]
 
