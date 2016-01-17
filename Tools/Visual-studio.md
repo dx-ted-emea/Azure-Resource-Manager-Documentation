@@ -3,28 +3,11 @@
 > Work in progress - This community driven documentation is considered to be in preview stage at this time. Documentation might contain errors, might not cover every aspect or might lack complete parts, even important parts. Please help us make this documentation better by [contributing](CONTRIBUTING.md) anything that you think would make it better.
 
 
----
+# Tools for ARM - Visual Studio
 
-## DevOps with Azure Resource Manager - Visual Studio
+Creating and deploying Resource Manager template is available in Visual Studio using the **Azure Resource Group deployment project**.
+Install [Azure SDK 2.7](https://azure.microsoft.com/en-us/downloads/) to enable this project type.
 
-*draft*
-
-Azure Marketplace is great place to publish your apps 
-Here's example of web link [Azure web site](http://azure.microsoft.com//) and the [Azure stuff on github](http://azure.github.io/).
-Wiki also have *another font* which may be usefull too.
-
-
-Example of some command line code 
-
-    sudo apt-get install apache2
-
-Example of some json code
-```json
-{ "some": "json" }
-```
-
-# Overview 
-
-# Azure Resource Manager Architecture 
-
+* For an overview of Resource Group project in Visual Studio follow [this article](https://azure.microsoft.com/en-us/documentation/articles/vs-azure-tools-resource-groups-deployment-projects-create-deploy/)
+* Go to [Azure Tools in VS](https://www.visualstudio.com/en-us/features/azure-tools-vs.aspx) to learn more on Azure Tools in Visual Studio
 
