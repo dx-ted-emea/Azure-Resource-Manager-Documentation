@@ -78,5 +78,6 @@ The Azure Portal allows you to deploy your own templates in a UI exepriance.
 
 ## Resorces and References
 https://azure.microsoft.com/en-us/documentation/articles/resource-group-template-deploy/
+
 https://azure.microsoft.com/en-us/blog/azps-1-0-pre/
 
