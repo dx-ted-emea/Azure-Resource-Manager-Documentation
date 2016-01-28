@@ -37,7 +37,7 @@ To learn how to contribute to this document visit [Contributing](CONTRIBUTING.md
  * [Visual Studio](Tools/Visual-studio.md)
  * [New Azure Portal](Tools/Portal.md)
 
-### [Use Cases](use-cases/README.md)
+### [Use Cases](Use-cases/README.md)
   * [Web App and SQL Database](Use-cases/web-app-and-sql-database/README.md)
   * [Classic to ARM Migration](Use-cases/classic2ARM_Migration.md)
 
