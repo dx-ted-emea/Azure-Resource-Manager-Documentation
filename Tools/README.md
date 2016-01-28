@@ -17,4 +17,5 @@ Microsoft offers tooling on top of the ARM rest APIs to make it easier to author
 * [Visual Studio](Visual-studio.md): Visual Studio is Microsoft's developer tool that provides extensions to work with ARM templates, providing benefits as suggestions and syntax checking
 * [New Azure Portal](Portal.md): The new Azure Portal is accessible at [https://portal.azure.com](https://portal.azure.com) and gives the ability to test ARM templates with an easy to use GUI and to manage Resource Groups created by ARM template deployments in a visual environment. That is where the Ops Dashboard can be built
 * [Resource Explorer](Resource-explorer.md): Resource Explorer is accessible at https://resources.azure.com. This site allows you to view ARM APIs and try it in your own subscription directly from your browser.
+* [ArmViz](http://armviz.io): a web-based tool that provides a visual representation of your template.
 
