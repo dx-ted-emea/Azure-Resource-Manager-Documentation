@@ -37,7 +37,7 @@ To learn how to contribute to this document visit [Contributing](CONTRIBUTING.md
  * [Visual Studio](Tools/Visual-studio.md)
  * [New Azure Portal](Tools/Portal.md)
 
-### [Use Cases](Use-cases/README.md)
+### [Use Cases](use-cases/README.md)
   * [Web App and SQL Database](Use-cases/web-app-and-sql-database/README.md)
   * [Classic to ARM Migration](Use-cases/classic2ARM_Migration.md)
 
@@ -47,7 +47,7 @@ To learn how to contribute to this document visit [Contributing](CONTRIBUTING.md
 
 # [Azure Marketplace](Marketplace/README.md)
 
-### [Publishing in the Azure Marketplace](Marketplace/publishing_azure_mp.md)
+### [Publishing in the Azure Marketplace](Marketplace/Publishing-azure-marketplace.md)
  * [Introduction](Marketplace/Introduction.md)
  * [Seller dashboard](Marketplace/Seller-dashboard.md)
  * [Publish dashboard](Marketplace/Publish-dashboard.md)
