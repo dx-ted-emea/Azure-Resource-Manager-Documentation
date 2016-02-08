@@ -47,23 +47,6 @@ To learn how to contribute to this document visit [Contributing](CONTRIBUTING.md
 
 ### [Azure Resource Manager FAQs](ARM-FAQ.md)
 
-# [Azure Marketplace](Marketplace/README.md)
-
-### [Publishing in the Azure Marketplace](Marketplace/Publishing-azure-marketplace.md)
- * [Introduction](Marketplace/Introduction.md)
- * [Seller dashboard](Marketplace/Seller-dashboard.md)
- * [Publish dashboard](Marketplace/Publish-dashboard.md)
- * [Single VM](Marketplace/Single-vm.md)
- * [Multi VM](Marketplace/Multi-vm.md)
- * [VM Extensions](Marketplace/VM-extensions.md)
- * [Developer services](Marketplace/Developer-services.md)
- * [Data services](Marketplace/Data-services.md)
- * [Certification tools](Marketplace/Azure-certification-tool.md)
- * [VM Depot - community managed reposity of Linux/FreeBSD images](Marketplace/VM-depot.md)
- 
-### [Using Azure Marketplace Offerings](Marketplace/using_azure_mp.md)
-### [Azure Marketplace FQAs](Marketplace/mp_faq.md)
-
 # Acknowledgements and contributors
 
 Feel free to join us on working on this project. Please refer to [GitWiki Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) in case
