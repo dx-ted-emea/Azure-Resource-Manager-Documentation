@@ -5,9 +5,6 @@
 
 ---
 
-
-
-
 [Is dev test process for extensions]
 [Is it only about Windows ?]
 [Where supported OS is specified ?]

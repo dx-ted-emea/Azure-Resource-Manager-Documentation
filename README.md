@@ -46,6 +46,8 @@ To learn how to contribute to this document visit [Contributing](CONTRIBUTING.md
 
 ### [Azure Resource Manager FAQs](ARM-FAQ.md)
 
+# [Azure Marketplace](Marketplace/README.md)
+
 # Acknowledgements and contributors
 
 Feel free to join us on working on this project. Please refer to [GitWiki Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) in case
