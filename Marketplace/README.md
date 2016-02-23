@@ -32,5 +32,5 @@ available in the marketplace. This does *not* update the offers that an end-user
 Azure subscription. To update already deployed software on Virtual Machines the software must utilise its own update
 mechanism.
 
-# [Azure Marketplace FQAs](mp_faq.md)
+# [Azure Marketplace FQAs](Marketplace-FAQ.md)
 
