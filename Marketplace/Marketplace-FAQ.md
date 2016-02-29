@@ -2,21 +2,18 @@
 
 > Work in progress - This community driven documentation is considered to be in preview stage at this time. Documentation might contain errors, might not cover every aspect or might lack complete parts, even important parts. Please help us make this documentation better by [contributing](CONTRIBUTING.md) anything that you think would make it better.
 
-
 ---
 
-[Is dev test process for extensions]
-[Is it only about Windows ?]
-[Where supported OS is specified ?]
-[How can I see my extension ( which is private mode) in portal ?]
-[How can I see my extension ( which is private mode) in portal ?]
-[Is is possible that not only one extensions can be running on VM on same time?]
-[Can my extensions get some updates from my web site ?]
-[How testing process from Microsoft side looks – how you validate our extensions? ]
-[Can VM extensions check to updates of application and make that updates?]
-[How extension should be documented?]
-[Do not (bad practice from real life ) ]
-
+- [Is dev test process for extensions](#is-dev-test-process-for-extensions)
+- [Is it only about Windows ?](#is-it-only-about-windows-)
+- [Where supported OS is specified ?](#where-supported-os-is-specified-)
+- [How can I see my extension ( which is private mode) in portal ?](#how-can-i-see-my-extension--which-is-private-mode-in-portal-)
+- [Is it possible that not only one extensions can be running on VM on same time?](#is-it-possible-that-not-only-one-extensions-can-be-running-on-vm-on-same-time)
+- [Can my extensions get some updates from my web site ?](#can-my-extensions-get-some-updates-from-my-web-site-)
+- [How testing process from Microsoft side looks – how you validate our extensions?](#how-testing-process-from-microsoft-side-looks--how-you-validate-our-extensions)
+- [Can VM extensions check to updates of application and make that updates?](#can-vm-extensions-check-to-updates-of-application-and-make-that-updates)
+- [How extension should be documented?](#how-extension-should-be-documented)
+- [Do not (bad practice from real life)](#do-not-bad-practice-from-real-life)
 
 ## Is dev test process for extensions
  Yes, there is – you can publish your extension which will be visible only for your subscription and test it from SDK and UI ( azure.com portal ). Be care that this is not a really private space – it just not show your extension in list of available extensions for all users, if user know extension name and version they can manually add it. 
@@ -34,14 +31,14 @@ A: Use this link - https://portal.azure.com/?HubsExtension_ItemHideKey=<ext_name
 https://portal.azure.com/?HubsExtension_ItemHideKey=ESETFileSecurity )
 
 
-## Is is possible that not only one extensions can be running on VM on same time?
+## Is it possible that not only one extensions can be running on VM on same time?
 A: Yes, user can install several extensions on VM, so not only your extension can be running there. Please keep in mind that sharing resource can be changed/readed by some one other.
 
 
 ## Can my extensions get some updates from my web site ?
 A: Yes, it’s possible – incoming to Azure traffic is free  But keep in mind that user may change default settings on VM and it may happened that no traffic allowed, some default port isn’t open, HTTPS is disabled, etc.
 
-## How testing process from Microsoft side looks – how you validate our extensions? 
+## How testing process from Microsoft side looks – how you validate our extensions?
 We do validate your xml/json/config files to check that they are correct, but we do not check functionality/any scope/ of your extension – this part is completely on your side. We surely help you to make your application be better, help you with publishing updates for app, but testing of how your application works as VM extension is on your side.
 
 ## Can VM extensions check to updates of application and make that updates?
@@ -61,7 +58,7 @@ Technical part may include :
 3)	Advanced users – how to operate with VM extension using Powershell SDK.
 
 
-## Do not (bad practice from real life ) :
+## Do not (bad practice from real life)
 -	Put non-working links on page with description ( something which refers to 404 or nowhere, I got examples of that )
 -	Don’t use forever loops :  like refer ‘please see more’ to another page and on another page ‘please see more’ with referring to previous page
 -	Using non-English language page for incoming users– please use English by default.   
