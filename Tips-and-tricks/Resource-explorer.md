@@ -5,6 +5,8 @@
 
 ---
 
+NOTE: This documentation is now available on  https://azure.microsoft.com/documentation/articles/resource-manager-resource-explorer/
+
 # Azure Resource Explorer
 The [Resource Explorer](https://resources.azure.com) is a great tool for looking at resources that you've already created to understand how the resources are structured and what properties they have. The source is available on [github](https://github.com/projectkudu/ARMExplorer), so also provides a reference if you need to implement similar behaviour.
 
