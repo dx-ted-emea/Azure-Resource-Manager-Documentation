@@ -11,7 +11,7 @@ With Resource Manager, you can create a simple template (in JSON format) that de
 **Template size is limted to 1MB, and each parameter file to 64KB**. The 1 MB limit applies to the final state of the template after it has been expanded with iterative resource definitions, and values for variables and parameters.
 
 ## Template Structure
-A tempalte consists of 4 basics parts, that constracts the resources needed to deploy the application, the parameters and their valus and any output values.
+A template consists of 4 basics parts, that constracts the resources needed to deploy the application, the parameters and their valus and any output values.
 
 Basic template structure:
 ```json
